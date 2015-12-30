@@ -8,12 +8,88 @@
 
 import UIKit
 
+
 class ABSwipeableCardView: UIView {
     
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint!
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
     
+    //MARK: Private setup methods
+    func setup() {
+        setupCardStyle()
+        setupGestureRecognizer()
+    }
     
-    func 
+    func setupCardStyle() {
+        // Color
+        backgroundColor = UIColor.lightGrayColor()
+        
+        // Shadow
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.25
+        layer.shadowOffset = CGSizeMake(0, 1.5)
+        layer.shadowRadius = 4.0
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.mainScreen().scale
+        
+        // Corner Radius
+        layer.cornerRadius = 10.0
+    }
+    
+    func setupGestureRecognizer() {
+        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("swiped:"))
+        self.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    //MARK: Transforms
+    func swiped(gestureRecognizer: UIPanGestureRecognizer) {
+        print("Swiped!")
+        
+        let 𝛥x:CGFloat = gestureRecognizer.translationInView(self).x
+        let 𝛥y:CGFloat = gestureRecognizer.translationInView(self).y
+        let screenWidth  :CGFloat = UIScreen.mainScreen().nativeBounds.width
+        
+        switch(gestureRecognizer.state) {
+        case UIGestureRecognizerState.Began:
+            self.originalPoint = self.center
+            
+        case UIGestureRecognizerState.Changed:
+            let rotationStrength:CGFloat = min((𝛥x/screenWidth), 1)
+            let rotationAngle:CGFloat = (2.0 * CGFloat(M_PI) * CGFloat(rotationStrength) / 16.0)
+            let scaleStrenght:CGFloat = 1.0 - CGFloat(fabs(Float(rotationStrength))) / 4.0
+            let scale:CGFloat = max(scaleStrenght, 0.93)
+            
+            self.center = CGPoint(x: self.originalPoint.x + 𝛥x, y: self.originalPoint.y + 𝛥y)
+            let transform:CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
+            let scaleTransform:CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
+            self.transform = scaleTransform
+            
+        case UIGestureRecognizerState.Ended:
+            self.resetViewPositionAndTransformations()
+            // TODO: Logic here.
+            
+        default:
+            print("error default statement")
+            
+        }
+    }
+    
+    func resetViewPositionAndTransformations() {
+        UIView.animateWithDuration(0.2) { () -> Void in
+            self.center = self.originalPoint
+            self.transform = CGAffineTransformMakeRotation(0)
+        }
+        
+    }
+
 }
