@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */; };
-		38B5CD0F1C335EBC0077FC71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0E1C335EBC0077FC71 /* ViewController.swift */; };
+		38B5CD0F1C335EBC0077FC71 /* AATMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0E1C335EBC0077FC71 /* AATMainViewController.swift */; };
 		38B5CD121C335EBC0077FC71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B5CD101C335EBC0077FC71 /* Main.storyboard */; };
 		38B5CD141C335EBC0077FC71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B5CD131C335EBC0077FC71 /* Assets.xcassets */; };
 		38B5CD171C335EBC0077FC71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B5CD151C335EBC0077FC71 /* LaunchScreen.storyboard */; };
 		38B5CD221C335EBC0077FC71 /* AmazingAgeTrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD211C335EBC0077FC71 /* AmazingAgeTrickTests.swift */; };
+		38B5CD2E1C3366000077FC71 /* AATrickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD2D1C3366000077FC71 /* AATrickViewController.swift */; };
 		A7BC98D154440A13BD908D66 /* Pods_AmazingAgeTrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76F533F97EC26AB0CB8D41E /* Pods_AmazingAgeTrick.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +31,7 @@
 		22BDCBB0AFF88697DE660F47 /* Pods-AmazingAgeTrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingAgeTrick.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.release.xcconfig"; sourceTree = "<group>"; };
 		38B5CD091C335EBC0077FC71 /* AmazingAgeTrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingAgeTrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38B5CD0E1C335EBC0077FC71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		38B5CD0E1C335EBC0077FC71 /* AATMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AATMainViewController.swift; sourceTree = "<group>"; };
 		38B5CD111C335EBC0077FC71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38B5CD131C335EBC0077FC71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38B5CD161C335EBC0077FC71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		38B5CD1D1C335EBC0077FC71 /* AmazingAgeTrickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmazingAgeTrickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B5CD211C335EBC0077FC71 /* AmazingAgeTrickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingAgeTrickTests.swift; sourceTree = "<group>"; };
 		38B5CD231C335EBC0077FC71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38B5CD2D1C3366000077FC71 /* AATrickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AATrickViewController.swift; sourceTree = "<group>"; };
 		A76F533F97EC26AB0CB8D41E /* Pods_AmazingAgeTrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingAgeTrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50F8047E5AB3E08BBDFFE8B /* Pods-AmazingAgeTrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingAgeTrick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,7 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */,
-				38B5CD0E1C335EBC0077FC71 /* ViewController.swift */,
+				38B5CD0E1C335EBC0077FC71 /* AATMainViewController.swift */,
+				38B5CD2C1C3365770077FC71 /* Trick Scene */,
 				38B5CD101C335EBC0077FC71 /* Main.storyboard */,
 				38B5CD131C335EBC0077FC71 /* Assets.xcassets */,
 				38B5CD151C335EBC0077FC71 /* LaunchScreen.storyboard */,
@@ -101,6 +104,14 @@
 				38B5CD231C335EBC0077FC71 /* Info.plist */,
 			);
 			path = AmazingAgeTrickTests;
+			sourceTree = "<group>";
+		};
+		38B5CD2C1C3365770077FC71 /* Trick Scene */ = {
+			isa = PBXGroup;
+			children = (
+				38B5CD2D1C3366000077FC71 /* AATrickViewController.swift */,
+			);
+			name = "Trick Scene";
 			sourceTree = "<group>";
 		};
 		60FB1C1DB3C1CFCAF8F29307 /* Pods */ = {
@@ -272,7 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38B5CD0F1C335EBC0077FC71 /* ViewController.swift in Sources */,
+				38B5CD2E1C3366000077FC71 /* AATrickViewController.swift in Sources */,
+				38B5CD0F1C335EBC0077FC71 /* AATMainViewController.swift in Sources */,
 				38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
