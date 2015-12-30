@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */; };
+		38B5CD0F1C335EBC0077FC71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0E1C335EBC0077FC71 /* ViewController.swift */; };
+		38B5CD121C335EBC0077FC71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B5CD101C335EBC0077FC71 /* Main.storyboard */; };
+		38B5CD141C335EBC0077FC71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B5CD131C335EBC0077FC71 /* Assets.xcassets */; };
+		38B5CD171C335EBC0077FC71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B5CD151C335EBC0077FC71 /* LaunchScreen.storyboard */; };
+		38B5CD221C335EBC0077FC71 /* AmazingAgeTrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD211C335EBC0077FC71 /* AmazingAgeTrickTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38B5CD1E1C335EBC0077FC71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38B5CD011C335EBC0077FC71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38B5CD081C335EBC0077FC71;
+			remoteInfo = AmazingAgeTrick;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		38B5CD091C335EBC0077FC71 /* AmazingAgeTrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingAgeTrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		38B5CD0E1C335EBC0077FC71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		38B5CD111C335EBC0077FC71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		38B5CD131C335EBC0077FC71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38B5CD161C335EBC0077FC71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		38B5CD181C335EBC0077FC71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38B5CD1D1C335EBC0077FC71 /* AmazingAgeTrickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmazingAgeTrickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38B5CD211C335EBC0077FC71 /* AmazingAgeTrickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingAgeTrickTests.swift; sourceTree = "<group>"; };
+		38B5CD231C335EBC0077FC71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38B5CD061C335EBC0077FC71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38B5CD1A1C335EBC0077FC71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38B5CD001C335EBC0077FC71 = {
+			isa = PBXGroup;
+			children = (
+				38B5CD0B1C335EBC0077FC71 /* AmazingAgeTrick */,
+				38B5CD201C335EBC0077FC71 /* AmazingAgeTrickTests */,
+				38B5CD0A1C335EBC0077FC71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		38B5CD0A1C335EBC0077FC71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38B5CD091C335EBC0077FC71 /* AmazingAgeTrick.app */,
+				38B5CD1D1C335EBC0077FC71 /* AmazingAgeTrickTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38B5CD0B1C335EBC0077FC71 /* AmazingAgeTrick */ = {
+			isa = PBXGroup;
+			children = (
+				38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */,
+				38B5CD0E1C335EBC0077FC71 /* ViewController.swift */,
+				38B5CD101C335EBC0077FC71 /* Main.storyboard */,
+				38B5CD131C335EBC0077FC71 /* Assets.xcassets */,
+				38B5CD151C335EBC0077FC71 /* LaunchScreen.storyboard */,
+				38B5CD181C335EBC0077FC71 /* Info.plist */,
+			);
+			path = AmazingAgeTrick;
+			sourceTree = "<group>";
+		};
+		38B5CD201C335EBC0077FC71 /* AmazingAgeTrickTests */ = {
+			isa = PBXGroup;
+			children = (
+				38B5CD211C335EBC0077FC71 /* AmazingAgeTrickTests.swift */,
+				38B5CD231C335EBC0077FC71 /* Info.plist */,
+			);
+			path = AmazingAgeTrickTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		38B5CD081C335EBC0077FC71 /* AmazingAgeTrick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38B5CD261C335EBC0077FC71 /* Build configuration list for PBXNativeTarget "AmazingAgeTrick" */;
+			buildPhases = (
+				38B5CD051C335EBC0077FC71 /* Sources */,
+				38B5CD061C335EBC0077FC71 /* Frameworks */,
+				38B5CD071C335EBC0077FC71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmazingAgeTrick;
+			productName = AmazingAgeTrick;
+			productReference = 38B5CD091C335EBC0077FC71 /* AmazingAgeTrick.app */;
+			productType = "com.apple.product-type.application";
+		};
+		38B5CD1C1C335EBC0077FC71 /* AmazingAgeTrickTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38B5CD291C335EBC0077FC71 /* Build configuration list for PBXNativeTarget "AmazingAgeTrickTests" */;
+			buildPhases = (
+				38B5CD191C335EBC0077FC71 /* Sources */,
+				38B5CD1A1C335EBC0077FC71 /* Frameworks */,
+				38B5CD1B1C335EBC0077FC71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38B5CD1F1C335EBC0077FC71 /* PBXTargetDependency */,
+			);
+			name = AmazingAgeTrickTests;
+			productName = AmazingAgeTrickTests;
+			productReference = 38B5CD1D1C335EBC0077FC71 /* AmazingAgeTrickTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38B5CD011C335EBC0077FC71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Amitai Blickstein, LLC";
+				TargetAttributes = {
+					38B5CD081C335EBC0077FC71 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					38B5CD1C1C335EBC0077FC71 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 38B5CD081C335EBC0077FC71;
+					};
+				};
+			};
+			buildConfigurationList = 38B5CD041C335EBC0077FC71 /* Build configuration list for PBXProject "AmazingAgeTrick" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 38B5CD001C335EBC0077FC71;
+			productRefGroup = 38B5CD0A1C335EBC0077FC71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38B5CD081C335EBC0077FC71 /* AmazingAgeTrick */,
+				38B5CD1C1C335EBC0077FC71 /* AmazingAgeTrickTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38B5CD071C335EBC0077FC71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38B5CD171C335EBC0077FC71 /* LaunchScreen.storyboard in Resources */,
+				38B5CD141C335EBC0077FC71 /* Assets.xcassets in Resources */,
+				38B5CD121C335EBC0077FC71 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38B5CD1B1C335EBC0077FC71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		38B5CD051C335EBC0077FC71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38B5CD0F1C335EBC0077FC71 /* ViewController.swift in Sources */,
+				38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38B5CD191C335EBC0077FC71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38B5CD221C335EBC0077FC71 /* AmazingAgeTrickTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38B5CD1F1C335EBC0077FC71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38B5CD081C335EBC0077FC71 /* AmazingAgeTrick */;
+			targetProxy = 38B5CD1E1C335EBC0077FC71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		38B5CD101C335EBC0077FC71 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38B5CD111C335EBC0077FC71 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		38B5CD151C335EBC0077FC71 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38B5CD161C335EBC0077FC71 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		38B5CD241C335EBC0077FC71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		38B5CD251C335EBC0077FC71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38B5CD271C335EBC0077FC71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AmazingAgeTrick/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.objective-v.AmazingAgeTrick";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		38B5CD281C335EBC0077FC71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AmazingAgeTrick/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.objective-v.AmazingAgeTrick";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		38B5CD2A1C335EBC0077FC71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AmazingAgeTrickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.objective-v.AmazingAgeTrickTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmazingAgeTrick.app/AmazingAgeTrick";
+			};
+			name = Debug;
+		};
+		38B5CD2B1C335EBC0077FC71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AmazingAgeTrickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.objective-v.AmazingAgeTrickTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmazingAgeTrick.app/AmazingAgeTrick";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38B5CD041C335EBC0077FC71 /* Build configuration list for PBXProject "AmazingAgeTrick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38B5CD241C335EBC0077FC71 /* Debug */,
+				38B5CD251C335EBC0077FC71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38B5CD261C335EBC0077FC71 /* Build configuration list for PBXNativeTarget "AmazingAgeTrick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38B5CD271C335EBC0077FC71 /* Debug */,
+				38B5CD281C335EBC0077FC71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		38B5CD291C335EBC0077FC71 /* Build configuration list for PBXNativeTarget "AmazingAgeTrickTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38B5CD2A1C335EBC0077FC71 /* Debug */,
+				38B5CD2B1C335EBC0077FC71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 38B5CD011C335EBC0077FC71 /* Project object */;
+}
