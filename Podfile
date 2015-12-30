@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'AmazingAgeTrick' do
   pod 'FlatUIColors'
+  pod 'performSelector-swift'
 end
 
 target 'AmazingAgeTrickTests' do

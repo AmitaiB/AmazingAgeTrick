@@ -7,18 +7,17 @@
 //
 
 import UIKit
+import FlatUIColors
 
 class AATrickViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var cardView = ABSwipeableCardView()
-        view.addSubview(cardView)
+        let cardView = ABSwipeableCardView(superView: self.view)
         cardView.backgroundColor = UIColor.blueColor()
-        cardView.frame = CGRectInset(view.bounds, 20, 20)
 
-        
+
         // Do any additional setup after loading the view.
         navigationController?.hidesBarsWhenVerticallyCompact = true
         navigationController?.setToolbarHidden(false, animated: false)
@@ -30,8 +29,18 @@ class AATrickViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func dealCard()->ABSwipeableCardView {
+        let card = ABSwipeableCardView(superView: view)
+        card.backgroundColor =
+    }
     
-    
+    func randomFlatColor()->UIColor {
+        let colors:[String] = ["Turquoise", "Green Sea", "Emerald", "Nephritis", "Peter River", "Belize Hole", "Amethyst", "Wisteria", "Wet Asphalt", "Midnight Blue", "Sun Flower", "Orange", "Carrot", "Pumpkin", "Alizarin", "Pomegranate", "Clouds", "Silver", "Concrete", "Asbestos"]
+        let randomIndex:Int = Int(arc4random_uniform(UInt32(colors.endIndex)))
+        let sanitizedColorString = colors[randomIndex].stringByReplacingOccurrencesOfString(" ", withString: "")
+        let selector = "\(sanitizedColorString)Color"
+        return UIColor
+    }
     
     /*
     // MARK: - Navigation

@@ -7,17 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61C3F22F76667A945E42644FD1FF9AB5 /* Pods-AmazingAgeTrick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BF5B967459DADB234259E2A297A72B /* Pods-AmazingAgeTrick-dummy.m */; };
-		71FCFDE901A7D636F42661135C0F8FCD /* Pods-AmazingAgeTrick-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 003898023B0533F7DFBEC10CB1D127BD /* Pods-AmazingAgeTrick-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A656285C3651C288C005CE7A25CC45A7 /* FlatUIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE159B62ED2EC47A8C46B9E55C832765 /* FlatUIColors.swift */; };
+		00A4EC5FF857F97988DCDE17FAADF5A7 /* performSelector-swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3007251783BBCB709D5FB28D4E0086BD /* performSelector-swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CF67069C39330D5147EC5E848F2C82F /* performSelector-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 81771D9EE96EFF910320BE68E76C56DB /* performSelector-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D23AA86D1E9D8FAD42FE8E88F1E6733 /* Pods-AmazingAgeTrick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BF5B967459DADB234259E2A297A72B /* Pods-AmazingAgeTrick-dummy.m */; };
+		1D70A17434A0D068F1AFD9782795095B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		28415407ED079F0EB3F46D00CBB538C1 /* Pods-AmazingAgeTrick-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 003898023B0533F7DFBEC10CB1D127BD /* Pods-AmazingAgeTrick-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A7612331093C2CA0C4B35CB13570F43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		7FB32896F168397A874FF40EC0639EE5 /* NSObject+Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 3420B1853BBACCD753BB5DB7CBA5AB09 /* NSObject+Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A656285C3651C288C005CE7A25CC45A7 /* FlatUIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65386E7F19DCECD69AA5A73A0426EB /* FlatUIColors.swift */; };
 		B81392F4C43D8DB7EB1EC79B3E1B61C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		EE1DF986FEFA6FB036515174A86C0C4C /* FlatUIColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D17D2B9A8FC4919B6E6CC5FB71C83804 /* FlatUIColors-dummy.m */; };
-		F57B96EE4E822064BD02E538D02DE882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		FBD9EE94D1BE2170815422FECFEE5265 /* FlatUIColors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DAA2E0CB765543B0C55B341658B7475 /* FlatUIColors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1969EFCFB38E2F32C90841A53CB26A8 /* NSObject+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 22146139B800CF9DEA92B1BD1565AAD7 /* NSObject+Swift.m */; };
+		D84AFDCF6296BFA754E5D879E679148C /* performSelector-swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F64497D4808D26888C6AFA222758547E /* performSelector-swift-dummy.m */; };
+		EE1DF986FEFA6FB036515174A86C0C4C /* FlatUIColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC38352CE0826708B96EA9210C9E1807 /* FlatUIColors-dummy.m */; };
+		FBD9EE94D1BE2170815422FECFEE5265 /* FlatUIColors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 703B6F565B5733A5FF4743B1EE650139 /* FlatUIColors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B8D10F5326911F4FD92574551B286E03 /* PBXContainerItemProxy */ = {
+		537F8DC14E737AB00302D58427D505B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AA8D0F18A0D95FF0B44C79F40EF4D60;
+			remoteInfo = "performSelector-swift";
+		};
+		C88F43413401147CB7C2B8C7A243DFBB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -29,33 +42,43 @@
 /* Begin PBXFileReference section */
 		003898023B0533F7DFBEC10CB1D127BD /* Pods-AmazingAgeTrick-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AmazingAgeTrick-umbrella.h"; sourceTree = "<group>"; };
 		01E2DA4CCAB24438FEB6E2817E874D1A /* Pods-AmazingAgeTrick-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AmazingAgeTrick-resources.sh"; sourceTree = "<group>"; };
-		062A53E7547572656DD829D7733DA6E6 /* FlatUIColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatUIColors-prefix.pch"; sourceTree = "<group>"; };
+		0B9FB3ADA80E3A1C5A79AB68EB57D76C /* FlatUIColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlatUIColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		131A11A98F09E0945105848B905564E6 /* Pods-AmazingAgeTrick-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AmazingAgeTrick-acknowledgements.markdown"; sourceTree = "<group>"; };
+		176085C2EC423F4042787B8E9A004B2B /* performSelector-swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "performSelector-swift.xcconfig"; sourceTree = "<group>"; };
+		1851F88939D7EF86A43F4D7A4C505435 /* FlatUIColors.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FlatUIColors.modulemap; sourceTree = "<group>"; };
+		22146139B800CF9DEA92B1BD1565AAD7 /* NSObject+Swift.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Swift.m"; path = "performSelector-swift/NSObject+Swift.m"; sourceTree = "<group>"; };
+		3007251783BBCB709D5FB28D4E0086BD /* performSelector-swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "performSelector-swift-umbrella.h"; sourceTree = "<group>"; };
 		3336169CABF74F21247555AF6720EAE0 /* Pods-AmazingAgeTrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AmazingAgeTrick.debug.xcconfig"; sourceTree = "<group>"; };
+		3420B1853BBACCD753BB5DB7CBA5AB09 /* NSObject+Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+Swift.h"; path = "performSelector-swift/NSObject+Swift.h"; sourceTree = "<group>"; };
+		353909CA360DA236C38F4E83A3434F42 /* FlatUIColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatUIColors-prefix.pch"; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4DAA2E0CB765543B0C55B341658B7475 /* FlatUIColors-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatUIColors-umbrella.h"; sourceTree = "<group>"; };
-		6C921E5CF4317B7B75A9EA7B801D42CE /* FlatUIColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlatUIColors.xcconfig; sourceTree = "<group>"; };
+		526111119DA87E505EFCDCB3958BC0D9 /* performSelector_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = performSelector_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		703B6F565B5733A5FF4743B1EE650139 /* FlatUIColors-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatUIColors-umbrella.h"; sourceTree = "<group>"; };
 		78BF5B967459DADB234259E2A297A72B /* Pods-AmazingAgeTrick-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AmazingAgeTrick-dummy.m"; sourceTree = "<group>"; };
+		7ECCE4A46018011D3C4FC2FC622ECDE9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81771D9EE96EFF910320BE68E76C56DB /* performSelector-swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "performSelector-swift.h"; path = "performSelector-swift/performSelector-swift.h"; sourceTree = "<group>"; };
 		8774BE48F24F55805A0CE573D5F508F7 /* Pods-AmazingAgeTrick-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AmazingAgeTrick-frameworks.sh"; sourceTree = "<group>"; };
-		A1E6AFAA3B73AA3AC9B85E3828BACBEE /* FlatUIColors.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FlatUIColors.modulemap; sourceTree = "<group>"; };
+		8C104B80A46EBE9BFD90AE123DFBB019 /* FlatUIColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlatUIColors.xcconfig; sourceTree = "<group>"; };
+		A08501DBBE59B044F06D34BE055CC73F /* Pods_AmazingAgeTrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingAgeTrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB3FCF290DC24AF4A7228BF9D7861E8A /* performSelector-swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "performSelector-swift-prefix.pch"; sourceTree = "<group>"; };
+		AC38352CE0826708B96EA9210C9E1807 /* FlatUIColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlatUIColors-dummy.m"; sourceTree = "<group>"; };
 		B19C0ADF93F031F4A91F275C2186486B /* Pods-AmazingAgeTrick-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AmazingAgeTrick-acknowledgements.plist"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BCABC7DFD97F8165C18728575038EBC3 /* Pods-AmazingAgeTrick.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AmazingAgeTrick.modulemap"; sourceTree = "<group>"; };
 		CDE2D59186A0A144CFB0FAE4864E4D2E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE159B62ED2EC47A8C46B9E55C832765 /* FlatUIColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlatUIColors.swift; sourceTree = "<group>"; };
-		D1701EB21124DD9180D9E90AE882F2F6 /* FlatUIColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlatUIColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D17D2B9A8FC4919B6E6CC5FB71C83804 /* FlatUIColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlatUIColors-dummy.m"; sourceTree = "<group>"; };
-		D2139DA5A876175127F589296079639B /* Pods_AmazingAgeTrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingAgeTrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D70D2834F76810E24BB805AF785B9595 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFAEE6A5AFDC3AD906C59D506351FE8B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9EFDF00BC6B0823C3CC766024E19703 /* Pods-AmazingAgeTrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AmazingAgeTrick.release.xcconfig"; sourceTree = "<group>"; };
+		DD65386E7F19DCECD69AA5A73A0426EB /* FlatUIColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlatUIColors.swift; sourceTree = "<group>"; };
+		DDDDE69A7996634BED016C28F4C932DA /* performSelector-swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "performSelector-swift.modulemap"; sourceTree = "<group>"; };
+		F64497D4808D26888C6AFA222758547E /* performSelector-swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "performSelector-swift-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2D44593D15FF98F3900923D4C37E46CB /* Frameworks */ = {
+		5A7A05F65842ED5576A72647C1545EC8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F57B96EE4E822064BD02E538D02DE882 /* Foundation.framework in Frameworks */,
+				1D70A17434A0D068F1AFD9782795095B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,9 +90,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BC3BA2B414C7C6AF7A7E6168211CA870 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A7612331093C2CA0C4B35CB13570F43 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03C04CAE1A623950870CF67E582624CB /* FlatUIColors */ = {
+			isa = PBXGroup;
+			children = (
+				DD65386E7F19DCECD69AA5A73A0426EB /* FlatUIColors.swift */,
+				9A58556A9CE7B48CE519ACB5B72014B7 /* Support Files */,
+			);
+			path = FlatUIColors;
+			sourceTree = "<group>";
+		};
+		0A9B32CC43A1B7BC5B409DBC1AE770EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03C04CAE1A623950870CF67E582624CB /* FlatUIColors */,
+				CC2040A448934449FFBDE6869BA4A62A /* performSelector-swift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2043E935D10F8F728DC23165B5E7DBF4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7ECCE4A46018011D3C4FC2FC622ECDE9 /* Info.plist */,
+				DDDDE69A7996634BED016C28F4C932DA /* performSelector-swift.modulemap */,
+				176085C2EC423F4042787B8E9A004B2B /* performSelector-swift.xcconfig */,
+				F64497D4808D26888C6AFA222758547E /* performSelector-swift-dummy.m */,
+				AB3FCF290DC24AF4A7228BF9D7861E8A /* performSelector-swift-prefix.pch */,
+				3007251783BBCB709D5FB28D4E0086BD /* performSelector-swift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/performSelector-swift";
+			sourceTree = "<group>";
+		};
 		37702F8D1604A3CBD7473F11656E3F78 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,25 +146,18 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				8414419F5F8437DF221115645D25BE96 /* Pods */,
-				8EB983A0449DD656FBD3843E2EBA3C5F /* Products */,
+				0A9B32CC43A1B7BC5B409DBC1AE770EA /* Pods */,
+				8391B47025D274E83519A9263580ED61 /* Products */,
 				37702F8D1604A3CBD7473F11656E3F78 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8414419F5F8437DF221115645D25BE96 /* Pods */ = {
+		8391B47025D274E83519A9263580ED61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D58F34B49C74147853DB4085AA4A6834 /* FlatUIColors */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		8EB983A0449DD656FBD3843E2EBA3C5F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D1701EB21124DD9180D9E90AE882F2F6 /* FlatUIColors.framework */,
-				D2139DA5A876175127F589296079639B /* Pods_AmazingAgeTrick.framework */,
+				0B9FB3ADA80E3A1C5A79AB68EB57D76C /* FlatUIColors.framework */,
+				526111119DA87E505EFCDCB3958BC0D9 /* performSelector_swift.framework */,
+				A08501DBBE59B044F06D34BE055CC73F /* Pods_AmazingAgeTrick.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +180,20 @@
 			path = "Target Support Files/Pods-AmazingAgeTrick";
 			sourceTree = "<group>";
 		};
+		9A58556A9CE7B48CE519ACB5B72014B7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1851F88939D7EF86A43F4D7A4C505435 /* FlatUIColors.modulemap */,
+				8C104B80A46EBE9BFD90AE123DFBB019 /* FlatUIColors.xcconfig */,
+				AC38352CE0826708B96EA9210C9E1807 /* FlatUIColors-dummy.m */,
+				353909CA360DA236C38F4E83A3434F42 /* FlatUIColors-prefix.pch */,
+				703B6F565B5733A5FF4743B1EE650139 /* FlatUIColors-umbrella.h */,
+				CFAEE6A5AFDC3AD906C59D506351FE8B /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FlatUIColors";
+			sourceTree = "<group>";
+		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,32 +210,28 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C3041C6B108EFBB7D8740A3392225A7F /* Support Files */ = {
+		CC2040A448934449FFBDE6869BA4A62A /* performSelector-swift */ = {
 			isa = PBXGroup;
 			children = (
-				A1E6AFAA3B73AA3AC9B85E3828BACBEE /* FlatUIColors.modulemap */,
-				6C921E5CF4317B7B75A9EA7B801D42CE /* FlatUIColors.xcconfig */,
-				D17D2B9A8FC4919B6E6CC5FB71C83804 /* FlatUIColors-dummy.m */,
-				062A53E7547572656DD829D7733DA6E6 /* FlatUIColors-prefix.pch */,
-				4DAA2E0CB765543B0C55B341658B7475 /* FlatUIColors-umbrella.h */,
-				D70D2834F76810E24BB805AF785B9595 /* Info.plist */,
+				3420B1853BBACCD753BB5DB7CBA5AB09 /* NSObject+Swift.h */,
+				22146139B800CF9DEA92B1BD1565AAD7 /* NSObject+Swift.m */,
+				81771D9EE96EFF910320BE68E76C56DB /* performSelector-swift.h */,
+				2043E935D10F8F728DC23165B5E7DBF4 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/FlatUIColors";
-			sourceTree = "<group>";
-		};
-		D58F34B49C74147853DB4085AA4A6834 /* FlatUIColors */ = {
-			isa = PBXGroup;
-			children = (
-				CE159B62ED2EC47A8C46B9E55C832765 /* FlatUIColors.swift */,
-				C3041C6B108EFBB7D8740A3392225A7F /* Support Files */,
-			);
-			path = FlatUIColors;
+			path = "performSelector-swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		57EF904120B60CD5243C006C60BB3367 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28415407ED079F0EB3F46D00CBB538C1 /* Pods-AmazingAgeTrick-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A15CE0D26FB3CCB62B34468EE619B2DC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,11 +240,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F6D378E04141032C990066A87206CB77 /* Headers */ = {
+		D961FEAF6BE4795B697B35BBE922C150 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71FCFDE901A7D636F42661135C0F8FCD /* Pods-AmazingAgeTrick-umbrella.h in Headers */,
+				7FB32896F168397A874FF40EC0639EE5 /* NSObject+Swift.h in Headers */,
+				00A4EC5FF857F97988DCDE17FAADF5A7 /* performSelector-swift-umbrella.h in Headers */,
+				0CF67069C39330D5147EC5E848F2C82F /* performSelector-swift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,25 +267,43 @@
 			);
 			name = FlatUIColors;
 			productName = FlatUIColors;
-			productReference = D1701EB21124DD9180D9E90AE882F2F6 /* FlatUIColors.framework */;
+			productReference = 0B9FB3ADA80E3A1C5A79AB68EB57D76C /* FlatUIColors.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6D348F8EA33FA8392F34B22913500CC3 /* Pods-AmazingAgeTrick */ = {
+		1B2C53B2C2C7DB3F84DAAF36A1EDDF24 /* Pods-AmazingAgeTrick */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 643F2D7D4CD4FE1FC3E212B06274117E /* Build configuration list for PBXNativeTarget "Pods-AmazingAgeTrick" */;
+			buildConfigurationList = 4DCE6B85C93482AE002C2C54E956C165 /* Build configuration list for PBXNativeTarget "Pods-AmazingAgeTrick" */;
 			buildPhases = (
-				2139BAE36C2C6FE6576EEE9F484AF82D /* Sources */,
-				2D44593D15FF98F3900923D4C37E46CB /* Frameworks */,
-				F6D378E04141032C990066A87206CB77 /* Headers */,
+				574BDEE96C52C8A8F2AB6E2C28A257DB /* Sources */,
+				BC3BA2B414C7C6AF7A7E6168211CA870 /* Frameworks */,
+				57EF904120B60CD5243C006C60BB3367 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B44691AA77B318A2AD3D06BF1CC61067 /* PBXTargetDependency */,
+				A105D13491DCED56B613E95191ECB2FE /* PBXTargetDependency */,
+				9C4B1A2DDF333735895F8BFBB9DF97C6 /* PBXTargetDependency */,
 			);
 			name = "Pods-AmazingAgeTrick";
 			productName = "Pods-AmazingAgeTrick";
-			productReference = D2139DA5A876175127F589296079639B /* Pods_AmazingAgeTrick.framework */;
+			productReference = A08501DBBE59B044F06D34BE055CC73F /* Pods_AmazingAgeTrick.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7AA8D0F18A0D95FF0B44C79F40EF4D60 /* performSelector-swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8460119948E82B79CB109E694F24CD6 /* Build configuration list for PBXNativeTarget "performSelector-swift" */;
+			buildPhases = (
+				4D65918766E0C18CF49F545E2B26CB12 /* Sources */,
+				5A7A05F65842ED5576A72647C1545EC8 /* Frameworks */,
+				D961FEAF6BE4795B697B35BBE922C150 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "performSelector-swift";
+			productName = "performSelector-swift";
+			productReference = 526111119DA87E505EFCDCB3958BC0D9 /* performSelector_swift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -237,12 +323,13 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 8EB983A0449DD656FBD3843E2EBA3C5F /* Products */;
+			productRefGroup = 8391B47025D274E83519A9263580ED61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				0927957DBBE78B166F56E81DBC23DB03 /* FlatUIColors */,
-				6D348F8EA33FA8392F34B22913500CC3 /* Pods-AmazingAgeTrick */,
+				7AA8D0F18A0D95FF0B44C79F40EF4D60 /* performSelector-swift */,
+				1B2C53B2C2C7DB3F84DAAF36A1EDDF24 /* Pods-AmazingAgeTrick */,
 			);
 		};
 /* End PBXProject section */
@@ -257,29 +344,101 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2139BAE36C2C6FE6576EEE9F484AF82D /* Sources */ = {
+		4D65918766E0C18CF49F545E2B26CB12 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61C3F22F76667A945E42644FD1FF9AB5 /* Pods-AmazingAgeTrick-dummy.m in Sources */,
+				D1969EFCFB38E2F32C90841A53CB26A8 /* NSObject+Swift.m in Sources */,
+				D84AFDCF6296BFA754E5D879E679148C /* performSelector-swift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		574BDEE96C52C8A8F2AB6E2C28A257DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D23AA86D1E9D8FAD42FE8E88F1E6733 /* Pods-AmazingAgeTrick-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B44691AA77B318A2AD3D06BF1CC61067 /* PBXTargetDependency */ = {
+		9C4B1A2DDF333735895F8BFBB9DF97C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "performSelector-swift";
+			target = 7AA8D0F18A0D95FF0B44C79F40EF4D60 /* performSelector-swift */;
+			targetProxy = 537F8DC14E737AB00302D58427D505B0 /* PBXContainerItemProxy */;
+		};
+		A105D13491DCED56B613E95191ECB2FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FlatUIColors;
 			target = 0927957DBBE78B166F56E81DBC23DB03 /* FlatUIColors */;
-			targetProxy = B8D10F5326911F4FD92574551B286E03 /* PBXContainerItemProxy */;
+			targetProxy = C88F43413401147CB7C2B8C7A243DFBB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1F110E292D948FA7C3B9D72B61BA68E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9EFDF00BC6B0823C3CC766024E19703 /* Pods-AmazingAgeTrick.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AmazingAgeTrick/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_AmazingAgeTrick;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		20AB486987CBC96D0C0A41467EEBF5D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 176085C2EC423F4042787B8E9A004B2B /* performSelector-swift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/performSelector-swift/performSelector-swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/performSelector-swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/performSelector-swift/performSelector-swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = performSelector_swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		58DEAD99916D7084ACA671998ABD7164 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C921E5CF4317B7B75A9EA7B801D42CE /* FlatUIColors.xcconfig */;
+			baseConfigurationReference = 8C104B80A46EBE9BFD90AE123DFBB019 /* FlatUIColors.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -296,37 +455,6 @@
 				MODULEMAP_FILE = "Target Support Files/FlatUIColors/FlatUIColors.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = FlatUIColors;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		88FB1CB477461304F245CA5C89BBB2F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3336169CABF74F21247555AF6720EAE0 /* Pods-AmazingAgeTrick.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AmazingAgeTrick/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_AmazingAgeTrick;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -375,9 +503,36 @@
 			};
 			name = Debug;
 		};
-		9D2549D485854FFB0F104962331DCCDD /* Release */ = {
+		981C3C1C86B09073838977E83F12C163 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9EFDF00BC6B0823C3CC766024E19703 /* Pods-AmazingAgeTrick.release.xcconfig */;
+			baseConfigurationReference = 176085C2EC423F4042787B8E9A004B2B /* performSelector-swift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/performSelector-swift/performSelector-swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/performSelector-swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/performSelector-swift/performSelector-swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = performSelector_swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A1A92DAEB4229983CED3F583D80AEF8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3336169CABF74F21247555AF6720EAE0 /* Pods-AmazingAgeTrick.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -392,22 +547,23 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = Pods_AmazingAgeTrick;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		ADFE6A35E0C31D26516309924094D242 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C921E5CF4317B7B75A9EA7B801D42CE /* FlatUIColors.xcconfig */;
+			baseConfigurationReference = 8C104B80A46EBE9BFD90AE123DFBB019 /* FlatUIColors.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -478,11 +634,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		643F2D7D4CD4FE1FC3E212B06274117E /* Build configuration list for PBXNativeTarget "Pods-AmazingAgeTrick" */ = {
+		4DCE6B85C93482AE002C2C54E956C165 /* Build configuration list for PBXNativeTarget "Pods-AmazingAgeTrick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				88FB1CB477461304F245CA5C89BBB2F7 /* Debug */,
-				9D2549D485854FFB0F104962331DCCDD /* Release */,
+				A1A92DAEB4229983CED3F583D80AEF8D /* Debug */,
+				1F110E292D948FA7C3B9D72B61BA68E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8460119948E82B79CB109E694F24CD6 /* Build configuration list for PBXNativeTarget "performSelector-swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20AB486987CBC96D0C0A41467EEBF5D0 /* Debug */,
+				981C3C1C86B09073838977E83F12C163 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
