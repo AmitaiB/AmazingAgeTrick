@@ -8,16 +8,30 @@
 
 import UIKit
 import FlatUIColors
+import performSelector_swift
 
 class AATrickViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let cardView = ABSwipeableCardView(superView: self.view)
-        cardView.backgroundColor = UIColor.blueColor()
+        let card1 = produceCardView()
 
-
+        /**
+        TODO NEXT: 
+        1) add a collectionView to a card so that it's visible.
+        2) make the collectionView present the cardInfo.
+        3) add a voting mechanism
+        4) make swiping rotate to the next card
+        5) keep a tally of the votes.
+        6) Stop when all 6 cards have votes.
+        7) Present the result, wow the user, offer to play again
+        
+        make the cards rotate a bit, randomly, so that you can see them when they are stacked one atop the other.
+        
+        - parameter animated: <#animated description#>
+        */
+        
         // Do any additional setup after loading the view.
         navigationController?.hidesBarsWhenVerticallyCompact = true
         navigationController?.setToolbarHidden(false, animated: false)
@@ -29,9 +43,10 @@ class AATrickViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func dealCard()->ABSwipeableCardView {
-        let card = ABSwipeableCardView(superView: view)
-        card.backgroundColor =
+    func produceCardView()->ABSwipeableCardView {
+        let cardView = ABSwipeableCardView(superView: view)
+        cardView.backgroundColor = randomFlatColor()
+        return cardView
     }
     
     func randomFlatColor()->UIColor {
@@ -39,7 +54,7 @@ class AATrickViewController: UIViewController {
         let randomIndex:Int = Int(arc4random_uniform(UInt32(colors.endIndex)))
         let sanitizedColorString = colors[randomIndex].stringByReplacingOccurrencesOfString(" ", withString: "")
         let selector = "\(sanitizedColorString)Color"
-        return UIColor
+        return UIColor.swift_performSelector(Selector(selector), withObject: nil) as! UIColor
     }
     
     /*
