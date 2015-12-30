@@ -14,14 +14,23 @@ class ABSwipeableCardView: UIView {
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint!
 
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+    }
+    
+    convenience init(superView: UIView) {
+        let cardRect = CGRectInset(superView.frame, 40, 40)
+        self.init(frame: cardRect)
+        superView.addSubview(self)
     }
     
     //MARK: Private setup methods

@@ -9,11 +9,20 @@
 import UIKit
 
 class AATrickViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var cardView = ABSwipeableCardView()
+        view.addSubview(cardView)
+        cardView.backgroundColor = UIColor.blueColor()
+        cardView.frame = CGRectInset(view.bounds, 20, 20)
+
+        
         // Do any additional setup after loading the view.
+        navigationController?.hidesBarsWhenVerticallyCompact = true
+        navigationController?.setToolbarHidden(false, animated: false)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +30,9 @@ class AATrickViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
+    
     /*
     // MARK: - Navigation
 
