@@ -32,6 +32,10 @@ class ABSwipeableCardView: UIView {
         self.init(frame: cardRect)
         superView.addSubview(self)
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: Private setup methods
     func setup() {
@@ -62,7 +66,7 @@ class ABSwipeableCardView: UIView {
     
     //MARK: Transforms
     func swiped(gestureRecognizer: UIPanGestureRecognizer) {
-        print("Swiped!")
+        print("Swiped!", terminator: "")
         
         let 𝛥x:CGFloat = gestureRecognizer.translationInView(self).x
         let 𝛥y:CGFloat = gestureRecognizer.translationInView(self).y
@@ -88,7 +92,7 @@ class ABSwipeableCardView: UIView {
             // TODO: Logic here.
             
         default:
-            print("error default statement")
+            print("error default statement", terminator: "")
             
         }
     }
