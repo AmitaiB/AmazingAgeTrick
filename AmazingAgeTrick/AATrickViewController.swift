@@ -50,10 +50,10 @@ class AATrickViewController: UIViewController {
     
     //TODO: Refactor with the new extensions
     func randomFlatColor()->UIColor {
-
+        let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
         
-        
-        return
+        let randomIndex:Int = Int(arc4random_uniform(UInt32(colors.count)))
+        return colors[randomIndex]
     }
     
     /*
