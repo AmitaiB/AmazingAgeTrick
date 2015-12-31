@@ -11,9 +11,7 @@ import Foundation
 extension String
 {
     var length: Int {
-        get {
-            return self.characters.count
-        }
+        get {return self.characters.count}
     }
     
     func contains(s: String) -> Bool
@@ -26,16 +24,14 @@ extension String
         return self.stringByReplacingOccurrencesOfString(target, withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
     
-    subscript (i: Int) -> Character
-        {
+    subscript (i: Int) -> Character {
         get {
             let index = startIndex.advancedBy(i)
             return self[index]
         }
     }
     
-    subscript (r: Range<Int>) -> String
-        {
+    subscript (r: Range<Int>) -> String {
         get {
             let startIndex = self.startIndex.advancedBy(r.startIndex)
             let endIndex = self.startIndex.advancedBy(r.endIndex - 1)
@@ -47,7 +43,7 @@ extension String
     func subString(startIndex: Int, length: Int) -> String
     {
         let chars = self.componentsSeparatedByString("")
-        var substring:String
+        var substring:String = ""
         for idx in startIndex ..< length {
             substring += chars[idx]
         }

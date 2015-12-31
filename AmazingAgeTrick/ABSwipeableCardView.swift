@@ -32,10 +32,6 @@ class ABSwipeableCardView: UIView {
         self.init(frame: cardRect)
         superView.addSubview(self)
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     //MARK: Private setup methods
     func setup() {

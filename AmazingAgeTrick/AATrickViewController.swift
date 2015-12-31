@@ -8,7 +8,6 @@
 
 import UIKit
 import FlatUIColors
-import performSelector_swift
 
 class AATrickViewController: UIViewController {
     
@@ -49,12 +48,12 @@ class AATrickViewController: UIViewController {
         return cardView
     }
     
+    //TODO: Refactor with the new extensions
     func randomFlatColor()->UIColor {
-        let colors:[String] = ["Turquoise", "Green Sea", "Emerald", "Nephritis", "Peter River", "Belize Hole", "Amethyst", "Wisteria", "Wet Asphalt", "Midnight Blue", "Sun Flower", "Orange", "Carrot", "Pumpkin", "Alizarin", "Pomegranate", "Clouds", "Silver", "Concrete", "Asbestos"]
-        let randomIndex:Int = Int(arc4random_uniform(UInt32(colors.endIndex)))
-        let sanitizedColorString = colors[randomIndex].stringByReplacingOccurrencesOfString(" ", withString: "")
-        let selector = "\(sanitizedColorString)Color"
-        return UIColor.swift_performSelector(Selector(selector), withObject: nil) as! UIColor
+
+        
+        
+        return
     }
     
     /*

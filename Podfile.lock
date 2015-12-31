@@ -1,13 +1,10 @@
 PODS:
   - FlatUIColors (0.2.0)
-  - performSelector-swift (0.1.0)
 
 DEPENDENCIES:
   - FlatUIColors
-  - performSelector-swift
 
 SPEC CHECKSUMS:
   FlatUIColors: 515307d99990b1af3465129a1c08796f9917b2a1
-  performSelector-swift: 676d3dab420ed7e1505a7cdaf35e5741509cdd3c
 
 COCOAPODS: 0.39.0
