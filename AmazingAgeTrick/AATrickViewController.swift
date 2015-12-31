@@ -44,17 +44,12 @@ class AATrickViewController: UIViewController {
     
     func produceCardView()->ABSwipeableCardView {
         let cardView = ABSwipeableCardView(superView: view)
-        cardView.backgroundColor = randomFlatColor()
+        cardView.backgroundColor = FlatUIColors.randomFlatColor()
         return cardView
     }
     
     //TODO: Refactor with the new extensions
-    func randomFlatColor()->UIColor {
-        let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
-        
-        let randomIndex:Int = Int(arc4random_uniform(UInt32(colors.count)))
-        return colors[randomIndex]
-    }
+    
     
     /*
     // MARK: - Navigation
@@ -66,4 +61,14 @@ class AATrickViewController: UIViewController {
     }
     */
 
+}
+
+
+extension FlatUIColors {
+    public static func randomFlatColor()->UIColor {
+        let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
+        
+        let randomIndex:Int = Int(arc4random_uniform(UInt32(colors.count)))
+        return colors[randomIndex]
+    }
 }
