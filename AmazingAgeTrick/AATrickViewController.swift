@@ -14,11 +14,11 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     let cellReuseID:String = "cellReuseID"
     private let numCols = 4
     private let numRows = 8
+    let deck = AATDeckModel.sharedDeck
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let deck = AATDeckModel()
         deck.resetDeck()
         var card1 = produceCardView()
         
@@ -56,7 +56,13 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         let collectionView = getCollectionView()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 20, 20)
+        
+        drawNewCardForNewCardView()
         return cardView
+    }
+    
+    func drawNewCardForNewCardView() {
+        deck.drawCardFromDeck()
     }
     
     func getCollectionView()->UICollectionView {
@@ -112,7 +118,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     // MARK: == Private helper methods ==
-    func configureCell(cell:UICollectionViewCell, forIndexPath:NSIndexPath) {
+    func configureCell(cell:UICollectionViewCell, forIndexPath indexPath:NSIndexPath) {
         let imageView = UIImageView(frame: cell.contentView.bounds)
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "transparent-black-circle-medium")
@@ -122,18 +128,17 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         
         let label = UILabel(frame: cell.contentView.bounds)
         label.backgroundColor = UIColor.clearColor()
-        label.text = "##"
+        label.text = numberForIndexPath(indexPath)
         label.textAlignment = .Center
         imageView.addSubview(label)
-
     }
     
     func numberForIndexPath(indexPath:NSIndexPath)->String {
-        if indexPath.row == 0 {
-        }
-        
-        let cardInfo:[Int] = [1]
-        return String(cardInfo[indexPath.row])
+        guard let topCardCount = deck.topCard?.count else {return "Err1"}
+        guard let topCard = deck.topCard else {return "Err2"}
+
+        if indexPath.row >= topCardCount {return "//"}
+        return String(topCard[indexPath.row])
     }
     
     //ViewController Ends here
