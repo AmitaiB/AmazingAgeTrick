@@ -84,6 +84,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseID, forIndexPath: indexPath)
         cell.backgroundColor = FlatUIColors.randomFlatColor()
+        configureCell(cell, forIndexPath: indexPath)
         return cell
     }
     
@@ -110,13 +111,20 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     
     // MARK: == Private helper methods ==
     func configureCell(cell:UICollectionViewCell, forIndexPath:NSIndexPath) {
+
+        /**
         let imageView = UIImageView(image: UIImage(named: "transparent-black-circle-medium"))
         cell.contentView.addSubview(imageView)
+        cell.contentView.autoresizesSubviews = true
         
         imageView.widthAnchor.constraintEqualToAnchor(cell.contentView.widthAnchor).active = true
         imageView.heightAnchor.constraintEqualToAnchor(cell.contentView.heightAnchor).active = true
         imageView.centerXAnchor.constraintEqualToAnchor(cell.contentView.centerXAnchor).active = true
         imageView.centerYAnchor.constraintEqualToAnchor(cell.contentView.centerYAnchor).active = true
+        
+        imageView.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: UILayoutConstraintAxis.Horizontal)
+        imageView.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: UILayoutConstraintAxis.Vertical)
+        */
     }
     
     //ViewController Ends here
