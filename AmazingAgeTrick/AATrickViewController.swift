@@ -27,7 +27,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         /**
         TODO NEXT: 
         ✅1) add a collectionView to a card so that it's visible.
-        2) make the collectionView present the cardInfo.
+        ✅2) make the collectionView present the cardInfo.
         3) add a voting mechanism
         4) make swiping rotate to the next card
         5) keep a tally of the votes.
@@ -81,8 +81,6 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         return collectionView
     }
     
-    //TODO: Refactor with the new extensions
-    
     // MARK: === UICollectionView dataSource ===
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numCols * numRows
@@ -95,8 +93,6 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         configureCell(cell, forIndexPath: indexPath)
         return cell
     }
-    
-    
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
