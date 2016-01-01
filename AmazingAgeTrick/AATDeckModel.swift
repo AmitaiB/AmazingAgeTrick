@@ -8,7 +8,10 @@
 
 import UIKit
 
-class AAGDeckModel: NSObject {
+class AATDeckModel: NSObject {
+    static let sharedDeck = AATDeckModel()
+    private override init() {}
+    
     private let cards = [
         [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59],
         [2,3,6,7,10,11,14,15,18,19,22,23,26,27,30,31,34,35,38,39,42,43,46,47,50,51,54,55,58,59],
@@ -19,6 +22,7 @@ class AAGDeckModel: NSObject {
     
     private var deck:[[Int]] = [[0]]
     
+    var topCard:[Int]?
     
     // MARK: Query Deck methods
     func isFull() ->Bool {
@@ -49,8 +53,8 @@ class AAGDeckModel: NSObject {
         if deck.count == 0 {return [-1]}
         
         let randomIndex = Int(arc4random_uniform(UInt32(deck.endIndex)))
-        let cardToReturn = deck[randomIndex]
+        topCard = deck[randomIndex]
         deck.removeAtIndex(randomIndex)
-        return cardToReturn
+        return topCard!
     }
 }

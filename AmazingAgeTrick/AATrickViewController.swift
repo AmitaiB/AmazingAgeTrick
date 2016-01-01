@@ -18,6 +18,8 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let deck = AATDeckModel()
+        deck.resetDeck()
         var card1 = produceCardView()
         
 
@@ -121,8 +123,17 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         let label = UILabel(frame: cell.contentView.bounds)
         label.backgroundColor = UIColor.clearColor()
         label.text = "##"
+        label.textAlignment = .Center
         imageView.addSubview(label)
 
+    }
+    
+    func numberForIndexPath(indexPath:NSIndexPath)->String {
+        if indexPath.row == 0 {
+        }
+        
+        let cardInfo:[Int] = [1]
+        return String(cardInfo[indexPath.row])
     }
     
     //ViewController Ends here
