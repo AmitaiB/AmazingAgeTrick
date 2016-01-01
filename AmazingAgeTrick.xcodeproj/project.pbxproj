@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380982291C3714C6006A8CBA /* IGSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380982281C3714C6006A8CBA /* IGSwitch.swift */; };
 		380B8D931C3426AD00447F5C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380B8D921C3426AD00447F5C /* String+Extensions.swift */; };
 		38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */; };
 		38B5CD0F1C335EBC0077FC71 /* AATMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0E1C335EBC0077FC71 /* AATMainViewController.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		22BDCBB0AFF88697DE660F47 /* Pods-AmazingAgeTrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingAgeTrick.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.release.xcconfig"; sourceTree = "<group>"; };
+		380982281C3714C6006A8CBA /* IGSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGSwitch.swift; sourceTree = "<group>"; };
 		380B8D921C3426AD00447F5C /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		38B5CD091C335EBC0077FC71 /* AmazingAgeTrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingAgeTrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		380B8D941C3426B300447F5C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				380982281C3714C6006A8CBA /* IGSwitch.swift */,
 				380B8D921C3426AD00447F5C /* String+Extensions.swift */,
 			);
 			name = "Supporting Files";
@@ -305,6 +308,7 @@
 				38B5CD351C336F1C0077FC71 /* AATDeckModel.swift in Sources */,
 				38B5CD311C336BF40077FC71 /* AATrickViewController.swift in Sources */,
 				38B5CD0F1C335EBC0077FC71 /* AATMainViewController.swift in Sources */,
+				380982291C3714C6006A8CBA /* IGSwitch.swift in Sources */,
 				38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

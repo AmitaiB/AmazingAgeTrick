@@ -12,6 +12,9 @@ import FlatUIColors
 class AATrickViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let cellReuseID:String = "cellReuseID"
+    let footerReuseID:String = "footerReuseID"
+    var switcher:UISwitch = UISwitch()
+
     private let numCols = 4
     private let numRows = 8
     let deck = AATDeckModel.sharedDeck
@@ -55,7 +58,14 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         let collectionView = getCollectionView()
         cardView.addSubview(collectionView)
-        collectionView.frame = CGRectInset(cardView.bounds, 20, 20)
+        collectionView.frame = CGRectInset(cardView.bounds, 15, 15)
+        
+        let voteSwitch = getVoteSwitch()
+        cardView.addSubview(voteSwitch)
+        
+        voteSwitch.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor).active = true
+        voteSwitch.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor).active = true
+        voteSwitch.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor).active = true
         
         drawNewCardForNewCardView()
         return cardView
@@ -65,23 +75,35 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         deck.drawCardFromDeck()
     }
     
+    func getVoteSwitch()->IGSwitch {
+        let voteSwitch = IGSwitch()
+        voteSwitch.titleLeft = "Age NOT Here"
+        voteSwitch.titleRight = "YES, It's Here!"
+        return voteSwitch
+    }
+    
     func getCollectionView()->UICollectionView {
+        // Layout setup
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1.0
         layout.minimumInteritemSpacing = 1.0
         layout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         layout.estimatedItemSize = CGSizeMake(30, 30)
         
-        
+        // CollectionView setup
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cellReuseID)
+//        collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerReuseID)
+        
         collectionView.backgroundColor = FlatUIColors.randomFlatColor()
+        
+        
         return collectionView
     }
     
-    // MARK: === UICollectionView dataSource ===
+    // MARK: === UICollectionView DataSource ===
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numCols * numRows
     }
@@ -93,6 +115,15 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         configureCell(cell, forIndexPath: indexPath)
         return cell
     }
+    
+//    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+//        if kind != UICollectionElementKindSectionFooter {return UICollectionReusableView()}
+//        var footerView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: footerReuseID, forIndexPath: indexPath)
+////            [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+//        
+//        
+//    }
+    
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
