@@ -55,17 +55,32 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func produceCardView()->ABSwipeableCardView {
         let cardView = ABSwipeableCardView(superView: view)
-        cardView.backgroundColor = FlatUIColors.randomFlatColor()
         let collectionView = getCollectionView()
-        cardView.addSubview(collectionView)
-        collectionView.frame = CGRectInset(cardView.bounds, 15, 15)
-        
         let voteSwitch = getVoteSwitch()
+        
+        cardView.backgroundColor = FlatUIColors.randomFlatColor()
+        cardView.addSubview(collectionView)
         cardView.addSubview(voteSwitch)
+        
+//        collectionView.frame = CGRectInset(cardView.bounds, 15, 15)
+        
+        // Autolayout
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.removeConstraints(collectionView.constraints)
+        voteSwitch.translatesAutoresizingMaskIntoConstraints = false
+        voteSwitch.removeConstraints(voteSwitch.constraints)
+
+        
+        collectionView.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: 10).active = true
+        collectionView.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -10).active = true
+        collectionView.topAnchor.constraintEqualToAnchor(cardView.topAnchor, constant: 10).active = true
+        
+        collectionView.bottomAnchor.constraintEqualToAnchor(voteSwitch.topAnchor, constant: -10).active = true
         
         voteSwitch.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor).active = true
         voteSwitch.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor).active = true
-        voteSwitch.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor).active = true
+        voteSwitch.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor, constant: -10).active = true
+        voteSwitch.heightAnchor.constraintEqualToConstant(voteSwitch.intrinsicContentSize().height).active = true
         
         drawNewCardForNewCardView()
         return cardView
