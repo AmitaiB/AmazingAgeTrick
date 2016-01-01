@@ -112,8 +112,8 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     // MARK: == Private helper methods ==
     func configureCell(cell:UICollectionViewCell, forIndexPath:NSIndexPath) {
 
-        /**
-        let imageView = UIImageView(image: UIImage(named: "transparent-black-circle-medium"))
+        
+        let imageView = UIImageView(frame: cell.contentView.bounds)
         cell.contentView.addSubview(imageView)
         cell.contentView.autoresizesSubviews = true
         
@@ -124,7 +124,10 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         
         imageView.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: UILayoutConstraintAxis.Horizontal)
         imageView.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: UILayoutConstraintAxis.Vertical)
-        */
+        
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "transparent-black-circle-medium")
+
     }
     
     //ViewController Ends here
