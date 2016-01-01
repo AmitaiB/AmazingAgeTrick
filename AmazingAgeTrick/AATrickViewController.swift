@@ -9,10 +9,14 @@
 import UIKit
 import FlatUIColors
 
-class AATrickViewController: UIViewController {
+class AATrickViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    let cellReuseID:String = "cellReuseID"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         let card1 = produceCardView()
 
@@ -45,7 +49,7 @@ class AATrickViewController: UIViewController {
     func produceCardView()->ABSwipeableCardView {
         let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
-        var collectionView = getCollectionView()
+        let collectionView = getCollectionView()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 20, 20)
         return cardView
@@ -58,24 +62,27 @@ class AATrickViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         layout.estimatedItemSize = CGSizeMake(30, 30)
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cellReuseID)
+        collectionView.backgroundColor = FlatUIColors.randomFlatColor()
         return collectionView
     }
     
     //TODO: Refactor with the new extensions
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: === UICollectionView dataSource ===
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 32
     }
-    */
-
+    
+    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseID, forIndexPath: indexPath)
+        cell.backgroundColor = FlatUIColors.randomFlatColor()
+        return cell
+    }
 }
-
 
 extension FlatUIColors {
     public static func randomFlatColor()->UIColor {
@@ -85,3 +92,4 @@ extension FlatUIColors {
         return colors[randomIndex]
     }
 }
+
