@@ -111,30 +111,19 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     
     // MARK: == Private helper methods ==
     func configureCell(cell:UICollectionViewCell, forIndexPath:NSIndexPath) {
-
-        if let image = UIImage(named: "transparent-black-circle-medium") {
-            addImageViewToCell(cell, image:image)
-        }
-
-    }
-    
-    func addImageViewToCell(cell:UICollectionViewCell, image:UIImage) {
         let imageView = UIImageView(frame: cell.contentView.bounds)
         imageView.contentMode = .ScaleAspectFit
-        imageView.image = image
+        imageView.image = UIImage(named: "transparent-black-circle-medium")
         
-        cell.contentView.addSubview(imageView)
         cell.contentView.autoresizesSubviews = true
+        cell.contentView.addSubview(imageView)
         
-        imageView.widthAnchor.constraintEqualToAnchor(cell.contentView.widthAnchor).active = true
-        imageView.heightAnchor.constraintEqualToAnchor(cell.contentView.heightAnchor).active = true
-        imageView.centerXAnchor.constraintEqualToAnchor(cell.contentView.centerXAnchor).active = true
-        imageView.centerYAnchor.constraintEqualToAnchor(cell.contentView.centerYAnchor).active = true
-        
-        imageView.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: UILayoutConstraintAxis.Horizontal)
-        imageView.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: UILayoutConstraintAxis.Vertical)
+        let label = UILabel(frame: cell.contentView.bounds)
+        label.backgroundColor = UIColor.clearColor()
+        label.text = "##"
+        imageView.addSubview(label)
+
     }
-    
     
     //ViewController Ends here
 }
