@@ -45,7 +45,20 @@ class AATrickViewController: UIViewController {
     func produceCardView()->ABSwipeableCardView {
         let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
+        var collectionView = getCollectionView()
+        cardView.addSubview(collectionView)
+        collectionView.frame = CGRectInset(cardView.bounds, 20, 20)
         return cardView
+    }
+    
+    func getCollectionView()->UICollectionView {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 1.0
+        layout.minimumInteritemSpacing = 1.0
+        layout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        layout.estimatedItemSize = CGSizeMake(30, 30)
+        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        return collectionView
     }
     
     //TODO: Refactor with the new extensions
