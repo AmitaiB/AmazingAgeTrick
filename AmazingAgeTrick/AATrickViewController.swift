@@ -88,6 +88,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     
+    
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {return CGSizeMake(30, 30)}
@@ -107,6 +108,16 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         return itemSize
     }
     
+    // MARK: == Private helper methods ==
+    func configureCell(cell:UICollectionViewCell, forIndexPath:NSIndexPath) {
+        let imageView = UIImageView(image: UIImage(named: "transparent-black-circle-medium"))
+        cell.contentView.addSubview(imageView)
+        
+        imageView.widthAnchor.constraintEqualToAnchor(cell.contentView.widthAnchor).active = true
+        imageView.heightAnchor.constraintEqualToAnchor(cell.contentView.heightAnchor).active = true
+        imageView.centerXAnchor.constraintEqualToAnchor(cell.contentView.centerXAnchor).active = true
+        imageView.centerYAnchor.constraintEqualToAnchor(cell.contentView.centerYAnchor).active = true
+    }
     
     //ViewController Ends here
 }
