@@ -9,20 +9,22 @@
 import UIKit
 import FlatUIColors
 
-class AATrickViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class AATrickViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let cellReuseID:String = "cellReuseID"
-    
+    private let numCols = 4
+    private let numRows = 8
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var card1 = produceCardView()
         
 
-        let card1 = produceCardView()
 
         /**
         TODO NEXT: 
-        1) add a collectionView to a card so that it's visible.
+        ✅1) add a collectionView to a card so that it's visible.
         2) make the collectionView present the cardInfo.
         3) add a voting mechanism
         4) make swiping rotate to the next card
@@ -61,6 +63,8 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         layout.minimumInteritemSpacing = 1.0
         layout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         layout.estimatedItemSize = CGSizeMake(30, 30)
+        
+        
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -73,7 +77,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     
     // MARK: === UICollectionView dataSource ===
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 32
+        return numCols * numRows
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -82,6 +86,29 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         cell.backgroundColor = FlatUIColors.randomFlatColor()
         return cell
     }
+    
+    
+    // MARK: === UICollectionViewDelegateFlowLayout ===
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {return CGSizeMake(30, 30)}
+        
+        let xTotalWhitespace = layout.sectionInset.left + layout.sectionInset.right + layout.minimumInteritemSpacing * CGFloat(numCols - 1)
+        let yTotalWhitespace = layout.sectionInset.top + layout.sectionInset.bottom + layout.minimumLineSpacing * CGFloat(numRows - 1)
+        
+        let availableWidth  = Int(collectionView.bounds.width  - xTotalWhitespace)
+        let availableHeight = Int(collectionView.bounds.height - yTotalWhitespace)
+        
+        let itemHeight = availableHeight / numRows
+        let itemWidth  = availableWidth / numCols
+        let itemSize = CGSizeMake(CGFloat(itemWidth), CGFloat(itemHeight))
+        //        let itemSquareDimension = min(itemWidth, itemHeight)
+        //        let itemSize = CGSizeMake(CGFloat(itemSquareDimension), CGFloat(itemSquareDimension))
+        
+        return itemSize
+    }
+    
+    
+    //ViewController Ends here
 }
 
 extension FlatUIColors {
