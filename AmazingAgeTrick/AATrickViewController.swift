@@ -123,10 +123,21 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         cell.contentView.addSubview(imageView)
         
         let label = UILabel(frame: cell.contentView.bounds)
-        label.backgroundColor = UIColor.clearColor()
-        label.text = numberForIndexPath(indexPath)
         label.textAlignment = .Center
+        label.backgroundColor = UIColor.clearColor()
         imageView.addSubview(label)
+        
+        switch indexPath.row {
+        case 30:
+            label.text = "YES"
+            cell.backgroundColor = FlatUIColors.emeraldColor()
+        case 31:
+            label.text = "NO"
+            cell.backgroundColor = FlatUIColors.pomegranateColor()
+        default:
+            label.text = numberForIndexPath(indexPath)
+        }
+        
     }
     
     func numberForIndexPath(indexPath:NSIndexPath)->String {
