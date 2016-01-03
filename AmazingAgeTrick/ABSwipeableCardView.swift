@@ -11,6 +11,8 @@ import UIKit
 
 class ABSwipeableCardView: UIView {
     
+    
+    var cardInfoKey:Int?
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint!
 

@@ -6,18 +6,46 @@
 //  Copyright © 2015 Amitai Blickstein, LLC. All rights reserved.
 //
 
+/**
+TODO: Refactor deck, load all at once.
+*/
+
+/**
+TODO NEXT:
+✅1) add a collectionView to a card so that it's visible.
+✅2) make the collectionView present the cardInfo.
+✅3) add a voting mechanism
+4a) generate all 6 cards, piled atop one another,
+✅4a.5) slightly rotated
+4b) make swiping rotate to the next card
+5) keep a **visual** tally of the votes.
+6) Stop when all 6 cards have votes.
+7) Present the result, wow the user, offer to play again
+
+make the cards rotate a bit, randomly, so that you can see them when they are stacked one atop the other.
+
+- parameter animated: <#animated description#>
+*/
+
 import UIKit
 import FlatUIColors
 
 class AATrickViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     let cellReuseID:String = "cellReuseID"
 
-    var voteTally = [Int:Bool]()
-    var cardViews = [ABSwipeableCardView]()
+    //Model
+    let deck = AATDeckModel.sharedDeck
+    
+    //Views
+    var cardViews = [Int:ABSwipeableCardView]()
     private let numCols = 4
     private let numRows = 8
-    let deck = AATDeckModel.sharedDeck
+    
+    //Controller-Logic
+    var voteTally = [Int:Bool]()
+    private var currentCardKey = -1
 
+    
     enum ButtonCellRow:Int {
         case YesButton = 30
         case NoButton  = 31
@@ -26,33 +54,27 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        deck.resetDeck()
-        let cardViews2 = [ABSwipeableCardView].init(count: deck.cardsInDeck(), repeatedValue: produceCardViewForCardInfo(deck.drawCardFromDeck()))
-//        deck.resetDeck()
+        deck.reset()
+        deck.shuffle()
+        
+//        let cardViewsInitHelper = [ABSwipeableCardView].init(count: deck.count(), repeatedValue: produceCardView())
+
+
+        
+        
         while !deck.isEmpty() {
-            cardViews += [produceCardViewForCardInfo(deck.drawCardFromDeck())]
+//            let cardInfo = deck.drawCardFromDeck()
+            let cardInfo = deck.drawCard()
+            
+            if let cardKey = cardInfo.first {
+                currentCardKey = cardKey
+                let cardView = produceCardView()
+                cardViews[cardKey] = cardView
+            }
         }
         
-        /**
-        TODO: Refactor deck, load all at once.
-        */
-
-        /**
-        TODO NEXT: 
-        ✅1) add a collectionView to a card so that it's visible.
-        ✅2) make the collectionView present the cardInfo.
-        ✅3) add a voting mechanism
-        4a) generate all 6 cards, piled atop one another,
-        ✅4a.5) slightly rotated
-        4b) make swiping rotate to the next card
-        5) keep a **visual** tally of the votes.
-        6) Stop when all 6 cards have votes.
-        7) Present the result, wow the user, offer to play again
         
-        make the cards rotate a bit, randomly, so that you can see them when they are stacked one atop the other.
-        
-        - parameter animated: <#animated description#>
-        */
+        print(cardViews)
         
         // Do any additional setup after loading the view.
         navigationController?.hidesBarsWhenVerticallyCompact = true
@@ -65,7 +87,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         // Dispose of any resources that can be recreated.
     }
     
-    func produceCardViewForCardInfo(cardInfo:[Int])->ABSwipeableCardView {
+    func produceCardView()->ABSwipeableCardView {
         let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         let collectionView = getCollectionView()
@@ -183,11 +205,14 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func numberForIndexPath(indexPath:NSIndexPath)->String {
-        guard let topCardCount = deck.topCard?.count else {return "Err1"}
-        guard let topCard = deck.topCard else {return "Err2"}
-
-        if indexPath.row >= topCardCount {return "//"}
-        return String(topCard[indexPath.row])
+//        guard let topCardCount = deck.topCard?.count else {return "Err1"}
+//        guard let topCard = deck.topCard else {return "Err2"}
+//
+//        if indexPath.row >= topCardCount {return "//"}
+//        return String(topCard[indexPath.row])
+let currentCardInfo =
+        
+        
     }
     
     func vote(vote:Bool) {
