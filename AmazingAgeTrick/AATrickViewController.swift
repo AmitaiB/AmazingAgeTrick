@@ -98,7 +98,6 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseID, forIndexPath: indexPath)
-        cell.backgroundColor = FlatUIColors.randomFlatColor()
         configureCell(cell, forIndexPath: indexPath)
         return cell
     }
@@ -175,6 +174,8 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
             cell.backgroundColor = FlatUIColors.pomegranateColor()
         default:
             label.text = numberForIndexPath(indexPath)
+//            cell.backgroundColor = FlatUIColors.randomFlatColor()
+            cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 20) ///TODO: Make colors pretty!
         }
         
     }
@@ -209,6 +210,7 @@ extension FlatUIColors {
         return colors[randomIndex]
     }
     
+    //For some reason, not included in the pod, though it is in the pallette: https://flatuicolors.com/
     public static func flatOrangeColor(alpha: CGFloat = 1.0) -> OSColor! {return UIColor(red: 243, green: 156, blue: 18, alpha: alpha)}
     
     public static func randomFlatColorPair()->(UIColor, UIColor) {
@@ -226,6 +228,12 @@ extension FlatUIColors {
         ]
         let randomIndex:Int = Int(arc4random_uniform(UInt32(colorPairs.count)))
         return colorPairs[randomIndex]
+    }
+    
+    public static func orderedFlatColor(ordinal:Int)->UIColor {
+        let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
+        
+        return colors[ordinal]
     }
     
     public static func pairedColorForColor(color:UIColor)->UIColor {
