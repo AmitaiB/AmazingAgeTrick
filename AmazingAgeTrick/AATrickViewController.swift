@@ -10,19 +10,27 @@ import UIKit
 import FlatUIColors
 
 class AATrickViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
     let cellReuseID:String = "cellReuseID"
+
+    var voteTally = [Int:Bool]()
     private let numCols = 4
     private let numRows = 8
     let deck = AATDeckModel.sharedDeck
 
+    enum ButtonCellRow:Int {
+        case YesButton = 30
+        case NoButton  = 31
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         deck.resetDeck()
         var card1 = produceCardView()
         
-
+        /**
+        TODO: Refactor deck, load all at once.
+        */
 
         /**
         TODO NEXT: 
@@ -78,10 +86,11 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         collectionView.dataSource = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cellReuseID)
         collectionView.backgroundColor = FlatUIColors.randomFlatColor()
+        collectionView.allowsSelection = true
         return collectionView
     }
     
-    // MARK: === UICollectionView dataSource ===
+    // MARK: === UICollectionView DataSource ===
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numCols * numRows
     }
@@ -93,6 +102,25 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         configureCell(cell, forIndexPath: indexPath)
         return cell
     }
+    
+    //MARK: == UICollectionView Delegate ===
+    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.row == ButtonCellRow.YesButton.rawValue ||
+            indexPath.row == ButtonCellRow.NoButton.rawValue {
+            return true
+        }
+        
+        return false
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case ButtonCellRow.YesButton.rawValue: vote(true)
+        case ButtonCellRow.NoButton.rawValue : vote(false)
+        default: break
+        }
+    }
+    
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -128,10 +156,10 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         imageView.addSubview(label)
         
         switch indexPath.row {
-        case 30:
+        case ButtonCellRow.YesButton.rawValue:
             label.text = "YES"
             cell.backgroundColor = FlatUIColors.emeraldColor()
-        case 31:
+        case ButtonCellRow.NoButton.rawValue:
             label.text = "NO"
             cell.backgroundColor = FlatUIColors.pomegranateColor()
         default:
@@ -148,15 +176,42 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         return String(topCard[indexPath.row])
     }
     
+    func vote(vote:Bool) {
+        if let cardValue = deck.topCard?.first {
+            voteTally[cardValue] = vote
+        }
+        //???: Check win conditions here?
+        print(voteTally)
+    }
+    
     //ViewController Ends here
 }
 
 extension FlatUIColors {
     public static func randomFlatColor()->UIColor {
-        let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
+        let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
         
         let randomIndex:Int = Int(arc4random_uniform(UInt32(colors.count)))
         return colors[randomIndex]
+    }
+    
+    public static func flatOrangeColor(alpha: CGFloat = 1.0) -> OSColor! {return UIColor(red: 243, green: 156, blue: 18, alpha: alpha)}
+    
+    public static func randomFlatColorPair()->(UIColor, UIColor) {
+        let colorPairs:[(colorA:UIColor, colorB:UIColor)] =
+        [(FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor()),
+            (FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor()),
+            (FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor()),
+            (FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor()),
+            (FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor()),
+            (FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor()),
+            (FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor()),
+            (FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor()),
+            (FlatUIColors.cloudsColor(), FlatUIColors.silverColor()),
+            (FlatUIColors.concreteColor(), FlatUIColors.asbestosColor())
+        ]
+        let randomIndex:Int = Int(arc4random_uniform(UInt32(colorPairs.count)))
+        return colorPairs[randomIndex]
     }
 }
 
