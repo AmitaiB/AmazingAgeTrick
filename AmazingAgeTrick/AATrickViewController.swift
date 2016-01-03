@@ -124,13 +124,13 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     // change background color when user touches cell
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        cell?.backgroundColor = UIColor.redColor()
+        cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
     }
     
     // change background color back when user releases touch
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        cell?.backgroundColor = UIColor.greenColor()
+        cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
     }
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
@@ -198,6 +198,9 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     //ViewController Ends here
 }
 
+
+
+// MARK: - FlatUIColors Extension
 extension FlatUIColors {
     public static func randomFlatColor()->UIColor {
         let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
@@ -244,9 +247,17 @@ extension FlatUIColors {
             if color == colorPair.colorA {complementaryColor = colorPair.colorB}
             if color == colorPair.colorB {complementaryColor = colorPair.colorA}
         }
-        
         return complementaryColor
     }
-    
+   
+
+
+    public static func pairedColorForColor(color:UIColor?)->UIColor {
+        guard let kosherColor = color else {return UIColor.whiteColor()}
+        return FlatUIColors.pairedColorForColor(kosherColor)
+    }
+
+    //Extension Ends
 }
+
 
