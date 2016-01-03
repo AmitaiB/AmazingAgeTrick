@@ -13,6 +13,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     let cellReuseID:String = "cellReuseID"
 
     var voteTally = [Int:Bool]()
+    var cardViews = [ABSwipeableCardView]()
     private let numCols = 4
     private let numRows = 8
     let deck = AATDeckModel.sharedDeck
@@ -26,7 +27,11 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         
         deck.resetDeck()
-        var card1 = produceCardView()
+        let cardViews2 = [ABSwipeableCardView].init(count: deck.cardsInDeck(), repeatedValue: produceCardViewForCardInfo(deck.drawCardFromDeck()))
+//        deck.resetDeck()
+        while !deck.isEmpty() {
+            cardViews += [produceCardViewForCardInfo(deck.drawCardFromDeck())]
+        }
         
         /**
         TODO: Refactor deck, load all at once.
@@ -37,7 +42,8 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         ✅1) add a collectionView to a card so that it's visible.
         ✅2) make the collectionView present the cardInfo.
         ✅3) add a voting mechanism
-        4a) generate all 6 cards, piled ato p one another, slightly rotated
+        4a) generate all 6 cards, piled atop one another,
+        ✅4a.5) slightly rotated
         4b) make swiping rotate to the next card
         5) keep a **visual** tally of the votes.
         6) Stop when all 6 cards have votes.
@@ -59,19 +65,14 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         // Dispose of any resources that can be recreated.
     }
     
-    func produceCardView()->ABSwipeableCardView {
+    func produceCardViewForCardInfo(cardInfo:[Int])->ABSwipeableCardView {
         let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         let collectionView = getCollectionView()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 20, 20)
         
-        drawNewCardForNewCardView()
         return cardView
-    }
-    
-    func drawNewCardForNewCardView() {
-        deck.drawCardFromDeck()
     }
     
     func getCollectionView()->UICollectionView {
