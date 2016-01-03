@@ -36,9 +36,10 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         TODO NEXT: 
         ✅1) add a collectionView to a card so that it's visible.
         ✅2) make the collectionView present the cardInfo.
-        3) add a voting mechanism
-        4) make swiping rotate to the next card
-        5) keep a tally of the votes.
+        ✅3) add a voting mechanism
+        4a) generate all 6 cards, piled ato p one another, slightly rotated
+        4b) make swiping rotate to the next card
+        5) keep a **visual** tally of the votes.
         6) Stop when all 6 cards have votes.
         7) Present the result, wow the user, offer to play again
         
