@@ -121,6 +121,17 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
+    // change background color when user touches cell
+    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        cell?.backgroundColor = UIColor.redColor()
+    }
+    
+    // change background color back when user releases touch
+    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        cell?.backgroundColor = UIColor.greenColor()
+    }
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -213,5 +224,29 @@ extension FlatUIColors {
         let randomIndex:Int = Int(arc4random_uniform(UInt32(colorPairs.count)))
         return colorPairs[randomIndex]
     }
+    
+    public static func pairedColorForColor(color:UIColor)->UIColor {
+        let colorPairs:[(colorA:UIColor, colorB:UIColor)] =
+        [(FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor()),
+            (FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor()),
+            (FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor()),
+            (FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor()),
+            (FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor()),
+            (FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor()),
+            (FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor()),
+            (FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor()),
+            (FlatUIColors.cloudsColor(), FlatUIColors.silverColor()),
+            (FlatUIColors.concreteColor(), FlatUIColors.asbestosColor())
+        ]
+        
+        var complementaryColor:UIColor = UIColor.whiteColor()
+        for colorPair in colorPairs {
+            if color == colorPair.colorA {complementaryColor = colorPair.colorB}
+            if color == colorPair.colorB {complementaryColor = colorPair.colorA}
+        }
+        
+        return complementaryColor
+    }
+    
 }
 
