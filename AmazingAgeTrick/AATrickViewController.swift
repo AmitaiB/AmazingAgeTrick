@@ -53,6 +53,8 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         case NoButton  = 31
     }
     
+    enum NumInfo:Int {case noNumber}
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,35 +218,18 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func numberForIndexPath(indexPath:NSIndexPath)->String {
-        
-        
-        
-        guard let tempString = (deck.cards[(currentCardKey?)])?[indexPath.row] else {return ""}
-        
-        if let unwrappedStringToReturn = tempString {
-            return unwrappedStringToReturn
-        } else
-        {
-            return ""
-        }
-        
-        
         guard let unwrappedCardKey = currentCardKey else {return ""}
-        guard let unwrappedCardInfo = deck.cards[unwrappedCardKey] else {return ""}
-        let tempString:String? = String(unwrappedCardInfo[indexPath.row])
+        guard let currentCardInfo:[Int] = deck[unwrappedCardKey] else {return ""}
         
-        if let unwrappedStringToReturn = tempString {
-            return unwrappedStringToReturn
-        } else
-        {
-            return ""
+        var paddedCardInfo = currentCardInfo
+        while paddedCardInfo.count < (numCols * numRows) {
+            paddedCardInfo.append(NumInfo.noNumber.rawValue)
         }
-        /**
-        FIXME: Insufficient numbers -- perhaps pad the cardInfo with "" or something to fill it out?
-        print("D2 indexPath: \(indexPath)")
-        */
-        return tempString
+        
+        if paddedCardInfo[indexPath.row] == NumInfo.noNumber.rawValue {  return ""  }
+        else {  return String(paddedCardInfo[indexPath.row])  }
     }
+    
     
     func vote(vote:Bool) {
         //TODO: Vote functionality here.
