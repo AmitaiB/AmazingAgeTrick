@@ -84,7 +84,6 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     - returns: ABSwipeableCardView
     */
     func produceCardView(cardKey:CardID)->ABSwipeableCardView {
-        
         let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         let collectionView = getCollectionView()
@@ -173,6 +172,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         //        let itemSquareDimension = min(itemWidth, itemHeight)
         //        let itemSize = CGSizeMake(CGFloat(itemSquareDimension), CGFloat(itemSquareDimension))
         
+        
         return itemSize
     }
     
@@ -203,12 +203,18 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
             cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 20) ///TODO: Make colors pretty!
         }
         
+        
     }
     
     func numberForIndexPath(indexPath:NSIndexPath)->String {
         guard let currentCardKey = currentCardKey else {return ""}
         guard let currentCardInfo = deck.cards[currentCardKey] else {return ""}
-        return String(currentCardInfo[indexPath.row])
+        let tempString = String(currentCardInfo[indexPath.row])
+        print("D2 indexPath: \(indexPath)")
+        /**
+        FIXME: Insufficient numbers -- perhaps pad the cardInfo with "" or something to fill it out?
+        */
+        return tempString
     }
     
     func vote(vote:Bool) {
