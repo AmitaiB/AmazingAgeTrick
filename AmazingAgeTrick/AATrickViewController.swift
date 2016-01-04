@@ -56,6 +56,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         
         // Do any additional setup after loading the view.
         deck.reset()
+        getCollectionView()
         
         print("cardViews.count = \(cardViews.count)")
         
@@ -81,7 +82,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         let collectionView = getCollectionView()
         cardView.addSubview(collectionView)
-        collectionView.frame = CGRectInset(cardView.bounds, 20, 20)
+        collectionView.frame = CGRectInset(cardView.bounds, 12, 12)
         
         return cardView
     }
