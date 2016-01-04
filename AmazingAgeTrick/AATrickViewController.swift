@@ -37,49 +37,30 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     let deck = AATDeckModel.sharedDeck
     
     //Views
-    var cardViews = [Int:ABSwipeableCardView]()
+    var cardViews = [CardID:ABSwipeableCardView]()
     private let numCols = 4
     private let numRows = 8
     
     //Controller-Logic
     var voteTally = [Int:Bool]()
-    private var currentCardKey = -1
-
+    private var currentCardKey:CardID?
     
     enum ButtonCellRow:Int {
         case YesButton = 30
         case NoButton  = 31
     }
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        deck.reset()
-        deck.shuffle()
-        
-//        let cardViewsInitHelper = [ABSwipeableCardView].init(count: deck.count(), repeatedValue: produceCardView())
-
-
-        
-        
-        while !deck.isEmpty() {
-//            let cardInfo = deck.drawCardFromDeck()
-            let cardInfo = deck.drawCard()
-            
-            if let cardKey = cardInfo.first {
-                currentCardKey = cardKey
-                let cardView = produceCardView()
-                cardViews[cardKey] = cardView
-            }
-        }
-        
-        
-        print(cardViews)
-        
         // Do any additional setup after loading the view.
+        deck.reset()
+        
+        print("cardViews.count = \(cardViews.count)")
+        
         navigationController?.hidesBarsWhenVerticallyCompact = true
         navigationController?.setToolbarHidden(false, animated: false)
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,6 +68,14 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK: Setup helper functions
+    /**
+    Produces a 'blank' cardView with a collectionView ready to be filled with data,
+    adding it to the superView.
+    
+    - returns: ABSwipeableCardView
+    */
     func produceCardView()->ABSwipeableCardView {
         let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
@@ -121,7 +110,7 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseID, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseID, forIndexPath: indexPath)
         configureCell(cell, forIndexPath: indexPath)
         return cell
     }
@@ -205,21 +194,13 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func numberForIndexPath(indexPath:NSIndexPath)->String {
-//        guard let topCardCount = deck.topCard?.count else {return "Err1"}
-//        guard let topCard = deck.topCard else {return "Err2"}
-//
-//        if indexPath.row >= topCardCount {return "//"}
-//        return String(topCard[indexPath.row])
-let currentCardInfo =
-        
-        
+        guard let currentCardKey = currentCardKey else {return ""}
+        guard let currentCardInfo = deck.cards[currentCardKey] else {return ""}
+        return String(currentCardInfo[indexPath.row])
     }
     
     func vote(vote:Bool) {
-        if let cardValue = deck.topCard?.first {
-            voteTally[cardValue] = vote
-        }
-        //???: Check win conditions here?
+        //TODO: Vote functionality here.
         print(voteTally)
     }
     
