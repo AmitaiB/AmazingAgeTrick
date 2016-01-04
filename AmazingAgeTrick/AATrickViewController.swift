@@ -59,8 +59,9 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         
         // Do any additional setup after loading the view.
         deck.reset()
+        let randomizedCardKeys = Array(deck.cards.keys).randomizeElements()
 
-        for aCardID in deck.cards.keys {
+        for aCardID in randomizedCardKeys {
             produceCardView(aCardID)
         }
         
@@ -84,20 +85,26 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     - returns: ABSwipeableCardView
     */
     func produceCardView(cardKey:CardID)->ABSwipeableCardView {
+        // CollectionView
+        currentCardKey = cardKey
+        let collectionView = getCollectionView(currentCardKey)
+
+        // CardView
         let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
-        let collectionView = getCollectionView()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 12, 12)
-        
-        currentCardKey = cardKey
-        if let currentCardKey = currentCardKey {
-            cardViews[currentCardKey] = cardView
+
+        if let unwrappedCardKey = currentCardKey {
+            cardViews[unwrappedCardKey] = cardView
         }
+        
         return cardView
     }
     
-    func getCollectionView()->UICollectionView {
+    func getCollectionView(currentCardKey:CardID?)->UICollectionView {
+        if currentCardKey == nil {return UICollectionView()}
+        
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1.0
         layout.minimumInteritemSpacing = 1.0

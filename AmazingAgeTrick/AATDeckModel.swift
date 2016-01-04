@@ -103,3 +103,11 @@ private extension MutableCollectionType where Index == Int {
         }
     }
 }
+
+extension CollectionType {
+    func randomizeElements() -> [Generator.Element] {
+        var list = Array(self)
+        list.shuffle()
+        return list
+    }
+}
