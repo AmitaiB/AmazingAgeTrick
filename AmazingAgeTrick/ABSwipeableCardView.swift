@@ -11,6 +11,8 @@ import UIKit
 
 class ABSwipeableCardView: UIView {
     
+    
+    var cardInfoKey:Int?
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint!
 
@@ -37,6 +39,7 @@ class ABSwipeableCardView: UIView {
     func setup() {
         setupCardStyle()
         setupGestureRecognizer()
+        setupNaturalLookRotation()
     }
     
     func setupCardStyle() {
@@ -61,6 +64,13 @@ class ABSwipeableCardView: UIView {
     }
     
     //MARK: Transforms
+    
+    func setupNaturalLookRotation() {
+//        -5° < x < 5°
+        let randomDegree:Double = Double(Int(arc4random_uniform(UInt32(10))) - 5)
+        self.transform = CGAffineTransformMakeRotation(CGFloat(DegreesToRadians(randomDegree)))
+    }
+    
     func swiped(gestureRecognizer: UIPanGestureRecognizer) {
         print("Swiped!", terminator: "")
         
@@ -98,7 +108,21 @@ class ABSwipeableCardView: UIView {
             self.center = self.originalPoint
             self.transform = CGAffineTransformMakeRotation(0)
         }
-        
+    }
+    
+    //MARK: Private helper methods
+    //    0 <= x < 2π
+    func DegreesToRadians (value:Double) -> Double {
+        var convertedValue = (value * M_PI / 180.0) % (2 * M_PI)
+        convertedValue = convertedValue > 0 ? convertedValue : convertedValue + 2 * M_PI
+        return convertedValue
     }
 
+    //    0 <= x < 360°
+    func RadiansToDegrees (value:Double) -> Double {
+        var convertedValue = (value * 180.0 / M_PI) % 360
+        convertedValue = convertedValue > 0 ? convertedValue : convertedValue + 360
+        convertedValue = convertedValue == 360 ? 0 : convertedValue
+        return convertedValue
+    }
 }
