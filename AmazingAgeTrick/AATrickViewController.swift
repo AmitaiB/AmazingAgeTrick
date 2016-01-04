@@ -206,20 +206,42 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
             cell.backgroundColor = FlatUIColors.pomegranateColor()
         default:
             label.text = numberForIndexPath(indexPath)
-//            cell.backgroundColor = FlatUIColors.randomFlatColor()
-            cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 20) ///TODO: Make colors pretty!
+            cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 20)
+            
+            ///TODO: Make colors pretty!
+            //            cell.backgroundColor = FlatUIColors.randomFlatColor()
         }
         
         
     }
     
     func numberForIndexPath(indexPath:NSIndexPath)->String {
-        guard let currentCardKey = currentCardKey else {return ""}
-        guard let currentCardInfo = deck.cards[currentCardKey] else {return ""}
-        let tempString = String(currentCardInfo[indexPath.row])
-        print("D2 indexPath: \(indexPath)")
+        
+        
+        
+        guard let tempString = (deck.cards[(currentCardKey?)])?[indexPath.row] else {return ""}
+        
+        if let unwrappedStringToReturn = tempString {
+            return unwrappedStringToReturn
+        } else
+        {
+            return ""
+        }
+        
+        
+        guard let unwrappedCardKey = currentCardKey else {return ""}
+        guard let unwrappedCardInfo = deck.cards[unwrappedCardKey] else {return ""}
+        let tempString:String? = String(unwrappedCardInfo[indexPath.row])
+        
+        if let unwrappedStringToReturn = tempString {
+            return unwrappedStringToReturn
+        } else
+        {
+            return ""
+        }
         /**
         FIXME: Insufficient numbers -- perhaps pad the cardInfo with "" or something to fill it out?
+        print("D2 indexPath: \(indexPath)")
         */
         return tempString
     }

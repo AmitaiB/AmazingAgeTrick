@@ -75,6 +75,13 @@ class AATDeckModel: NSObject {
     func neverDrewThisCard(cardKey:CardID)->Bool {
         return !drawnCards.contains(cardKey)
     }
+    
+    //MARK: Subscript Implementation
+    subscript(i: CardID) -> [Int] {
+        get {
+            return cards[i]!
+        }
+    }
 }
 
 
