@@ -16,6 +16,7 @@ TODO NEXT:
 ✅2) make the collectionView present the cardInfo.
 ✅3) add a voting mechanism
 4a) generate all 6 cards, piled atop one another,
+=== Curent Task: Modify produceCardView to take a CardID somewhere ===
 ✅4a.5) slightly rotated
 4b) make swiping rotate to the next card
 5) keep a **visual** tally of the votes.
@@ -31,15 +32,17 @@ import UIKit
 import FlatUIColors
 
 class AATrickViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    // Properties
     let cellReuseID:String = "cellReuseID"
+    private let numCols = 4
+    private let numRows = 8
 
+    // Objects
     //Model
     let deck = AATDeckModel.sharedDeck
     
     //Views
     var cardViews = [CardID:ABSwipeableCardView]()
-    private let numCols = 4
-    private let numRows = 8
     
     //Controller-Logic
     var voteTally = [Int:Bool]()
@@ -56,7 +59,10 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         
         // Do any additional setup after loading the view.
         deck.reset()
-        getCollectionView()
+
+        for aCardID in deck.cards.keys {
+            produceCardView(aCardID)
+        }
         
         print("cardViews.count = \(cardViews.count)")
         
@@ -77,13 +83,18 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     
     - returns: ABSwipeableCardView
     */
-    func produceCardView()->ABSwipeableCardView {
+    func produceCardView(cardKey:CardID)->ABSwipeableCardView {
+        
         let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         let collectionView = getCollectionView()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 12, 12)
         
+        currentCardKey = cardKey
+        if let currentCardKey = currentCardKey {
+            cardViews[currentCardKey] = cardView
+        }
         return cardView
     }
     
