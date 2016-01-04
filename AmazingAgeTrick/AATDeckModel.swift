@@ -5,7 +5,6 @@
 //  Created by Amitai Blickstein on 12/20/15.
 //  Copyright © 2015 Amitai Blickstein, LLC. All rights reserved.
 //
-
 import UIKit
 
 enum CardID:Int {
