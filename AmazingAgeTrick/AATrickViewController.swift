@@ -15,8 +15,8 @@ TODO NEXT:
 ✅1) add a collectionView to a card so that it's visible.
 ✅2) make the collectionView present the cardInfo.
 ✅3) add a voting mechanism
-4a) generate all 6 cards, piled atop one another,
-=== Curent Task: Modify produceCardView to take a CardID somewhere ===
+✅4a) generate all 6 cards, piled atop one another,
+✅ Curent Task: Modify produceCardView to take a CardID somewhere ===
 ✅4a.5) slightly rotated
 4b) make swiping rotate to the next card
 5) keep a **visual** tally of the votes.
@@ -33,7 +33,7 @@ import FlatUIColors
 
 class AATrickViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     // Properties
-    let cellReuseID:String = "cellReuseID"
+    private let cellReuseID:String = "cellReuseID"
     private let numCols = 4
     private let numRows = 8
 
@@ -108,14 +108,14 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         if currentCardKey == nil {return UICollectionView()}
         
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 1.0
+        layout.minimumLineSpacing      = 1.0
         layout.minimumInteritemSpacing = 1.0
-        layout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-        layout.estimatedItemSize = CGSizeMake(30, 30)
+        layout.sectionInset            = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        layout.estimatedItemSize       = CGSizeMake(30, 30)
         
         
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        collectionView.delegate = self
+        collectionView.delegate   = self
         collectionView.dataSource = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cellReuseID)
         collectionView.backgroundColor = FlatUIColors.randomFlatColor()
@@ -157,12 +157,20 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
+        setViewBackgroundColorToCell(cell)
     }
     
     // change background color back when user releases touch
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
+        setViewBackgroundColorToCell(cell)
+    }
+    
+    func setViewBackgroundColorToCell(cell:UICollectionViewCell?) {
+        guard let unwrappedCardKey = currentCardKey      else {  return  }
+        guard let cardView = cardViews[unwrappedCardKey] else {  return  }
+        cardView.backgroundColor = cell?.backgroundColor
     }
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
