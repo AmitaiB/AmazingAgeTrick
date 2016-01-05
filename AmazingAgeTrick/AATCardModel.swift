@@ -14,9 +14,13 @@ displayed by each cardView. the requirements are thus:
 */
 import UIKit
 
-class AATCardModel: NSObject {
-    var cardInfo:[Int] = [-1]
+class AATCardModel: NSObject, UICollectionViewDataSource {
+    var cardInfo:[Int]
     
+    init(cardInfo:[Int]) {
+        self.cardInfo = cardInfo
+        super.init()
+    }
     
     
     
