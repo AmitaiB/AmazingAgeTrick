@@ -18,6 +18,9 @@ TODO NEXT:
 ✅4a) generate all 6 cards, piled atop one another,
 ✅ Curent Task: Modify produceCardView to take a CardID somewhere ===
 ✅4a.5) slightly rotated
+
+===== Now, the view has the data
+
 4b) make swiping rotate to the next card
 5) keep a **visual** tally of the votes.
 6) Stop when all 6 cards have votes.
@@ -80,19 +83,13 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     //MARK: Setup helper functions
-    /**
-    Produces a 'blank' cardView with a collectionView ready to be filled with data,
-    adding it to the superView.
-    
-    - returns: ABSwipeableCardView
-    */
     func produceCardView(cardKey:CardID)->ABSwipeableCardView {
         // CollectionView
-        currentCardKey = cardKey
-        let collectionView = getCollectionView(currentCardKey)
+//        currentCardKey = cardKey
+        let collectionView = getCollectionView(cardKey)
 
         // CardView
-        let cardView = ABSwipeableCardView(superView: view)
+        let cardView = ABSwipeableCardView(superView: view, forCardID: cardKey)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 12, 12)
@@ -104,8 +101,8 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
         return cardView
     }
     
-    func getCollectionView(currentCardKey:CardID?)->UICollectionView {
-        if currentCardKey == nil {return UICollectionView()}
+    func getCollectionView(currentCardKey:CardID)->UICollectionView {
+//        if currentCardKey == nil {return UICollectionView()}
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing      = 1.0
@@ -250,7 +247,6 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
 }
 
 
-
 // MARK: - FlatUIColors Extension
 extension FlatUIColors {
     public static func randomFlatColor()->UIColor {
@@ -315,7 +311,7 @@ extension FlatUIColors {
         return FlatUIColors.pairedColorForColor(kosherColor)
     }
 
-    //Extension Ends
 }
+//Extension Ends
 
 

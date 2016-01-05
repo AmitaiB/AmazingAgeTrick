@@ -10,33 +10,35 @@ import UIKit
 
 
 class ABSwipeableCardView: UIView {
+    //MARK: - Properties
+    //CLEAN:
     
-    
-    var cardInfoKey:Int?
+//    var cardInfoKey:Int?
+    var cardInfo:[Int]?
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint!
 
-    
-    
+    //MARK: Init Methodss
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
-    convenience init(superView: UIView) {
-        let cardRect = CGRectInset(superView.frame, 40, 40)
+    convenience init(superView: UIView, forCardID thisCardsID:CardID) {
+        let cardRect = CGRectInset(superView.frame, 30, 30)
         self.init(frame: cardRect)
+        cardInfo = AATDeckModel.sharedDeck.cards[thisCardsID]
         superView.addSubview(self)
     }
     
-    //MARK: Private setup methods
+    //MARK: Setup's little helpers
     func setup() {
+        
         setupCardStyle()
         setupGestureRecognizer()
         setupNaturalLookRotation()
@@ -63,10 +65,10 @@ class ABSwipeableCardView: UIView {
         self.addGestureRecognizer(panGestureRecognizer)
     }
     
-    //MARK: Transforms
+    // == Transforms ==
     
     func setupNaturalLookRotation() {
-//        -5° < x < 5°
+        ///        -5° < x < 5° (by getting a random # from 0 to 10, subtracting 5)
         let randomDegree:Double = Double(Int(arc4random_uniform(UInt32(10))) - 5)
         self.transform = CGAffineTransformMakeRotation(CGFloat(DegreesToRadians(randomDegree)))
     }
@@ -111,7 +113,7 @@ class ABSwipeableCardView: UIView {
     }
     
     //MARK: Private helper methods
-    //    0 <= x < 2π
+    ///    0 <= x < 2π
     func DegreesToRadians (value:Double) -> Double {
         var convertedValue = (value * M_PI / 180.0) % (2 * M_PI)
         convertedValue = convertedValue > 0 ? convertedValue : convertedValue + 2 * M_PI
