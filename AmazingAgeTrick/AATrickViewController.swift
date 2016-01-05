@@ -164,9 +164,11 @@ class AATrickViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
-        setViewBackgroundColorToCell(cell)
+        setViewBackgroundColorToCell(cell) // <--Is this even necessary?
     }
     
+    
+    //MARK: Private helper functions
     func setViewBackgroundColorToCell(cell:UICollectionViewCell?) {
         guard let unwrappedCardKey = currentCardKey      else {  return  }
         guard let cardView = cardViews[unwrappedCardKey] else {  return  }
