@@ -11,10 +11,9 @@ import UIKit
 
 class ABSwipeableCardView: UIView {
     //MARK: - Properties
-    //CLEAN:
     
-//    var cardInfoKey:Int?
-    var cardInfo:[Int]?
+//    var cardInfo:[Int]?
+    var cardData:CardID = CardID.Card1
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint!
 
@@ -29,16 +28,16 @@ class ABSwipeableCardView: UIView {
         setup()
     }
     
-    convenience init(superView: UIView, forCardID thisCardsID:CardID) {
-        let cardRect = CGRectInset(superView.frame, 30, 30)
+    convenience init(superView: UIView, forCardID cardsID:CardID) {
+        let cardRect = CGRectInset(superView.frame, 20, 20)
         self.init(frame: cardRect)
-        cardInfo = AATDeckModel.sharedDeck.cards[thisCardsID]
+        cardData = cardsID
+//        cardInfo = AATDeckModel.sharedDeck.cards[thisCardsID]
         superView.addSubview(self)
     }
     
     //MARK: Setup's little helpers
     func setup() {
-        
         setupCardStyle()
         setupGestureRecognizer()
         setupNaturalLookRotation()
