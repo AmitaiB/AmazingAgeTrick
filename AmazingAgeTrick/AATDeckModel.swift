@@ -5,6 +5,31 @@
 //  Created by Amitai Blickstein on 12/20/15.
 //  Copyright © 2015 Amitai Blickstein, LLC. All rights reserved.
 //
+
+/**
+TODO: Replace this all with an enum + function!!
+
+enum Suit {
+    case Spades, Hearts, Diamonds, Clubs
+    func simpleDescription() -> String {
+        switch self {
+        case .Spades:
+            return "spades"
+        case .Hearts:
+            return "hearts"
+        case .Diamonds:
+            return "diamonds"
+        case .Clubs:
+            return "clubs"
+        }
+    }
+}
+let hearts = Suit.Hearts
+let heartsDescription = hearts.simpleDescription()
+
+Excerpt From: Apple Inc. “The Swift Programming Language (Swift 2.1).” iBooks.
+
+*/
 import UIKit
 
 enum CardID:Int {
