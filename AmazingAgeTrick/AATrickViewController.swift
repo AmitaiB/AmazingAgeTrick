@@ -18,9 +18,6 @@ TODO NEXT:
 ✅4a) generate all 6 cards, piled atop one another,
 ✅ Curent Task: Modify produceCardView to take a CardID somewhere ===
 ✅4a.5) slightly rotated
-
-===== Now, the view has the data
-
 4b) make swiping rotate to the next card
 5) keep a **visual** tally of the votes.
 6) Stop when all 6 cards have votes.
@@ -44,8 +41,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         case NoButton  = 31
     }
     
-    enum NumInfo:Int {case noNumber}
-
+    typealias NumInfo = Int
+    
     // Properties
     let cardCellReuseID:String = "cellReuseID"
     let numCols = 4
@@ -187,11 +184,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Pad the array with zeros
         var paddedCardInfo = cardModel.cardInfoArray()
         while paddedCardInfo.count < (numCols * numRows) {
-            paddedCardInfo.append(NumInfo.noNumber.rawValue)
+            paddedCardInfo.append(NumInfo.allZeros)
         }
         
         // Interpret data into proper string.
-        if paddedCardInfo[indexPath.row] == NumInfo.noNumber.rawValue {  return ""  }
+        if paddedCardInfo[indexPath.row] == NumInfo.allZeros {  return ""  }
         else {  return String(paddedCardInfo[indexPath.row])  }
     }
 
@@ -228,73 +225,4 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
 class AATCollectionView : UICollectionView {
     var cardModel:CardID = CardID.Card1
 }
-
-
-// MARK: - FlatUIColors Extension
-extension FlatUIColors {
-    public static func randomFlatColor()->UIColor {
-        let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
-        
-        let randomIndex:Int = Int(arc4random_uniform(UInt32(colors.count)))
-        return colors[randomIndex]
-    }
-    
-    //For some reason, not included in the pod, though it is in the pallette: https://flatuicolors.com/
-    public static func flatOrangeColor(alpha: CGFloat = 1.0) -> OSColor! {return UIColor(red: 243, green: 156, blue: 18, alpha: alpha)}
-    
-    public static func randomFlatColorPair()->(UIColor, UIColor) {
-        let colorPairs:[(colorA:UIColor, colorB:UIColor)] =
-        [(FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor()),
-            (FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor()),
-            (FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor()),
-            (FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor()),
-            (FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor()),
-            (FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor()),
-            (FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor()),
-            (FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor()),
-            (FlatUIColors.cloudsColor(), FlatUIColors.silverColor()),
-            (FlatUIColors.concreteColor(), FlatUIColors.asbestosColor())
-        ]
-        let randomIndex:Int = Int(arc4random_uniform(UInt32(colorPairs.count)))
-        return colorPairs[randomIndex]
-    }
-    
-    public static func orderedFlatColor(ordinal:Int)->UIColor {
-        let colors = [FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor(), FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor(), FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor(), FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor(), FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor(), FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor(), FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor(), FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor(), FlatUIColors.cloudsColor(), FlatUIColors.silverColor(), FlatUIColors.concreteColor(), FlatUIColors.asbestosColor()]
-        
-        return colors[ordinal]
-    }
-    
-    public static func pairedColorForColor(color:UIColor)->UIColor {
-        let colorPairs:[(colorA:UIColor, colorB:UIColor)] =
-        [(FlatUIColors.turquoiseColor(), FlatUIColors.greenSeaColor()),
-            (FlatUIColors.emeraldColor(), FlatUIColors.nephritisColor()),
-            (FlatUIColors.peterRiverColor(), FlatUIColors.belizeHoleColor()),
-            (FlatUIColors.amethystColor(), FlatUIColors.wisteriaColor()),
-            (FlatUIColors.wetAsphaltColor(), FlatUIColors.midnightBlueColor()),
-            (FlatUIColors.sunflowerColor(), FlatUIColors.flatOrangeColor()),
-            (FlatUIColors.carrotColor(), FlatUIColors.pumpkinColor()),
-            (FlatUIColors.alizarinColor(), FlatUIColors.pomegranateColor()),
-            (FlatUIColors.cloudsColor(), FlatUIColors.silverColor()),
-            (FlatUIColors.concreteColor(), FlatUIColors.asbestosColor())
-        ]
-        
-        var complementaryColor:UIColor = UIColor.whiteColor()
-        for colorPair in colorPairs {
-            if color == colorPair.colorA {complementaryColor = colorPair.colorB}
-            if color == colorPair.colorB {complementaryColor = colorPair.colorA}
-        }
-        return complementaryColor
-    }
-   
-
-
-    public static func pairedColorForColor(color:UIColor?)->UIColor {
-        guard let kosherColor = color else {return UIColor.whiteColor()}
-        return FlatUIColors.pairedColorForColor(kosherColor)
-    }
-
-}
-//Extension Ends
-
 

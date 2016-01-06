@@ -7,7 +7,7 @@
 //
 
 /**
-TODO NEXT: Cascade using this throughout the app! VERY SWIFT! 👍
+Using enums with methods: VERY SWIFT! 👍
 */
 import UIKit
 
