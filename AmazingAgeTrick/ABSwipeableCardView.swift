@@ -114,7 +114,7 @@ class ABSwipeableCardView: UIView {
         return convertedValue
     }
 
-    //    0 <= x < 360°
+    ///    0 <= x < 360°
     func RadiansToDegrees (value:Double) -> Double {
         var convertedValue = (value * 180.0 / M_PI) % 360
         convertedValue = convertedValue > 0 ? convertedValue : convertedValue + 360

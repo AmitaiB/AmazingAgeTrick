@@ -48,21 +48,16 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // Properties
     let cardCellReuseID:String = "cellReuseID"
-    
     let numCols = 4
     let numRows = 8
 
+    // Views
     // Objects
-    //Model
+    // Model
     let deck = AATDeckModel.sharedDeck
     
-    //Views
-//    var cardViews = [CardID:ABSwipeableCardView]()
-    
-    //Controller-Logic
+    // Business Logic
     var voteTally = [Int:Bool]()
-//    private var currentCardKey:CardID?
-    
     
     
     //MARK: - Lifecycle
@@ -72,23 +67,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         navigationController?.hidesBarsWhenVerticallyCompact = true
         navigationController?.setToolbarHidden(false, animated: false)
 
-
-//        deck.reset()
-//        let randomizedCardKeys = Array(deck.cards.keys).randomizeElements()
-
         for cardModel in deck.randomOrderInstance {
             produceCardView(cardModel)
         }
-        
-//        print("cardViews.count = \(cardViews.count)")
-        
     }
 
     
     //MARK: Setup helper functions
     func produceCardView(cardModel:CardID)->ABSwipeableCardView {
-        // CollectionView
-//        currentCardKey = cardKey
         let collectionView = getCollectionView(cardModel)
 
         // CardView
@@ -101,16 +87,12 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func getCollectionView(cardModel:CardID)->UICollectionView {
-//        if currentCardKey == nil {return UICollectionView()}
-        
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing      = 1.0
         layout.minimumInteritemSpacing = 1.0
         layout.sectionInset            = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         layout.estimatedItemSize       = CGSizeMake(30, 30)
         
-        
-//        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         let collectionView = AATCollectionView(frame: CGRectZero, collectionViewLayout: layout)
         collectionView.cardModel  = cardModel
         collectionView.delegate   = self
@@ -202,9 +184,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->String {
-//        guard let unwrappedCardKey = currentCardKey else {return ""}
-//        guard let currentCardInfo:[Int] = deck[unwrappedCardKey] else {return ""}
-        
         // Pad the array with zeros
         var paddedCardInfo = cardModel.cardInfoArray()
         while paddedCardInfo.count < (numCols * numRows) {
@@ -231,8 +210,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         let itemWidth  = availableWidth / numCols
         let itemSize = CGSizeMake(CGFloat(itemWidth), CGFloat(itemHeight))
         //        let itemSquareDimension = min(itemWidth, itemHeight)
-        //        let itemSize = CGSizeMake(CGFloat(itemSquareDimension), CGFloat(itemSquareDimension))
-        
+        //        let itemSize = CGSizeMake(CGFloat(itemSquareDimension), CGFloat(itemSquareDimension))        
         
         return itemSize
     }

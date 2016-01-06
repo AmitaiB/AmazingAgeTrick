@@ -79,51 +79,6 @@ extension String
         return nil
     }
     
-//    
-//    func lastIndexOf(target: String) -> Int
-//    {
-//        var index = -1
-//        var stepIndex = self.indexOf(target)
-//        while stepIndex > -1
-//        {
-//            index = stepIndex
-//            if stepIndex + target.length < self.length {
-//                stepIndex = indexOf(target, startIndex: stepIndex + target.length)
-//            } else {
-//                stepIndex = -1
-//            }
-//        }
-//        return index
-//    }
-//    
-//    func isMatch(regex: String, options: NSRegularExpressionOptions) -> Bool
-//    {
-//        var error: NSError?
-//        do {
-//            var exp = try NSRegularExpression(pattern: regex, options: options)
-//        } catch error.exp {
-//            print()
-//        }
-//        
-//        if let error = error {
-//            println(error.description)
-//        }
-//        var matchCount = exp.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, self.length))
-//        return matchCount > 0
-//    }
-//    
-//    func getMatches(regex: String, options: NSRegularExpressionOptions) -> [NSTextCheckingResult]
-//    {
-//        var error: NSError?
-//        var exp = NSRegularExpression(pattern: regex, options: options, error: &error)
-//        
-//        if let error = error {
-//            println(error.description)
-//        }
-//        var matches = exp.matchesInString(self, options: nil, range: NSMakeRange(0, self.length))
-//        return matches as [NSTextCheckingResult]
-//    }
-    
     private var vowels: [String]
         {
         get
