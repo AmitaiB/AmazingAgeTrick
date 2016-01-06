@@ -14,7 +14,14 @@ class ABSwipeableCardView: UIView {
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint!
 
-    //MARK: Init Methodss
+    private var snapBehavior:UISnapBehavior!
+    private var pushBehavior:UIPushBehavior!
+
+    private var animator:UIDynamicAnimator
+    /// Why this???:
+    private weak var swipeableView:ABSwipeableCardView?
+    
+    //MARK: Init Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -54,9 +61,11 @@ class ABSwipeableCardView: UIView {
         layer.cornerRadius = 10.0
     }
     
-    func setupGestureRecognizer() {
-        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("swiped:"))
+    func setupGesturesAndDynamics() {
+        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePan:"))
         self.addGestureRecognizer(panGestureRecognizer)
+        
+        animator = UIDynamicAnimator(referenceView: self)
     }
     
     // == Transforms ==
@@ -67,44 +76,96 @@ class ABSwipeableCardView: UIView {
         self.transform = CGAffineTransformMakeRotation(CGFloat(DegreesToRadians(randomDegree)))
     }
     
-    func swiped(gestureRecognizer: UIPanGestureRecognizer) {
+    
+
+    
+    func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
+        // Old stuff
         print("Swiped!", terminator: "")
-        
         let 𝛥x:CGFloat = gestureRecognizer.translationInView(self).x
         let 𝛥y:CGFloat = gestureRecognizer.translationInView(self).y
         let screenWidth  :CGFloat = UIScreen.mainScreen().nativeBounds.width
         
-        switch(gestureRecognizer.state) {
-        case UIGestureRecognizerState.Began:
-            self.originalPoint = self.center
+        // New stuff
+        let location = gestureRecognizer.locationInView(self)
+        let translation = gestureRecognizer.translationInView(self)
+        let velocity = gestureRecognizer.velocityInView(self)
+        
+        let movement:Movement = Movement(location: location, translation: translation, velocity: velocity)
+        
+        switch gestureRecognizer.state {
+        case .Began:
+            originalPoint = center
             
-        case UIGestureRecognizerState.Changed:
+        case .Changed:
             let rotationStrength:CGFloat = min((𝛥x/screenWidth), 1)
             let rotationAngle:CGFloat = (2.0 * CGFloat(M_PI) * CGFloat(rotationStrength) / 16.0)
             let scaleStrenght:CGFloat = 1.0 - CGFloat(fabs(Float(rotationStrength))) / 4.0
             let scale:CGFloat = max(scaleStrenght, 0.93)
             
-            self.center = CGPoint(x: self.originalPoint.x + 𝛥x, y: self.originalPoint.y + 𝛥y)
-            let transform:CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
-            let scaleTransform:CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
-            self.transform = scaleTransform
+            center = CGPoint(x: self.originalPoint.x + 𝛥x, y: self.originalPoint.y + 𝛥y)
+            let myTransform:CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
+            let scaleTransform:CGAffineTransform = CGAffineTransformScale(myTransform, scale, scale)
+            transform = scaleTransform
             
-        case UIGestureRecognizerState.Ended:
-            self.resetViewPositionAndTransformations()
+        case .Ended:
+            resetViewPositionAndTransformationsInFront(orInBack: true)
+        
+        
+        case .Cancelled:
+            resetViewPositionAndTransformationsInFront(orInBack: false)
             // TODO: Logic here.
             
         default:
             print("error default statement", terminator: "")
-            
+        
         }
     }
     
-    func resetViewPositionAndTransformations() {
+    func resetViewPositionAndTransformationsInFront(orInBack inBackInsteadOfInFront:Bool) {
+
+        animator.addBehavior(snap)
+        
         UIView.animateWithDuration(0.2) { () -> Void in
             self.center = self.originalPoint
             self.transform = CGAffineTransformMakeRotation(0)
         }
     }
+    
+    func snapView(point: CGPoint) {
+        snapBehavior = UISnapBehavior(item: self, snapToPoint: originalPoint)
+        snapBehavior!.damping = 0.75
+        animator.addBehavior(snapBehavior)
+    }
+    
+    func unsnapView() {
+        guard let snapBehavior = snapBehavior 
+    }
+    
+    func shouldSwipeAdvanceCards(movement: Movement)->Bool {
+        let translation = movement.translation
+        let velocity = movement.velocity
+        let bounds  = self.bounds
+        let minTranslationInPercent:CGFloat = 0.25 //custimizable
+        let minVelocityInPointsPerSecond:CGFloat = 750
+        
+        func areTranslationAndVelocityInTheSameDirection()->Bool {
+            return CGPoint.areInSameTheDirection(translation, p2: velocity)
+        }
+        
+        func isTranslationLargeEnough() ->Bool {
+            return abs(translation.x) > minTranslationInPercent * bounds.width ||
+            abs(translation.y) > minTranslationInPercent * bounds.height
+        }
+        
+        func isVelocityLargeEnough() -> Bool {
+            return velocity.magnitude > minVelocityInPointsPerSecond
+        }
+        
+        return areTranslationAndVelocityInTheSameDirection() && (isTranslationLargeEnough() || isVelocityLargeEnough())
+    }
+    
+    
     
     //MARK: Private helper methods
     ///    0 <= x < 2π
@@ -121,4 +182,35 @@ class ABSwipeableCardView: UIView {
         convertedValue = convertedValue == 360 ? 0 : convertedValue
         return convertedValue
     }
+}
+
+public struct Movement {
+    let location: CGPoint
+    let translation: CGPoint
+    let velocity: CGPoint
+}
+
+extension CGPoint {
+    
+    init(vector: CGVector) {
+        self.init(x: vector.dx, y: vector.dy)
+    }
+    
+    var normalized: CGPoint {
+        return CGPoint(x: x / magnitude, y: y / magnitude)
+    }
+    
+    var magnitude: CGFloat {
+        return CGFloat(sqrtf(powf(Float(x), 2) + powf(Float(y), 2)))
+    }
+    
+    static func areInSameTheDirection(p1: CGPoint, p2: CGPoint) -> Bool {
+        
+        func signNum(n: CGFloat) -> Int {
+            return (n < 0.0) ? -1 : (n > 0.0) ? +1 : 0
+        }
+        
+        return signNum(p1.x) == signNum(p2.x) && signNum(p1.y) == signNum(p2.y)
+    }
+    
 }
