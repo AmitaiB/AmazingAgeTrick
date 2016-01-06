@@ -92,14 +92,10 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         let collectionView = getCollectionView(cardModel)
 
         // CardView
-        let cardView = ABSwipeableCardView(superView: view, forCardID: cardKey)
+        let cardView = ABSwipeableCardView(superView: view)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 12, 12)
-
-        if let unwrappedCardKey = currentCardKey {
-            cardViews[unwrappedCardKey] = cardView
-        }
         
         return cardView
     }
@@ -131,9 +127,12 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-    func collectionView(collectionView: AATCollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cardCellReuseID, forIndexPath: indexPath)
-        configureCell(cell, forIndexPath: indexPath, accordingToCardModel: collectionView.cardModel)
+
+        if let myCollectionView = collectionView as? AATCollectionView {
+            configureCell(cell, forIndexPath: indexPath, accordingToCardModel: myCollectionView.cardModel)
+        }
         return cell
     }
     
@@ -160,14 +159,13 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
-        setViewBackgroundColorToCell(cell)
+        collectionView.superview?.backgroundColor = cell?.backgroundColor
     }
     
     // change background color back when user releases touch
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
-        setViewBackgroundColorToCell(cell) // <--Is this even necessary?
     }
     
     
@@ -218,11 +216,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         else {  return String(paddedCardInfo[indexPath.row])  }
     }
 
-    func setViewBackgroundColorToCell(cell:UICollectionViewCell?) {
-        guard let unwrappedCardKey = currentCardKey      else {  return  }
-        guard let cardView = cardViews[unwrappedCardKey] else {  return  }
-        cardView.backgroundColor = cell?.backgroundColor
-    }
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
