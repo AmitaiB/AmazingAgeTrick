@@ -86,10 +86,10 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     
     //MARK: Setup helper functions
-    func produceCardView(cardKey:CardID)->ABSwipeableCardView {
+    func produceCardView(cardModel:CardID)->ABSwipeableCardView {
         // CollectionView
 //        currentCardKey = cardKey
-        let collectionView = getCollectionView(cardKey)
+        let collectionView = getCollectionView(cardModel)
 
         // CardView
         let cardView = ABSwipeableCardView(superView: view, forCardID: cardKey)
@@ -104,7 +104,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cardView
     }
     
-    func getCollectionView(currentCardKey:CardID)->UICollectionView {
+    func getCollectionView(cardModel:CardID)->UICollectionView {
 //        if currentCardKey == nil {return UICollectionView()}
         
         let layout = UICollectionViewFlowLayout()
@@ -114,9 +114,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         layout.estimatedItemSize       = CGSizeMake(30, 30)
         
         
-        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+//        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        let collectionView = AATCollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView.cardModel  = cardModel
         collectionView.delegate   = self
-        collectionView.dataSource = self ///TODO: Make this delegate a CardModel object. How exactly, though, should it be implemented?
+        collectionView.dataSource = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cardCellReuseID)
         collectionView.backgroundColor = FlatUIColors.randomFlatColor()
         collectionView.allowsSelection = true
@@ -129,9 +131,9 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: AATCollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cardCellReuseID, forIndexPath: indexPath)
-        configureCell(cell, forIndexPath: indexPath)
+        configureCell(cell, forIndexPath: indexPath, accordingToCardModel: collectionView.cardModel)
         return cell
     }
     
@@ -170,7 +172,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     // MARK: == Private helper methods ==
-    func configureCell(cell:UICollectionViewCell, forIndexPath indexPath:NSIndexPath) {
+    func configureCell(cell:UICollectionViewCell, forIndexPath indexPath:NSIndexPath, accordingToCardModel cardModel:CardID) {
         let imageView = UIImageView(frame: cell.contentView.bounds)
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "transparent-black-circle-medium")
@@ -247,6 +249,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     //ViewController Ends here
+}
+
+// MARK: - === AATCollectionView class ===
+class AATCollectionView : UICollectionView {
+    var cardModel:CardID = CardID.Card1
 }
 
 
