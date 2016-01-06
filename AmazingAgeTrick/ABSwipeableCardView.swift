@@ -12,7 +12,7 @@ import UIKit
 class ABSwipeableCardView: UIView {
     //MARK: - Properties
     var panGestureRecognizer: UIPanGestureRecognizer!
-    var originalPoint: CGPoint!
+    var originalPoint: CGPoint?
 
     private var snapBehavior:UISnapBehavior!
     private var pushBehavior:UIPushBehavior!
@@ -41,8 +41,9 @@ class ABSwipeableCardView: UIView {
     //MARK: Setup's little helpers
     func setup() {
         setupCardStyle()
-        setupGestureRecognizer()
+        setupPanGesture()
         setupNaturalLookRotation()
+        animator = UIDynamicAnimator(referenceView: self)
     }
     
     func setupCardStyle() {
@@ -61,11 +62,16 @@ class ABSwipeableCardView: UIView {
         layer.cornerRadius = 10.0
     }
     
-    func setupGesturesAndDynamics() {
+    func setupPanGesture() {
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePan:"))
         self.addGestureRecognizer(panGestureRecognizer)
-        
-        animator = UIDynamicAnimator(referenceView: self)
+    }
+    
+    func snapViewToPoint(point: CGPoint) {
+        guard let pointOfYesReturn = originalPoint else { return }
+        snapBehavior = UISnapBehavior(item: self, snapToPoint: pointOfYesReturn)
+        snapBehavior!.damping = 0.75
+        animator.addBehavior(snapBehavior)
     }
     
     // == Transforms ==
@@ -76,8 +82,6 @@ class ABSwipeableCardView: UIView {
         self.transform = CGAffineTransformMakeRotation(CGFloat(DegreesToRadians(randomDegree)))
     }
     
-    
-
     
     func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
         // Old stuff
@@ -109,11 +113,11 @@ class ABSwipeableCardView: UIView {
             transform = scaleTransform
             
         case .Ended:
-            resetViewPositionAndTransformationsInFront(orInBack: true)
+//            resetViewPositionAndTransformationsInFront(orInBack: true)
         
         
         case .Cancelled:
-            resetViewPositionAndTransformationsInFront(orInBack: false)
+//            resetViewPositionAndTransformationsInFront(orInBack: false)
             // TODO: Logic here.
             
         default:
@@ -122,25 +126,17 @@ class ABSwipeableCardView: UIView {
         }
     }
     
-    func resetViewPositionAndTransformationsInFront(orInBack inBackInsteadOfInFront:Bool) {
-
-        animator.addBehavior(snap)
-        
-        UIView.animateWithDuration(0.2) { () -> Void in
-            self.center = self.originalPoint
-            self.transform = CGAffineTransformMakeRotation(0)
-        }
-    }
     
-    func snapView(point: CGPoint) {
-        snapBehavior = UISnapBehavior(item: self, snapToPoint: originalPoint)
-        snapBehavior!.damping = 0.75
-        animator.addBehavior(snapBehavior)
-    }
-    
-    func unsnapView() {
-        guard let snapBehavior = snapBehavior 
-    }
+//    func snapView(point: CGPoint) {
+//        snapBehavior = UISnapBehavior(item: self, snapToPoint: originalPoint)
+//        snapBehavior!.damping = 0.75
+//        animator.addBehavior(snapBehavior)
+//    }
+//    
+//    func unsnapView() {
+//        guard let snapBehavior = snapBehavior else { return }
+//        animator.removeBehavior(snapBehavior)
+//    }
     
     func shouldSwipeAdvanceCards(movement: Movement)->Bool {
         let translation = movement.translation
