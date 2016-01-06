@@ -43,7 +43,7 @@ enum CardID:Int {
 //MARK: - === AATDeckModel class ===
 /// Models the deck of 6 cards, including what order it is in.
 class AATDeckModel: NSObject {
-    let randomOrderDeck = CardID.allValues.shuffle()
+    let randomOrderInstance = CardID.allValues.shuffle()
     
     static let sharedDeck = AATDeckModel()
     private override init() {}

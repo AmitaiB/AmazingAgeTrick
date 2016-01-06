@@ -34,35 +34,34 @@ make the cards rotate a bit, randomly, so that you can see them when they are st
 import UIKit
 import FlatUIColors
 
-let cardCellReuseID:String = "cellReuseID"
-
-let numCols = 4
-let numRows = 8
-
-enum ButtonCellRow:Int {
-    case YesButton = 30
-    case NoButton  = 31
-}
-
-enum NumInfo:Int {case noNumber}
 
 
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    enum ButtonCellRow:Int {
+        case YesButton = 30
+        case NoButton  = 31
+    }
+    
+    enum NumInfo:Int {case noNumber}
+
     // Properties
-//    private let numCols = 4
-//    private let numRows = 8
+    let cardCellReuseID:String = "cellReuseID"
+    
+    let numCols = 4
+    let numRows = 8
 
     // Objects
     //Model
     let deck = AATDeckModel.sharedDeck
     
     //Views
-    var cardViews = [CardID:ABSwipeableCardView]()
+//    var cardViews = [CardID:ABSwipeableCardView]()
     
     //Controller-Logic
     var voteTally = [Int:Bool]()
-    private var currentCardKey:CardID?
+//    private var currentCardKey:CardID?
     
     
     
@@ -70,25 +69,21 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        deck.reset()
-        let randomizedCardKeys = Array(deck.cards.keys).randomizeElements()
-
-        for aCardID in randomizedCardKeys {
-            produceCardView(aCardID)
-        }
-        
-        print("cardViews.count = \(cardViews.count)")
-        
         navigationController?.hidesBarsWhenVerticallyCompact = true
         navigationController?.setToolbarHidden(false, animated: false)
+
+
+//        deck.reset()
+//        let randomizedCardKeys = Array(deck.cards.keys).randomizeElements()
+
+        for cardModel in deck.randomOrderInstance {
+            produceCardView(cardModel)
+        }
+        
+//        print("cardViews.count = \(cardViews.count)")
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     //MARK: Setup helper functions
     func produceCardView(cardKey:CardID)->ABSwipeableCardView {
