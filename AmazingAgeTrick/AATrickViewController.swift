@@ -193,7 +193,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
             label.text = "NO"
             cell.backgroundColor = FlatUIColors.pomegranateColor()
         default:
-            label.text = numberForIndexPath(indexPath)
+            label.text = numberForIndexPath(indexPath, withCardModel: cardModel)
             cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 20)
             
             ///TODO: Make colors pretty!
@@ -203,15 +203,17 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
-    func numberForIndexPath(indexPath:NSIndexPath)->String {
-        guard let unwrappedCardKey = currentCardKey else {return ""}
-        guard let currentCardInfo:[Int] = deck[unwrappedCardKey] else {return ""}
+    func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->String {
+//        guard let unwrappedCardKey = currentCardKey else {return ""}
+//        guard let currentCardInfo:[Int] = deck[unwrappedCardKey] else {return ""}
         
-        var paddedCardInfo = currentCardInfo
+        // Pad the array with zeros
+        var paddedCardInfo = cardModel.cardInfoArray()
         while paddedCardInfo.count < (numCols * numRows) {
             paddedCardInfo.append(NumInfo.noNumber.rawValue)
         }
         
+        // Interpret data into proper string.
         if paddedCardInfo[indexPath.row] == NumInfo.noNumber.rawValue {  return ""  }
         else {  return String(paddedCardInfo[indexPath.row])  }
     }
