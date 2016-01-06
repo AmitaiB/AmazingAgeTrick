@@ -11,9 +11,6 @@ import UIKit
 
 class ABSwipeableCardView: UIView {
     //MARK: - Properties
-    
-//    var cardInfo:[Int]?
-    var cardData:CardID = CardID.Card1
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint!
 
@@ -28,11 +25,9 @@ class ABSwipeableCardView: UIView {
         setup()
     }
     
-    convenience init(superView: UIView, forCardID cardsID:CardID) {
+    convenience init(superView: UIView) {
         let cardRect = CGRectInset(superView.frame, 20, 20)
         self.init(frame: cardRect)
-        cardData = cardsID
-//        cardInfo = AATDeckModel.sharedDeck.cards[thisCardsID]
         superView.addSubview(self)
     }
     
