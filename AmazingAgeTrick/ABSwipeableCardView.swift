@@ -49,6 +49,7 @@ class ABSwipeableCardView: UIView {
         let cardRect = CGRectInset(superView.frame, 20, 20)
         self.init(frame: cardRect)
         superView.addSubview(self)
+        setUpAnimator()
     }
     
     //MARK: Setup's little helpers
@@ -56,9 +57,13 @@ class ABSwipeableCardView: UIView {
         setupCardStyle()
         setupPanGesture()
         setupNaturalLookRotation()
-
+    }
+    
+    func setUpAnimator() {
         animator = UIDynamicAnimator(referenceView: self)
-        addSnapToPoint(center)
+        if let superCenter = superview?.center {
+            addSnapToPoint(superCenter)
+        }
     }
     
     func setupCardStyle() {
@@ -86,9 +91,12 @@ class ABSwipeableCardView: UIView {
         guard let pointOfYesReturn = originalPoint else { return }
         snapBehavior = UISnapBehavior(item: self, snapToPoint: pointOfYesReturn)
         snapBehavior!.damping = 0.75
-        if let myAnimator = animator {
-            myAnimator.addBehavior(snapBehavior)
-        }
+        
+        animator!.addBehavior(snapBehavior)
+        
+//        if let myAnimator = animator {
+//            myAnimator.addBehavior(snapBehavior)
+//        }
     }
     
     
@@ -137,13 +145,16 @@ class ABSwipeableCardView: UIView {
             
             
         case .Ended:
-            let smallerTarget = CGRectInset(originalFrame!, 15, 15)
+            let smallerTarget = CGRectInset(originalFrame!, 65, 65)
             if !CGRectIntersectsRect(smallerTarget, frame) {
                 print("Advance to the next view here!")
                 ///Advance to the next view
             }
         
+//            resetViewPositionAndTransformations()
+            
 //        case .Cancelled:
+//            resetViewPositionAndTransformations()
         
         default:
             print("error default statement", terminator: "")
@@ -151,6 +162,13 @@ class ABSwipeableCardView: UIView {
         }
     }
     
+    func resetViewPositionAndTransformations() {
+        UIView.animateWithDuration(0.2) { () -> Void in
+            guard let originalPoint = self.originalPoint else { return }
+            self.center = originalPoint
+            self.transform = CGAffineTransformMakeRotation(0)
+        }
+    }
     
     func shouldSwipeAdvanceCards(movement: Movement)->Bool {
         let translation = movement.translation
