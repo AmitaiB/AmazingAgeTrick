@@ -8,6 +8,13 @@
 
 import UIKit
 /**
+ ✅1) Need Gesture to actually move the frame.
+ 2) Need SnapBehavior to snap back OR reverse animate.
+ 3) Need simple test if the card is outside the other cards, send it to the back.
+ 4) Somehow let the system know all this.
+ 
+ 
+ 
  Gesture out, if triggered, then Animate out, [flip?], sendToBack, Animate back in.
  
  */
@@ -21,12 +28,14 @@ class ABSwipeableCardView: UIView {
     private var snapBehavior:UISnapBehavior!
     private var pushBehavior:UIPushBehavior!
 
-    private var animator:UIDynamicAnimator
+    private var animator:UIDynamicAnimator?
     /// Why this???:
     private weak var swipeableView:ABSwipeableCardView?
     
     //MARK: Init Methods
-    override init(frame: CGRect) {
+
+    
+     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
@@ -47,7 +56,9 @@ class ABSwipeableCardView: UIView {
         setupCardStyle()
         setupPanGesture()
         setupNaturalLookRotation()
+
         animator = UIDynamicAnimator(referenceView: self)
+        addSnapToPoint(center)
     }
     
     func setupCardStyle() {
@@ -71,11 +82,13 @@ class ABSwipeableCardView: UIView {
         self.addGestureRecognizer(panGestureRecognizer)
     }
     
-    func snapViewToPoint(point: CGPoint) {
+    func addSnapToPoint(point: CGPoint) {
         guard let pointOfYesReturn = originalPoint else { return }
         snapBehavior = UISnapBehavior(item: self, snapToPoint: pointOfYesReturn)
         snapBehavior!.damping = 0.75
-        animator.addBehavior(snapBehavior)
+        if let myAnimator = animator {
+            myAnimator.addBehavior(snapBehavior)
+        }
     }
     
     
@@ -96,11 +109,13 @@ class ABSwipeableCardView: UIView {
         let screenWidth  :CGFloat = UIScreen.mainScreen().nativeBounds.width
         
         // New stuff
+        /*
         let location = gestureRecognizer.locationInView(self)
         let translation = gestureRecognizer.translationInView(self)
         let velocity = gestureRecognizer.velocityInView(self)
         
         let movement:Movement = Movement(location: location, translation: translation, velocity: velocity)
+        */
         
         switch gestureRecognizer.state {
         case .Began:
@@ -113,42 +128,29 @@ class ABSwipeableCardView: UIView {
             let scaleStrenght:CGFloat = 1.0 - CGFloat(fabs(Float(rotationStrength))) / 4.0
             let scale:CGFloat = max(scaleStrenght, 0.93)
             
-            guard let originalPoint = self.originalPoint else { break }
+            guard let originalPoint = originalPoint else { break }
             center = CGPoint(x: originalPoint.x + 𝛥x, y: originalPoint.y + 𝛥y)
+            
             let myTransform:CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
             let scaleTransform:CGAffineTransform = CGAffineTransformScale(myTransform, scale, scale)
             transform = scaleTransform
             
+            
         case .Ended:
-            if !CGRectIntersectsRect(originalFrame!, frame) {
+            let smallerTarget = CGRectInset(originalFrame!, 15, 15)
+            if !CGRectIntersectsRect(smallerTarget, frame) {
+                print("Advance to the next view here!")
                 ///Advance to the next view
             }
         
+//        case .Cancelled:
         
-        case .Cancelled:
-            if let pointOfYesReturn = originalPoint {
-                snapViewToPoint(pointOfYesReturn)
-            }
-//            resetViewPositionAndTransformationsInFront(orInBack: false)
-            // TODO: Logic here.
-            
         default:
             print("error default statement", terminator: "")
         
         }
     }
     
-    
-//    func snapView(point: CGPoint) {
-//        snapBehavior = UISnapBehavior(item: self, snapToPoint: originalPoint)
-//        snapBehavior!.damping = 0.75
-//        animator.addBehavior(snapBehavior)
-//    }
-//    
-//    func unsnapView() {
-//        guard let snapBehavior = snapBehavior else { return }
-//        animator.removeBehavior(snapBehavior)
-//    }
     
     func shouldSwipeAdvanceCards(movement: Movement)->Bool {
         let translation = movement.translation
