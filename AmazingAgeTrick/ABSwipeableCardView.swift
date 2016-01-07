@@ -61,9 +61,9 @@ class ABSwipeableCardView: UIView {
     
     func setUpAnimator() {
         animator = UIDynamicAnimator(referenceView: self)
-        if let superCenter = superview?.center {
-            addSnapToPoint(superCenter)
-        }
+//        if let superCenter = superview?.center {
+//            addSnapToPoint(superCenter)
+//        }
     }
     
     func setupCardStyle() {
@@ -109,11 +109,11 @@ class ABSwipeableCardView: UIView {
     }
     
     
-    func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
+    func handlePan(gesture: UIPanGestureRecognizer) {
         // Old stuff
         print("Swiped!", terminator: "")
-        let 𝛥x:CGFloat = gestureRecognizer.translationInView(self).x
-        let 𝛥y:CGFloat = gestureRecognizer.translationInView(self).y
+        let 𝛥x:CGFloat = gesture.translationInView(self).x
+        let 𝛥y:CGFloat = gesture.translationInView(self).y
         let screenWidth  :CGFloat = UIScreen.mainScreen().nativeBounds.width
         
         // New stuff
@@ -125,9 +125,10 @@ class ABSwipeableCardView: UIView {
         let movement:Movement = Movement(location: location, translation: translation, velocity: velocity)
         */
         
-        switch gestureRecognizer.state {
+        switch gesture.state {
         case .Began:
             originalPoint = center
+//            originalPoint = self.convertPoint(center, toView: superview)
             originalFrame = frame
             
         case .Changed:
@@ -152,14 +153,27 @@ class ABSwipeableCardView: UIView {
             }
         
 //            resetViewPositionAndTransformations()
+//            resetCardView()
             
-//        case .Cancelled:
+//            addSnapToPoint(originalPoint!)
+            addSnapToPoint(CGPointZero)
+        case .Cancelled:
 //            resetViewPositionAndTransformations()
+//            resetCardView()
+            
+            addSnapToPoint(CGPointZero)
+            
         
         default:
             print("error default statement", terminator: "")
         
         }
+    }
+    
+    func resetCardView() {
+        guard let unwrappedPoint = originalPoint else { return }
+        animator?.removeBehavior(snapBehavior)
+        snapBehavior = UISnapBehavior(item: self, snapToPoint: unwrappedPoint)
     }
     
     func resetViewPositionAndTransformations() {
@@ -168,6 +182,7 @@ class ABSwipeableCardView: UIView {
             self.center = originalPoint
             self.transform = CGAffineTransformMakeRotation(0)
         }
+        
     }
     
     func shouldSwipeAdvanceCards(movement: Movement)->Bool {
