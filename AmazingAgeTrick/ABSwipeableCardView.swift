@@ -7,12 +7,16 @@
 //
 
 import UIKit
-
+/**
+ Gesture out, if triggered, then Animate out, [flip?], sendToBack, Animate back in.
+ 
+ */
 
 class ABSwipeableCardView: UIView {
     //MARK: - Properties
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originalPoint: CGPoint?
+    var originalFrame: CGRect?
 
     private var snapBehavior:UISnapBehavior!
     private var pushBehavior:UIPushBehavior!
@@ -74,6 +78,7 @@ class ABSwipeableCardView: UIView {
         animator.addBehavior(snapBehavior)
     }
     
+    
     // == Transforms ==
     
     func setupNaturalLookRotation() {
@@ -100,6 +105,7 @@ class ABSwipeableCardView: UIView {
         switch gestureRecognizer.state {
         case .Began:
             originalPoint = center
+            originalFrame = frame
             
         case .Changed:
             let rotationStrength:CGFloat = min((𝛥x/screenWidth), 1)
@@ -107,16 +113,22 @@ class ABSwipeableCardView: UIView {
             let scaleStrenght:CGFloat = 1.0 - CGFloat(fabs(Float(rotationStrength))) / 4.0
             let scale:CGFloat = max(scaleStrenght, 0.93)
             
-            center = CGPoint(x: self.originalPoint.x + 𝛥x, y: self.originalPoint.y + 𝛥y)
+            guard let originalPoint = self.originalPoint else { break }
+            center = CGPoint(x: originalPoint.x + 𝛥x, y: originalPoint.y + 𝛥y)
             let myTransform:CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
             let scaleTransform:CGAffineTransform = CGAffineTransformScale(myTransform, scale, scale)
             transform = scaleTransform
             
         case .Ended:
-//            resetViewPositionAndTransformationsInFront(orInBack: true)
+            if !CGRectIntersectsRect(originalFrame!, frame) {
+                ///Advance to the next view
+            }
         
         
         case .Cancelled:
+            if let pointOfYesReturn = originalPoint {
+                snapViewToPoint(pointOfYesReturn)
+            }
 //            resetViewPositionAndTransformationsInFront(orInBack: false)
             // TODO: Logic here.
             
