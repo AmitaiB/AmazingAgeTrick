@@ -18,7 +18,7 @@ TODO NEXT:
 ✅4a) generate all 6 cards, piled atop one another,
 ✅ Curent Task: Modify produceCardView to take a CardID somewhere ===
 ✅4a.5) slightly rotated
-4b) make swiping rotate to the next card
+4b) make swiping rotate to the next card -
 5) keep a **visual** tally of the votes.
 6) Stop when all 6 cards have votes.
 7) Present the result, wow the user, offer to play again
@@ -30,8 +30,6 @@ make the cards rotate a bit, randomly, so that you can see them when they are st
 
 import UIKit
 import FlatUIColors
-
-
 
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
