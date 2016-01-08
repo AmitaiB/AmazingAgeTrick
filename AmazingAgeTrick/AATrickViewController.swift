@@ -49,6 +49,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // Views
     var swipeableView:ZLSwipeableView!
+    var cardViews = [UIView]()
     
     // Objects
     // Model
@@ -71,8 +72,20 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         navigationController?.setToolbarHidden(false, animated: false)
         view.clipsToBounds = true
 
+        /**
+        TODO: Make it do whatcha wannit to do!
+        */
         swipeableView = ZLSwipeableView()
         view.addSubview(swipeableView)
+        swipeableView.frame = view.bounds
+        swipeableView.numberOfActiveView = 6
+        
+        for cardModel in deck.randomOrderInstance {
+            var newCardView = produceCardView(cardModel)
+            cardViews.append(newCardView)
+            swipeableView.activeViews()
+        }
+
         swipeableView.didStart = {view, location in
             print("Did START swiping view at location: \(location)")
         }
@@ -88,33 +101,29 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView.didCancel = {view in
             print("Did CANCEL swiping view")
         }
-        
-        swipeableView.frame = view.bounds
-        
-        /**
-        for cardModel in deck.randomOrderInstance {
-            produceCardView(cardModel)
-        }
-        */
         //End ViewDidLoad()
     }
 
+    /**
+     How will they get the dataSource without the CardID? Get a CardID passed in??
+     */
     func nextCardView()->UIView? {
-        
+        return cardViews.popLast()
     }
     
-    //MARK: Setup helper functions
-    func produceCardView(cardModel:CardID)->ABSwipeableCardView {
+    
+    func produceCardView(cardModel:CardID)->ABCardView {
         let collectionView = getCollectionView(cardModel)
 
         // CardView
-        let cardView = ABSwipeableCardView(superView: view)
+        let cardView = ABCardView(frame: swipeableView.bounds)
         cardView.backgroundColor = FlatUIColors.randomFlatColor()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 12, 12)
-        
+    
         return cardView
     }
+
     
     func getCollectionView(cardModel:CardID)->UICollectionView {
         let layout = UICollectionViewFlowLayout()
