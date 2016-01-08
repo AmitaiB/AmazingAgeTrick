@@ -5,7 +5,9 @@ use_frameworks!
 
 target 'AmazingAgeTrick' do
   pod 'FlatUIColors'
-  
+  pod 'STRatingControl', '~> 0.1'
+
+
 # New candy to get the jorb done ;)
   pod 'ZLSwipeableViewSwift'
   pod 'ReactiveUI'

@@ -32,6 +32,7 @@ import UIKit
 import FlatUIColors
 import ZLSwipeableViewSwift
 import ReactiveUI
+import STRatingControl
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -46,6 +47,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     let cardCellReuseID:String = "cellReuseID"
     let numCols = 4
     let numRows = 8
+    @IBOutlet weak var progressControl: STRatingControl!
 
     // Views
     var swipeableView:ZLSwipeableView!
@@ -105,7 +107,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     /**
-     How will they get the dataSource without the CardID? Get a CardID passed in??
+     TODO: Refactor this ping pong to shorten the path
      */
     func nextCardView()->UIView? {
         return cardViews.popLast()
@@ -116,8 +118,9 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         let collectionView = getCollectionView(cardModel)
 
         // CardView
-        let cardView = ABCardView(frame: swipeableView.bounds)
-        cardView.backgroundColor = FlatUIColors.randomFlatColor()
+        let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
+        let cardView = ABCardView(frame: cardRect)
+        cardView.backgroundColor = UIColor.blackColor()
         cardView.addSubview(collectionView)
         collectionView.frame = CGRectInset(cardView.bounds, 12, 12)
     
@@ -237,6 +240,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
         guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {return CGSizeMake(30, 30)}
         
         let xTotalWhitespace = layout.sectionInset.left + layout.sectionInset.right + layout.minimumInteritemSpacing * CGFloat(numCols - 1)

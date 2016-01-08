@@ -68,13 +68,40 @@
                     <view key="view" contentMode="scaleToFill" id="Ps0-QL-osq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xZ-RS-E2a" customClass="STRatingControl" customModule="STRatingControl">
+                                <rect key="frame" x="82" y="28" width="211" height="34"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyStarImage" value="emptyStar"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledStarImage" value="filledStar"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="top" secondItem="OLb-Dh-w1r" secondAttribute="bottom" constant="8" symbolic="YES" id="5FC-Lk-K05"/>
+                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="centerX" secondItem="Ps0-QL-osq" secondAttribute="centerX" id="dBw-lU-0IT"/>
+                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="leading" secondItem="Ps0-QL-osq" secondAttribute="leadingMargin" constant="66" id="hHn-18-ihs"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="progressControl" destination="6xZ-RS-E2a" id="beG-sI-CNw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7Q-sz-tXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="642.5" y="479.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="emptyStar" width="3" height="3"/>
+        <image name="filledStar" width="21" height="20"/>
+    </resources>
 </document>
