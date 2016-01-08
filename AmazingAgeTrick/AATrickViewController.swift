@@ -30,7 +30,8 @@ make the cards rotate a bit, randomly, so that you can see them when they are st
 
 import UIKit
 import FlatUIColors
-
+import ZLSwipeableViewSwift
+import ReactiveUI
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -47,6 +48,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     let numRows = 8
 
     // Views
+    var swipeableView:ZLSwipeableView!
+    
     // Objects
     // Model
     let deck = AATDeckModel.sharedDeck
@@ -56,17 +59,49 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     //MARK: - Lifecycle
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        swipeableView.nextView = {
+            return self.nextCardView()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.hidesBarsWhenVerticallyCompact = true
         navigationController?.setToolbarHidden(false, animated: false)
+        view.clipsToBounds = true
 
+        swipeableView = ZLSwipeableView()
+        view.addSubview(swipeableView)
+        swipeableView.didStart = {view, location in
+            print("Did START swiping view at location: \(location)")
+        }
+        swipeableView.swiping = {view, location, translation in
+            print("SWIPING at view location: \(location) translation: \(translation)")
+        }
+        swipeableView.didEnd = {view, location in
+            print("Did END swiping view at location: \(location)")
+        }
+        swipeableView.didSwipe = {view, direction, vector in
+            print("Did SWIPE view in direction: \(direction), vector: \(vector)")
+        }
+        swipeableView.didCancel = {view in
+            print("Did CANCEL swiping view")
+        }
+        
+        swipeableView.frame = view.bounds
+        
+        /**
         for cardModel in deck.randomOrderInstance {
             produceCardView(cardModel)
         }
+        */
+        //End ViewDidLoad()
     }
 
+    func nextCardView()->UIView? {
+        
+    }
     
     //MARK: Setup helper functions
     func produceCardView(cardModel:CardID)->ABSwipeableCardView {
