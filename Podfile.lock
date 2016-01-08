@@ -1,10 +1,16 @@
 PODS:
   - FlatUIColors (0.2.0)
+  - ReactiveUI (0.0.3)
+  - ZLSwipeableViewSwift (0.0.5)
 
 DEPENDENCIES:
   - FlatUIColors
+  - ReactiveUI
+  - ZLSwipeableViewSwift
 
 SPEC CHECKSUMS:
   FlatUIColors: 515307d99990b1af3465129a1c08796f9917b2a1
+  ReactiveUI: 05d1f5d884e5a2496a2cd2ac6c0ed35ab0218c02
+  ZLSwipeableViewSwift: 2a276a5d6132e8030ae3b329e2b843688b264b99
 
 COCOAPODS: 0.39.0
