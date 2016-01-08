@@ -48,7 +48,9 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     let numCols = 4
     let numRows = 8
     @IBOutlet weak var progressControl: STRatingControl!
-
+    var possibleResults = Set(1...60)
+    
+    
     // Views
     var swipeableView:ZLSwipeableView!
     var cardViews = [UIView]()
@@ -82,11 +84,12 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView.frame = view.bounds
         swipeableView.numberOfActiveView = 6
         
+        cardViews.append(produceResultsView())
         for cardModel in deck.randomOrderInstance {
             var newCardView = produceCardView(cardModel)
             cardViews.append(newCardView)
-            swipeableView.activeViews()
         }
+        
 
         swipeableView.didStart = {view, location in
             print("Did START swiping view at location: \(location)")
@@ -103,6 +106,13 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView.didCancel = {view in
             print("Did CANCEL swiping view")
         }
+/**
+    let defaultHandler = swipeableView.shouldSwipeView
+    swipeableView.shouldSwipeView = {(view: UIView, movement: Movement, swipeableView: ZLSwipeableView) in
+    self.shouldSwipe && defaultHandler(view: view, movement: movement, swipeableView: swipeableView)
+    }
+
+*/
         //End ViewDidLoad()
     }
 
@@ -127,6 +137,21 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cardView
     }
 
+    
+    func produceResultsView() ->ABCardView {
+        let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
+        let cardView = ABCardView(frame: cardRect)
+        cardView.backgroundColor = UIColor.blackColor()
+
+        let labelRect = CGRectInset(cardView.bounds, 25, 25)
+        let resultsLabel = UILabel()
+        cardView.addSubview(resultsLabel)
+        resultsLabel.frame = labelRect
+        resultsLabel.textAlignment = .Center
+        resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
+        
+        return cardView
+    }
     
     func getCollectionView(cardModel:CardID)->UICollectionView {
         let layout = UICollectionViewFlowLayout()
@@ -185,12 +210,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
         collectionView.superview?.backgroundColor = cell?.backgroundColor
     }
-    
+
+    /*
     // change background color back when user releases touch
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
     }
+    */
     
     
     // MARK: == Private helper methods ==
@@ -260,7 +287,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     func vote(vote:Bool) {
-        //TODO: Vote functionality here.
+        ///TODO: Vote functionality here.
         print(voteTally)
     }
     
