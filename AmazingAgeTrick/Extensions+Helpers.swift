@@ -1,12 +1,12 @@
 //
-//  String+Extensions.swift
+//  Extensions.swift
 //  AmazingAgeTrick
 //
 //  Created by Amitai Blickstein on 12/30/15.
 //  Copyright © 2015 Amitai Blickstein, LLC. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String
 {
@@ -117,5 +117,52 @@ extension String
             
             return prefix + (lastChar != lastChar.uppercaseString ? suffix : suffix.uppercaseString)
         }
+    }
+}
+
+//MARK: Private helper methods
+///    0 <= x < 2π
+func DegreesToRadians (value:Double) -> Double {
+    var convertedValue = (value * M_PI / 180.0) % (2 * M_PI)
+    convertedValue = convertedValue > 0 ? convertedValue : convertedValue + 2 * M_PI
+    return convertedValue
+}
+
+///    0 <= x < 360°
+func RadiansToDegrees (value:Double) -> Double {
+    var convertedValue = (value * 180.0 / M_PI) % 360
+    convertedValue = convertedValue > 0 ? convertedValue : convertedValue + 360
+    convertedValue = convertedValue == 360 ? 0 : convertedValue
+    return convertedValue
+}
+
+
+public struct Movement {
+    let location: CGPoint
+    let translation: CGPoint
+    let velocity: CGPoint
+}
+
+extension CGPoint {
+    
+    init(vector: CGVector) {
+        self.init(x: vector.dx, y: vector.dy)
+    }
+    
+    var normalized: CGPoint {
+        return CGPoint(x: x / magnitude, y: y / magnitude)
+    }
+    
+    var magnitude: CGFloat {
+        return CGFloat(sqrtf(powf(Float(x), 2) + powf(Float(y), 2)))
+    }
+    
+    static func areInSameTheDirection(p1: CGPoint, p2: CGPoint) -> Bool {
+        
+        func signNum(n: CGFloat) -> Int {
+            return (n < 0.0) ? -1 : (n > 0.0) ? +1 : 0
+        }
+        
+        return signNum(p1.x) == signNum(p2.x) && signNum(p1.y) == signNum(p2.y)
     }
 }
