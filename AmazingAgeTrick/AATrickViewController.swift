@@ -305,8 +305,42 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     //ViewController Ends here
 }
 
-// MARK: - === AATCollectionView class ===
+// MARK: - === Extensions/Subclasses ===
+//MARK: AATCollectionView class
 class AATCollectionView : UICollectionView {
     var cardModel:CardID = CardID.Card1
 }
+
+//MARK: AATCollectionViewCell class
+class AATCollectionViewCell : UICollectionViewCell {
+    var imageView:UIImageView
+    var label:UILabel
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+
+    func setup() {
+        imageView = UIImageView(frame: contentView.bounds)
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "transparent-black-circle-medium")
+        
+        contentView.autoresizesSubviews = true
+        contentView.addSubview(imageView)
+        
+        label = UILabel(frame: self.contentView.bounds)
+        label.textAlignment = .Center
+        label.backgroundColor = UIColor.clearColor()
+        imageView.addSubview(label)
+    }
+}
+    
+
+
 
