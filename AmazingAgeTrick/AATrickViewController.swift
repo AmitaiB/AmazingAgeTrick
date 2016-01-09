@@ -5,9 +5,13 @@
 //  Created by Amitai Blickstein on 12/29/15.
 //  Copyright © 2015 Amitai Blickstein, LLC. All rights reserved.
 //
-
 /**
-TODO: Refactor deck, load all at once.
+NEXT: extract the cardvalue from the indexpath or something, so that when we vote, we get a tally.
+
+Extension on ABCardView to return a CardID
+TrickVC records tally in a dictionary
+
+
 */
 
 /**
@@ -41,13 +45,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         case NoButton  = 31
     }
     
+    @IBOutlet weak var progressControl: STRatingControl!
+    
     typealias NumInfo = Int
     
     // Properties
     let cardCellReuseID:String = "cellReuseID"
     let numCols = 4
     let numRows = 8
-    @IBOutlet weak var progressControl: STRatingControl!
     var possibleResults = Set(1...60)
     
     
@@ -60,7 +65,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     let deck = AATDeckModel.sharedDeck
     
     // Business Logic
-    var voteTally = [Int:Bool]()
+    var voteTally = [CardID:Bool]()
     
     
     //MARK: - Lifecycle
@@ -196,7 +201,12 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return false
     }
     
+    //Get cardID from indexpath
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var firstIndex = NSIndexPath(forItem: 0, inSection: 0)
+        let cell = collectionView.cellForItemAtIndexPath(firstIndex)
+        if let
+        
         switch indexPath.row {
         case ButtonCellRow.YesButton.rawValue: vote(true)
         case ButtonCellRow.NoButton.rawValue : vote(false)
@@ -248,8 +258,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
             ///TODO: Make colors pretty!
             //            cell.backgroundColor = FlatUIColors.randomFlatColor()
         }
-        
-        
     }
     
     func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->String {
@@ -286,8 +294,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     
-    func vote(vote:Bool) {
+    func recordVote(vote:Bool, forCard myCardID:CardID) {
         ///TODO: Vote functionality here.
+        voteTally[myCardID] = vote
+        
+        //CLEAN: debug only
         print(voteTally)
     }
     

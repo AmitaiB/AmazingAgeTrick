@@ -37,7 +37,6 @@ enum CardID:Int {
         let cardInfo = cardInfoArray()
         return String(cardInfo[indexPath.row])
     }
-    
 }
 
 //MARK: - === AATDeckModel class ===
