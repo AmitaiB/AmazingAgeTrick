@@ -55,7 +55,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     let numRows = 8
     var possibleResults = Set(1...60)
     
-    
     // Views
     var swipeableView:ZLSwipeableView!
     var cardViews = [UIView]()
@@ -87,11 +86,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView = ZLSwipeableView()
         view.addSubview(swipeableView)
         swipeableView.frame = view.bounds
-        swipeableView.numberOfActiveView = 6
+        swipeableView.numberOfActiveView = 7
         
         cardViews.append(produceResultsView())
         for cardModel in deck.randomOrderInstance {
-            var newCardView = produceCardView(cardModel)
+            let newCardView = produceCardView(cardModel)
             cardViews.append(newCardView)
         }
         
@@ -142,8 +141,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cardView
     }
 
-    
-    func produceResultsView() ->ABCardView {
+
+    func produceResultsView() -> ABCardView {
         let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
         let cardView = ABCardView(frame: cardRect)
         cardView.backgroundColor = UIColor.blackColor()
@@ -158,7 +157,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cardView
     }
     
-    func getCollectionView(cardModel:CardID)->UICollectionView {
+    
+    func getCollectionView(cardModel:CardID) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing      = 1.0
         layout.minimumInteritemSpacing = 1.0
@@ -175,10 +175,12 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return collectionView
     }
     
+    
     // MARK: === UICollectionView DataSource ===
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numCols * numRows
     }
+    
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -208,8 +210,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         let thisCardsID:CardID = myCollectionView.cardModel
        
         switch indexPath.row {
-        case ButtonCellRow.YesButton.rawValue: recordVote(true, forCard: thisCardsID)
-        case ButtonCellRow.NoButton.rawValue : recordVote(false, forCard: thisCardsID)
+        case ButtonCellRow.YesButton.rawValue : recordVote(true,  forCard: thisCardsID)
+        case ButtonCellRow.NoButton.rawValue  : recordVote(false, forCard: thisCardsID)
         default: break
         }
     }
@@ -297,9 +299,19 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     func recordVote(vote:Bool, forCard myCardID:CardID) {
         ///TODO: Vote functionality here.
         voteTally[myCardID] = vote
-        
-        //CLEAN: debug only
         print(voteTally)
+        
+        if voteTally.keys.count >= 6 {presentResults()}
+    }
+    
+    func presentResults() {
+        /**
+        add up numbers
+        format and present final card
+        offer to reset?
+        reset
+        */
+        
     }
     
     //ViewController Ends here
