@@ -67,6 +67,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     // Business Logic
     var voteRecord = [CardID:Bool]()
     
+//    let moreColors = [UIColor(red:0.74, green:0.16, blue:0.16, alpha:1),
+//        UIColor(red:0.13, green:0.52, blue:0.85, alpha:1),
+//        UIColor(red:0.96, green:0.95, blue:0.16, alpha:1),
+//        UIColor(red:0.37, green:0.63, blue:0.21, alpha:1),
+//        UIColor(red:0.77, green:0.41, blue:0.14, alpha:1),
+//        UIColor(red:0.45, green:0.13, blue:0.49, alpha:1)
+//    ]
+    
     
     //MARK: - Lifecycle
     override func viewDidLayoutSubviews() {
@@ -74,6 +82,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView.nextView = {
             return self.nextCardView()
         }
+        view.bringSubviewToFront(progressControl)
     }
     
     override func viewDidLoad() {
@@ -137,7 +146,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func produceCardView(cardModel:CardID)->ABCardView {
         let collectionView = getCollectionView(cardModel)
-
+        
         // CardView
         let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
         let cardView = ABCardView(frame: cardRect)
@@ -246,12 +255,15 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         let imageView = UIImageView(frame: cell.contentView.bounds)
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "transparent-black-circle-medium")
+        cell.layer.cornerRadius = imageView.frame.height / 2
         
         cell.contentView.autoresizesSubviews = true
         cell.contentView.addSubview(imageView)
         
         let label = UILabel(frame: cell.contentView.bounds)
         label.textAlignment = .Center
+        label.textColor = FlatUIColors.cloudsColor()
+        label.font = UIFont(name: "MarkerFelt-Wide", size: 20)
         label.backgroundColor = UIColor.clearColor()
         imageView.addSubview(label)
         
@@ -264,7 +276,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
             cell.backgroundColor = FlatUIColors.pomegranateColor()
         default:
             label.text = numberForIndexPath(indexPath, withCardModel: cardModel)
-            cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 20)
+            cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 2)
             
             ///TODO: Make colors pretty!
             //            cell.backgroundColor = FlatUIColors.randomFlatColor()

@@ -72,7 +72,6 @@ extension FlatUIColors {
         guard let kosherColor = color else {return UIColor.whiteColor()}
         return FlatUIColors.pairedColorForColor(kosherColor)
     }
-    
 }
 //Extension Ends
 

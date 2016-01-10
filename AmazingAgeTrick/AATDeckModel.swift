@@ -30,15 +30,19 @@ enum CardID:Int {
         
         }
     }
-
-//    Doesn't seem to work
-
-//        func cardTextForIndexPath(indexPath:NSIndexPath)->String {
-//        if indexPath.row >= cardInfoArray().count {return ""}
-//
-//        let cardInfo = cardInfoArray()
-//        return String(cardInfo[indexPath.row])
-//    }
+    
+    func altColorForCardID()->UIColor {
+        switch self {
+            
+        case .Card1: return UIColor(red:0.74, green:0.16, blue:0.16, alpha:1)
+        case .Card2: return UIColor(red:0.13, green:0.52, blue:0.85, alpha:1)
+        case .Card3: return UIColor(red:0.96, green:0.95, blue:0.16, alpha:1)
+        case .Card4: return UIColor(red:0.37, green:0.63, blue:0.21, alpha:1)
+        case .Card5: return UIColor(red:0.77, green:0.41, blue:0.14, alpha:1)
+        case .Card6: return UIColor(red:0.45, green:0.13, blue:0.49, alpha:1)
+            
+        }
+    }
 }
 
 //MARK: - === AATDeckModel class ===

@@ -7,20 +7,44 @@
 //
 
 import UIKit
+import FlatUIColors
 
 class AATMainViewController: UIViewController {
 
+    @IBOutlet weak var instructionsTextView: UITextView!
+    @IBOutlet weak var startGameButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        view.backgroundColor = FlatUIColors.cloudsColor()
+        setupTextView()
+        setupStartButton()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    func setupTextView() {
+        instructionsTextView.backgroundColor = FlatUIColors.midnightBlueColor()
+        instructionsTextView.textColor = FlatUIColors.silverColor()
+        setupViewShadow(instructionsTextView.layer)
+        instructionsTextView.layer.borderWidth = 7
+        instructionsTextView.layer.borderColor = FlatUIColors.asbestosColor().CGColor
     }
-
-
+    
+    func setupStartButton() {
+        startGameButton.backgroundColor = FlatUIColors.wisteriaColor()
+        startGameButton.titleLabel?.textColor = FlatUIColors.peterRiverColor()
+        startGameButton.layer.cornerRadius = 10.0
+        setupViewShadow(startGameButton.layer)
+    }
+    
+    func setupViewShadow(layer:CALayer) {
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.25
+        layer.shadowOffset = CGSizeMake(0, 1.5)
+        layer.shadowRadius = 4.0
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.mainScreen().scale
+    }
 }
 

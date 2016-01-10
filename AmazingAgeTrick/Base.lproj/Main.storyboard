@@ -18,20 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Avt-jS-ZQv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Avt-jS-ZQv">
                                 <rect key="frame" x="30" y="489" width="314" height="88"/>
                                 <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="Qi2-WH-GEA"/>
                                 </constraints>
-                                <state key="normal" title="Push Me"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Push Me">
+                                            <attributes>
+                                                <font key="NSFont" size="20" name="Freehand-Regular"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <segue destination="IZZ-Az-lGY" kind="popoverPresentation" popoverAnchorView="Avt-jS-ZQv" id="eLp-Ir-Q6P">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Instructions Go Here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-JL-90v">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The Nifty Trick!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-JL-90v">
                                 <rect key="frame" x="67" y="61" width="240" height="223"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -52,6 +60,10 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="instructionsTextView" destination="u3b-JL-90v" id="gVg-rm-WwU"/>
+                        <outlet property="startGameButton" destination="Avt-jS-ZQv" id="wk5-ud-sl8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +81,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xZ-RS-E2a" customClass="STRatingControl" customModule="STRatingControl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xZ-RS-E2a" customClass="STRatingControl" customModule="STRatingControl">
                                 <rect key="frame" x="82" y="28" width="211" height="34"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -85,9 +97,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="top" secondItem="OLb-Dh-w1r" secondAttribute="bottom" constant="8" symbolic="YES" id="5FC-Lk-K05"/>
-                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="centerX" secondItem="Ps0-QL-osq" secondAttribute="centerX" id="dBw-lU-0IT"/>
-                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="leading" secondItem="Ps0-QL-osq" secondAttribute="leadingMargin" constant="66" id="hHn-18-ihs"/>
+                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="leading" secondItem="Ps0-QL-osq" secondAttribute="leadingMargin" constant="66" id="Ole-ej-49H"/>
+                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="top" secondItem="OLb-Dh-w1r" secondAttribute="bottom" constant="8" symbolic="YES" id="kbO-UC-bF2"/>
+                            <constraint firstItem="6xZ-RS-E2a" firstAttribute="centerX" secondItem="Ps0-QL-osq" secondAttribute="centerX" id="tkK-cZ-8x7"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
