@@ -201,15 +201,15 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return false
     }
     
-    //Get cardID from indexpath
+    ///Get cardID from collectionView
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        var firstIndex = NSIndexPath(forItem: 0, inSection: 0)
-        let cell = collectionView.cellForItemAtIndexPath(firstIndex)
-        if let
+        guard let myCollectionView = collectionView as? AATCollectionView else { print("Error in \(__FUNCTION__)"); return }
         
+        let thisCardsID:CardID = myCollectionView.cardModel
+       
         switch indexPath.row {
-        case ButtonCellRow.YesButton.rawValue: vote(true)
-        case ButtonCellRow.NoButton.rawValue : vote(false)
+        case ButtonCellRow.YesButton.rawValue: recordVote(true, forCard: thisCardsID)
+        case ButtonCellRow.NoButton.rawValue : recordVote(false, forCard: thisCardsID)
         default: break
         }
     }
@@ -311,11 +311,13 @@ class AATCollectionView : UICollectionView {
     var cardModel:CardID = CardID.Card1
 }
 
+//CLEAN:
+/*
 //MARK: AATCollectionViewCell class
 class AATCollectionViewCell : UICollectionViewCell {
     var imageView:UIImageView
     var label:UILabel
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -330,17 +332,18 @@ class AATCollectionViewCell : UICollectionViewCell {
         imageView = UIImageView(frame: contentView.bounds)
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "transparent-black-circle-medium")
-        
+
         contentView.autoresizesSubviews = true
         contentView.addSubview(imageView)
-        
+
         label = UILabel(frame: self.contentView.bounds)
         label.textAlignment = .Center
         label.backgroundColor = UIColor.clearColor()
         imageView.addSubview(label)
     }
 }
-    
+
+*/
 
 
 

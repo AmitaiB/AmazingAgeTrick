@@ -30,13 +30,15 @@ enum CardID:Int {
         
         }
     }
-    
-    func cardTextForIndexPath(indexPath:NSIndexPath)->String {
-        if indexPath.row >= cardInfoArray().count {return ""}
 
-        let cardInfo = cardInfoArray()
-        return String(cardInfo[indexPath.row])
-    }
+//    Doesn't seem to work
+
+//        func cardTextForIndexPath(indexPath:NSIndexPath)->String {
+//        if indexPath.row >= cardInfoArray().count {return ""}
+//
+//        let cardInfo = cardInfoArray()
+//        return String(cardInfo[indexPath.row])
+//    }
 }
 
 //MARK: - === AATDeckModel class ===

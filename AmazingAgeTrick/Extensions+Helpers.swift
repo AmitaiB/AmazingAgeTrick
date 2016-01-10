@@ -118,7 +118,76 @@ extension String
             return prefix + (lastChar != lastChar.uppercaseString ? suffix : suffix.uppercaseString)
         }
     }
-}
+    func toInt() -> Int?
+    {
+        let cleanString = self.stringByTrimmingCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+        return Int(cleanString)
+    }
+    
+    
+    func indexOf(target: String, startIndex: Int) -> Int
+    {
+        let startRange = self.startIndex.advancedBy(startIndex)
+        
+        let range = self.rangeOfString(target, options: NSStringCompareOptions.LiteralSearch, range: Range<String.Index>(start: startRange, end: self.endIndex))
+        
+        if let range = range {
+            return self.startIndex.distanceTo(range.startIndex)
+        } else {
+            return -1
+        }
+    }
+    
+    func lastIndexOf(target: String) -> Int
+    {
+        var index = -1
+        var stepIndex = self.indexOf(target)
+        while stepIndex > -1
+        {
+            index = stepIndex
+            if stepIndex + target.length < self.length {
+                stepIndex = indexOf(target, startIndex: stepIndex + target.length)
+            } else {
+                stepIndex = -1
+            }
+        }
+        return index
+    }
+    
+    /*
+    func isMatch(regex: String, options: NSRegularExpressionOptions) -> Bool
+    {
+    var error: NSError?
+    var exp = NSRegularExpression(pattern: regex, options: options)
+    
+    
+    if let error = error {
+    print(error.description)
+    }
+    var matchCount = exp.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, self.length))
+    return matchCount > 0
+    }
+    
+    func getMatches(regex: String, options: NSRegularExpressionOptions) -> [NSTextCheckingResult]
+    {
+    var error: NSError?
+    var exp = NSRegularExpression(pattern: regex, options: options, error: &error)
+    
+    if let error = error {
+    println(error.description)
+    }
+    var matches = exp.matchesInString(self, options: nil, range: NSMakeRange(0, self.length))
+    return matches as [NSTextCheckingResult]
+    }
+    */
+    
+
+    }
+
+
+
+
+
 
 //MARK: Private helper methods
 ///    0 <= x < 2π
@@ -166,3 +235,5 @@ extension CGPoint {
         return signNum(p1.x) == signNum(p2.x) && signNum(p1.y) == signNum(p2.y)
     }
 }
+
+
