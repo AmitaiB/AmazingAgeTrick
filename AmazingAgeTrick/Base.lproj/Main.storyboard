@@ -78,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="139.5" y="479.5"/>
         </scene>
-        <!--Credits View Controller-->
+        <!--Title-->
         <scene sceneID="D5c-zd-H9R">
             <objects>
                 <viewController id="uca-9z-O0w" customClass="CreditsViewController" customModule="AmazingAgeTrick" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,8 +90,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C0a-y6-jS6">
-                                <rect key="frame" x="21" y="20" width="335" height="627"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C0a-y6-jS6">
+                                <rect key="frame" x="21" y="72" width="335" height="575"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -100,13 +100,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="C0a-y6-jS6" secondAttribute="bottom" constant="20" symbolic="YES" id="WEP-P5-Hl5"/>
-                            <constraint firstItem="C0a-y6-jS6" firstAttribute="top" secondItem="bFt-1I-ubG" secondAttribute="bottom" id="Xhk-GK-dNl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="C0a-y6-jS6" secondAttribute="trailing" constant="3" id="oqA-9d-YXg"/>
-                            <constraint firstItem="C0a-y6-jS6" firstAttribute="leading" secondItem="jqo-YE-7Hw" secondAttribute="leadingMargin" constant="5" id="uRm-Ct-Cym"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C0a-y6-jS6" secondAttribute="trailing" constant="3" id="K1q-3C-ZDN"/>
+                            <constraint firstItem="C0a-y6-jS6" firstAttribute="top" secondItem="bFt-1I-ubG" secondAttribute="bottom" constant="8" symbolic="YES" id="RQs-Kh-ePH"/>
+                            <constraint firstAttribute="bottom" secondItem="C0a-y6-jS6" secondAttribute="bottom" constant="20" symbolic="YES" id="bEw-5e-IGd"/>
+                            <constraint firstItem="C0a-y6-jS6" firstAttribute="leading" secondItem="jqo-YE-7Hw" secondAttribute="leadingMargin" constant="5" id="mTf-Fq-fPw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sCN-Qk-BaK"/>
+                    <navigationItem key="navigationItem" title="Title" id="jZS-zb-ahM"/>
                     <connections>
                         <outlet property="creditsTextView" destination="C0a-y6-jS6" id="YKR-YT-5J8"/>
                     </connections>
