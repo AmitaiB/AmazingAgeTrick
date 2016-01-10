@@ -90,7 +90,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView.frame = view.bounds
         swipeableView.numberOfActiveView = 7
         
-        cardViews.append(produceResultsView())
+//        cardViews.append(produceResultsView())
         for cardModel in deck.randomOrderInstance {
             let newCardView = produceCardView(cardModel)
             cardViews.append(newCardView)
@@ -149,7 +149,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
 
-    func produceResultsView() -> ABCardView {
+    func produceResultsView(withResults result:Int) -> ABCardView {
         let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
         let cardView = ABCardView(frame: cardRect)
         cardView.backgroundColor = UIColor.blackColor()
@@ -160,6 +160,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         resultsLabel.frame = labelRect
         resultsLabel.textAlignment = .Center
         resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
+        
+        resultsLabel.text = String("You are \(result) years of age!")
         
         return cardView
     }
@@ -309,10 +311,10 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         print(voteRecord)
         self.setSwipingAllowedTo(true)
         
-        if voteRecord.keys.count >= 6 {presentResults()}
+        if voteRecord.keys.count >= 6 {prepareResults()}
     }
     
-    func presentResults() {
+    func prepareResults() {
         /**
         add up numbers
         format and present final card
@@ -327,14 +329,10 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
         }
         print("I'd guess that your age is: \(resultingAge)!")
-        
-        if swipeableView.topView() is
-        
-    }
-    
 
-   
-    
+        let resultsCardView = produceResultsView(withResults: resultingAge)
+        cardViews.append(resultsCardView)
+    }
     
     
     //ViewController Ends here
