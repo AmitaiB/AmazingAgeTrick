@@ -71,7 +71,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView.nextView = {
             return self.nextCardView()
         }
-        view.bringSubviewToFront(progressControl)
     }
     
     override func viewDidLoad() {
@@ -157,7 +156,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         resultsLabel.textAlignment = .Center
         resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
         
-        resultsLabel.text = String("You are \(result) years of age!\n\n\nPlay again?")
+        resultsLabel.text = resultsLabelText(forResult: result)
         
         var replayButton = UIButton(type: .Custom)
         cardView.addSubview(replayButton)
@@ -376,6 +375,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
      Rewinds all the swipeViews, resets the votes (UI and voteRecord) to pre-voting, resets the resultsView
      */
     func resetGame() {
+        swipeableView.discardViews() //Gets rid of the old resultsCardView
         repeat {
             swipeableView.rewind()
             swipeableView.topView()?.backgroundColor = UIColor.blackColor()
@@ -384,18 +384,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         voteRecord.removeAll()
     }
     
-//    func resetCardView(cardView:ABCardView) {
-//        cardView.backgroundColor
-//        var collectionView:AATCollectionView?
-//        for view in cardView.subviews {
-//            collectionView = view as? AATCollectionView
-//        }
-//        collectionView?.backgroundColor =
-//            collectionView.superview?.backgroundColor = cell?.backgroundColor
-//        
-//    }
-    
-    
+    func resultsLabelText(forResult result:Int)->String {
+        var resultToDisplay = String("You are \(result) years of age!\n\n\nPlay again?")
+        
+        if result < 0 || result > 60 {
+            resultToDisplay = "You are either 0 years old (or less), or over 60 years old. Either way, stop drooling on my screen!\n\n\nPlay again, without cheating this time?\n\n\n\n\nAww, heck, cheat all you want, I don't care, I'm just a robot slave anyway."
+        }
+        return resultToDisplay
+    }
     //ViewController Ends here
 }
 

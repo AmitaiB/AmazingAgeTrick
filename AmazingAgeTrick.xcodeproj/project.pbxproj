@@ -10,6 +10,7 @@
 		3801E36C1C3A13BD00ADEC0C /* LogFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3801E36B1C3A13BD00ADEC0C /* LogFunc.swift */; };
 		3810C6041C3F52D500DBA667 /* ABCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810C6031C3F52D500DBA667 /* ABCardView.swift */; };
 		3823ADBA1C41F7E400CC596D /* Extensions+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823ADB91C41F7E400CC596D /* Extensions+Helpers.swift */; };
+		3823ADBC1C42FC5B00CC596D /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */; };
 		3871684E1C3D302500E9E571 /* FlatUIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3871684D1C3D302500E9E571 /* FlatUIColorsExtension.swift */; };
 		38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */; };
 		38B5CD0F1C335EBC0077FC71 /* AATMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0E1C335EBC0077FC71 /* AATMainViewController.swift */; };
@@ -38,6 +39,7 @@
 		3801E36B1C3A13BD00ADEC0C /* LogFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFunc.swift; sourceTree = "<group>"; };
 		3810C6031C3F52D500DBA667 /* ABCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCardView.swift; sourceTree = "<group>"; };
 		3823ADB91C41F7E400CC596D /* Extensions+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+Helpers.swift"; sourceTree = "<group>"; };
+		3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsViewController.swift; path = ../CreditsViewController.swift; sourceTree = "<group>"; };
 		3871684D1C3D302500E9E571 /* FlatUIColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatUIColorsExtension.swift; sourceTree = "<group>"; };
 		38B5CD091C335EBC0077FC71 /* AmazingAgeTrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingAgeTrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		38B5CD0B1C335EBC0077FC71 /* AmazingAgeTrick */ = {
 			isa = PBXGroup;
 			children = (
+				3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */,
 				380B8D941C3426B300447F5C /* Supporting Files */,
 				38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */,
 				38B5CD0E1C335EBC0077FC71 /* AATMainViewController.swift */,
@@ -314,6 +317,7 @@
 				3823ADBA1C41F7E400CC596D /* Extensions+Helpers.swift in Sources */,
 				3810C6041C3F52D500DBA667 /* ABCardView.swift in Sources */,
 				3871684E1C3D302500E9E571 /* FlatUIColorsExtension.swift in Sources */,
+				3823ADBC1C42FC5B00CC596D /* CreditsViewController.swift in Sources */,
 				38B5CD351C336F1C0077FC71 /* AATDeckModel.swift in Sources */,
 				38B5CD311C336BF40077FC71 /* AATrickViewController.swift in Sources */,
 				38B5CD0F1C335EBC0077FC71 /* AATMainViewController.swift in Sources */,
