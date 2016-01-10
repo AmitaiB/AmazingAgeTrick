@@ -86,12 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-AmazingAgeTrick/FlatUIColors.framework"
   install_framework "Pods-AmazingAgeTrick/ReactiveUI.framework"
-  install_framework "Pods-AmazingAgeTrick/STRatingControl.framework"
   install_framework "Pods-AmazingAgeTrick/ZLSwipeableViewSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-AmazingAgeTrick/FlatUIColors.framework"
   install_framework "Pods-AmazingAgeTrick/ReactiveUI.framework"
-  install_framework "Pods-AmazingAgeTrick/STRatingControl.framework"
   install_framework "Pods-AmazingAgeTrick/ZLSwipeableViewSwift.framework"
 fi

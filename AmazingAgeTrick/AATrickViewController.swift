@@ -45,8 +45,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         case NoButton  = 31
     }
     
-    @IBOutlet weak var progressControl: STRatingControl!
-    
     typealias NumInfo = Int
     
     // Views
@@ -113,8 +111,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView.didCancel = {view in
             print("Did CANCEL swiping view")
         }
-        
-        // Can't swipe until vote
         
         //End ViewDidLoad()
     }
