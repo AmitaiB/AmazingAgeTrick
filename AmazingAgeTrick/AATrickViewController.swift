@@ -157,20 +157,38 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         let labelRect = CGRectInset(cardView.bounds, 25, 25)
         let resultsLabel = UILabel()
         cardView.addSubview(resultsLabel)
-        resultsLabel.frame = labelRect
+//        resultsLabel.frame = labelRect
         resultsLabel.textAlignment = .Center
         resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
         
-        resultsLabel.text = String("You are (result) years of age!\n\n\nPlay again?")
+        resultsLabel.text = String("You are \(result) years of age!\n\n\nPlay again?")
         
         var replayButton = UIButton(type: .Custom)
-        resultsLabel.addSubview(replayButton)
-        replayButton.frame = CGRectMake(labelRect.width / 2, labelRect.height / 2, labelRect.width * 0.8, labelRect.height * 0.3)
+        cardView.addSubview(replayButton)
+//        replayButton.frame = CGRectMake(labelRect.width / 2, labelRect.height / 2, labelRect.width * 0.8, labelRect.height * 0.3)
         replayButton.backgroundColor = FlatUIColors.greenSeaColor()
         replayButton.layer.cornerRadius = 15
         setupViewShadow(replayButton.layer)
         replayButton.setTitle("Play Again", forState: .Normal)
-        replayButton.addTarget(self, action: Selector(":"), forControlEvents: .TouchUpInside)
+        replayButton.addTarget(self, action: Selector("replayButtonTapped:"), forControlEvents: .TouchUpInside)
+        
+        
+        // Autolayout
+        resultsLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultsLabel.removeConstraints(resultsLabel.constraints)
+        
+        replayButton.translatesAutoresizingMaskIntoConstraints = false
+        replayButton.removeConstraints(replayButton.constraints)
+        
+        resultsLabel.topAnchor.constraintEqualToAnchor(cardView.topAnchor, constant: 10).active = true
+        resultsLabel.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: 10).active = true
+        resultsLabel.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -10).active = true
+        
+//        resultsLabel.bottomAnchor.constraintEqualToAnchor(replayButton.topAnchor, constant: 20)
+        
+        replayButton.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor, constant: 10).active = true
+        replayButton.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: 10).active = true
+        replayButton.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -10).active = true
         
         return cardView
     }
@@ -361,6 +379,12 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         cardViews.append(resultsCardView)
     }
     
+    /**
+     Rewinds all the swipeViews, resets the votes (UI and voteRecord) to pre-voting, resets the resultsView
+     */
+    func resetGame() {
+        
+    }
     
     //ViewController Ends here
 }
