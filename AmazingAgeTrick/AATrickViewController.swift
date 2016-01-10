@@ -81,11 +81,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         navigationController?.setToolbarHidden(false, animated: false)
         view.clipsToBounds = true
 
-        /**
-        TODO: Make it do whatcha wannit to do!
-        */
+        // SwipeableView setup
         swipeableView = ZLSwipeableView()
-        setSwipingAllowedTo(false)
+        swipeableView.numberOfHistoryItem = UInt.max
+        swipeableView.allowedDirection = .Horizontal
+        setSwipingAllowedTo(false) ///Swiping locked until YES/NO recorded
         view.addSubview(swipeableView)
         swipeableView.frame = view.bounds
         swipeableView.numberOfActiveView = 7
@@ -180,22 +180,25 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         replayButton.translatesAutoresizingMaskIntoConstraints = false
         replayButton.removeConstraints(replayButton.constraints)
         
-        resultsLabel.topAnchor.constraintEqualToAnchor(cardView.topAnchor, constant: 10).active = true
-        resultsLabel.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: 10).active = true
-        resultsLabel.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -10).active = true
+        let inset:CGFloat = 10
+        
+        resultsLabel.topAnchor.constraintEqualToAnchor(cardView.topAnchor, constant: inset).active = true
+        resultsLabel.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: inset).active = true
+        resultsLabel.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -inset).active = true
         
 //        resultsLabel.bottomAnchor.constraintEqualToAnchor(replayButton.topAnchor, constant: 20)
         
-        replayButton.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor, constant: 10).active = true
-        replayButton.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: 10).active = true
-        replayButton.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -10).active = true
+        replayButton.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor, constant: -inset).active = true
+        replayButton.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: inset).active = true
+        replayButton.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -inset).active = true
         
         return cardView
     }
     
     func replayButtonTapped(sender: UIButton!) {
         print("button tapped")
-        view.setNeedsDisplay()
+//        view.setNeedsDisplay()
+        resetGame()
     }
     
     func setupViewShadow(layer:CALayer) {
@@ -360,12 +363,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func prepareResults() {
-        /**
-        add up numbers
-        format and present final card
-        offer to reset?
-        reset
-        */
         var resultingAge = 0
         voteRecord.enumerate().forEach { (card: (index: Int, element: (CardID, Bool))) -> () in
             if card.element.1 {
@@ -383,8 +380,25 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
      Rewinds all the swipeViews, resets the votes (UI and voteRecord) to pre-voting, resets the resultsView
      */
     func resetGame() {
+        repeat {
+            swipeableView.rewind()
+            swipeableView.topView()?.backgroundColor = UIColor.blackColor()
+        } while swipeableView.history.count > 0
         
+        voteRecord.removeAll()
     }
+    
+//    func resetCardView(cardView:ABCardView) {
+//        cardView.backgroundColor
+//        var collectionView:AATCollectionView?
+//        for view in cardView.subviews {
+//            collectionView = view as? AATCollectionView
+//        }
+//        collectionView?.backgroundColor =
+//            collectionView.superview?.backgroundColor = cell?.backgroundColor
+//        
+//    }
+    
     
     //ViewController Ends here
 }
