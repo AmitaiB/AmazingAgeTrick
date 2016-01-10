@@ -65,7 +65,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     let deck = AATDeckModel.sharedDeck
     
     // Business Logic
-    var voteTally = [CardID:Bool]()
+    var voteRecord = [CardID:Bool]()
     
     
     //MARK: - Lifecycle
@@ -305,11 +305,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func recordVote(vote:Bool, forCard myCardID:CardID) {
         ///TODO: Vote functionality here.
-        voteTally[myCardID] = vote
-        print(voteTally)
+        voteRecord[myCardID] = vote
+        print(voteRecord)
         self.setSwipingAllowedTo(true)
         
-        if voteTally.keys.count >= 6 {presentResults()}
+        if voteRecord.keys.count >= 6 {presentResults()}
     }
     
     func presentResults() {
@@ -319,6 +319,16 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         offer to reset?
         reset
         */
+        var resultingAge = 0
+        voteRecord.enumerate().forEach { (card: (index: Int, element: (CardID, Bool))) -> () in
+            if card.element.1 {
+                let cardAgeContribution = card.element.0.rawValue
+                resultingAge += cardAgeContribution
+            }
+        }
+        print("I'd guess that your age is: \(resultingAge)!")
+        
+        if swipeableView.topView() is
         
     }
     
