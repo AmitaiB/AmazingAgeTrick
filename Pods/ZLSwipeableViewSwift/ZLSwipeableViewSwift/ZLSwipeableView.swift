@@ -358,7 +358,7 @@ extension ZLSwipeableView {
         }
     }
 
-    static func defaultShouldSwipeViewHandler() -> ShouldSwipeHandler {
+    public static func defaultShouldSwipeViewHandler() -> ShouldSwipeHandler {
         return { (view: UIView, movement: Movement, swipeableView: ZLSwipeableView) -> Bool in
             let translation = movement.translation
             let velocity = movement.velocity

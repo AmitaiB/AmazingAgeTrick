@@ -49,15 +49,16 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     typealias NumInfo = Int
     
+    // Views
+    var swipeableView:ZLSwipeableView!
+    var cardViews = [UIView]()
+
     // Properties
     let cardCellReuseID:String = "cellReuseID"
     let numCols = 4
     let numRows = 8
     var possibleResults = Set(1...60)
-    
-    // Views
-    var swipeableView:ZLSwipeableView!
-    var cardViews = [UIView]()
+//    var defaultShouldSwipeViewHandler:ShouldSwipeHandler
     
     // Objects
     // Model
@@ -84,6 +85,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         TODO: Make it do whatcha wannit to do!
         */
         swipeableView = ZLSwipeableView()
+        setSwipingAllowedTo(false)
         view.addSubview(swipeableView)
         swipeableView.frame = view.bounds
         swipeableView.numberOfActiveView = 7
@@ -106,17 +108,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         swipeableView.didSwipe = {view, direction, vector in
             print("Did SWIPE view in direction: \(direction), vector: \(vector)")
+            self.setSwipingAllowedTo(false)
         }
         swipeableView.didCancel = {view in
             print("Did CANCEL swiping view")
         }
-/**
-    let defaultHandler = swipeableView.shouldSwipeView
-    swipeableView.shouldSwipeView = {(view: UIView, movement: Movement, swipeableView: ZLSwipeableView) in
-    self.shouldSwipe && defaultHandler(view: view, movement: movement, swipeableView: swipeableView)
-    }
-
-*/
+        
+        // Can't swipe until vote
+        
         //End ViewDidLoad()
     }
 
@@ -127,6 +126,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cardViews.popLast()
     }
     
+    func setSwipingAllowedTo(hasPermission: Bool) {
+        if hasPermission { swipeableView.shouldSwipeView = ZLSwipeableView.defaultShouldSwipeViewHandler() }
+        else {
+            swipeableView.shouldSwipeView = {view, movement, swipeableView in
+                return false
+            }
+        }
+    }
     
     func produceCardView(cardModel:CardID)->ABCardView {
         let collectionView = getCollectionView(cardModel)
@@ -300,6 +307,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         ///TODO: Vote functionality here.
         voteTally[myCardID] = vote
         print(voteTally)
+        self.setSwipingAllowedTo(true)
         
         if voteTally.keys.count >= 6 {presentResults()}
     }
@@ -314,6 +322,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
+
+   
+    
+    
+    
     //ViewController Ends here
 }
 
@@ -322,40 +335,4 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
 class AATCollectionView : UICollectionView {
     var cardModel:CardID = CardID.Card1
 }
-
-//CLEAN:
-/*
-//MARK: AATCollectionViewCell class
-class AATCollectionViewCell : UICollectionViewCell {
-    var imageView:UIImageView
-    var label:UILabel
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-
-    func setup() {
-        imageView = UIImageView(frame: contentView.bounds)
-        imageView.contentMode = .ScaleAspectFit
-        imageView.image = UIImage(named: "transparent-black-circle-medium")
-
-        contentView.autoresizesSubviews = true
-        contentView.addSubview(imageView)
-
-        label = UILabel(frame: self.contentView.bounds)
-        label.textAlignment = .Center
-        label.backgroundColor = UIColor.clearColor()
-        imageView.addSubview(label)
-    }
-}
-
-*/
-
-
 
