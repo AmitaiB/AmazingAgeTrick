@@ -67,15 +67,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     // Business Logic
     var voteRecord = [CardID:Bool]()
     
-//    let moreColors = [UIColor(red:0.74, green:0.16, blue:0.16, alpha:1),
-//        UIColor(red:0.13, green:0.52, blue:0.85, alpha:1),
-//        UIColor(red:0.96, green:0.95, blue:0.16, alpha:1),
-//        UIColor(red:0.37, green:0.63, blue:0.21, alpha:1),
-//        UIColor(red:0.77, green:0.41, blue:0.14, alpha:1),
-//        UIColor(red:0.45, green:0.13, blue:0.49, alpha:1)
-//    ]
-    
-    
     //MARK: - Lifecycle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -170,11 +161,34 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         resultsLabel.textAlignment = .Center
         resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
         
-        resultsLabel.text = String("You are \(result) years of age!")
+        resultsLabel.text = String("You are (result) years of age!\n\n\nPlay again?")
+        
+        var replayButton = UIButton(type: .Custom)
+        resultsLabel.addSubview(replayButton)
+        replayButton.frame = CGRectMake(labelRect.width / 2, labelRect.height / 2, labelRect.width * 0.8, labelRect.height * 0.3)
+        replayButton.backgroundColor = FlatUIColors.greenSeaColor()
+        replayButton.layer.cornerRadius = 15
+        setupViewShadow(replayButton.layer)
+        replayButton.setTitle("Play Again", forState: .Normal)
+        replayButton.addTarget(self, action: Selector(":"), forControlEvents: .TouchUpInside)
         
         return cardView
     }
     
+    func replayButtonTapped(sender: UIButton!) {
+        print("button tapped")
+        view.setNeedsDisplay()
+    }
+    
+    func setupViewShadow(layer:CALayer) {
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.25
+        layer.shadowOffset = CGSizeMake(0, 1.5)
+        layer.shadowRadius = 4.0
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.mainScreen().scale
+    }
+
     
     func getCollectionView(cardModel:CardID) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
@@ -188,7 +202,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.delegate   = self
         collectionView.dataSource = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cardCellReuseID)
-        collectionView.backgroundColor = FlatUIColors.randomFlatColor()
+//        collectionView.backgroundColor = FlatUIColors.randomFlatColor()
+        collectionView.backgroundColor = cardModel.altColorForCardID()
         collectionView.allowsSelection = true
         return collectionView
     }
@@ -237,8 +252,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     // change background color when user touches cell
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
         collectionView.superview?.backgroundColor = cell?.backgroundColor
+//        cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
     }
 
     /*
@@ -255,8 +270,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         let imageView = UIImageView(frame: cell.contentView.bounds)
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "transparent-black-circle-medium")
-        cell.layer.cornerRadius = imageView.frame.height / 2
         
+        cell.layer.cornerRadius = imageView.frame.height / 2
         cell.contentView.autoresizesSubviews = true
         cell.contentView.addSubview(imageView)
         
@@ -270,10 +285,10 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch indexPath.row {
         case ButtonCellRow.YesButton.rawValue:
             label.text = "YES"
-            cell.backgroundColor = FlatUIColors.emeraldColor()
+            cell.backgroundColor = UIColor.greenColor()
         case ButtonCellRow.NoButton.rawValue:
             label.text = "NO"
-            cell.backgroundColor = FlatUIColors.pomegranateColor()
+            cell.backgroundColor = UIColor.redColor()
         default:
             label.text = numberForIndexPath(indexPath, withCardModel: cardModel)
             cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 2)

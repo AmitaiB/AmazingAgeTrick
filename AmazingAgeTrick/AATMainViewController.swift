@@ -29,6 +29,8 @@ class AATMainViewController: UIViewController {
         setupViewShadow(instructionsTextView.layer)
         instructionsTextView.layer.borderWidth = 7
         instructionsTextView.layer.borderColor = FlatUIColors.asbestosColor().CGColor
+        instructionsTextView.contentInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+        instructionsTextView.text = "Amazing Age Trick - Instructions\n\t1) For each card, select YES if your age is there, or NO otherwise.\n\t2) Then...that\'s it."
     }
     
     func setupStartButton() {
