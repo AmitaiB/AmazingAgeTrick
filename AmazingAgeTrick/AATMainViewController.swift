@@ -14,6 +14,8 @@ class AATMainViewController: UIViewController {
 
     @IBOutlet weak var instructionsTextView: UITextView!
     @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var creditsSegueButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class AATMainViewController: UIViewController {
         originalContentView.backgroundColor = FlatUIColors.cloudsColor()
         setupTextView()
         setupStartButton()
+        createAutolayoutConstraints()
     }
     
     
@@ -50,5 +53,23 @@ class AATMainViewController: UIViewController {
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.mainScreen().scale
     }
+    
+    func createAutolayoutConstraints() {
+        let views = ["textV" : instructionsTextView, "startB" : startGameButton, "creditsB" : creditsSegueButton]
+        for view in views.values { prepareForAutolayout(view) }
+        
+        let hTextViewConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[textV]-|", options: .AlignAllCenterX, metrics: nil, views: views)
+        let hStartButtonConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[startB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
+        let hCreditsButtonConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[creditsB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
+        let vAllViewsConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[textV(>=100)]-[startB(>=50)]-[creditsB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
+        view.addConstraints(hTextViewConstraints + hStartButtonConstraints + hCreditsButtonConstraints + vAllViewsConstraints)
+    }
+    
+    func prepareForAutolayout(view:UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.removeConstraints(view.constraints)
+    }
+    
+    
 }
 
