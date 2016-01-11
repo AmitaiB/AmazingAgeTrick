@@ -24,7 +24,7 @@ class AATMainViewController: UIViewController {
         originalContentView.backgroundColor = FlatUIColors.cloudsColor()
         setupTextView()
         setupStartButton()
-        createAutolayoutConstraints()
+//        createAutolayoutConstraints()
     }
     
     
@@ -35,7 +35,7 @@ class AATMainViewController: UIViewController {
         instructionsTextView.layer.borderWidth = 7
         instructionsTextView.layer.borderColor = FlatUIColors.asbestosColor().CGColor
         instructionsTextView.contentInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
-        instructionsTextView.text = " Amazing Age Trick - Instructions\n\n  1) For each card, select YES if your age appears on the card, or NO if it does not, or you just want to screw with the system because pranking soulless computers is what gets you up in the morning. Woo hoo.\n\n  2) Then...that\'s it."
+//        instructionsTextView.text = " Amazing Age Trick - Instructions\n\n  1) For each card, select YES if your age appears on the card, or NO if it does not, or you just want to screw with the system because pranking soulless computers is what gets you up in the morning. Woo hoo.\n\n  2) Then...that\'s it."
         instructionsTextView.textContainer.lineBreakMode = .ByWordWrapping
         instructionsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
@@ -63,7 +63,7 @@ class AATMainViewController: UIViewController {
         let hTextViewConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[textV]-|", options: .AlignAllCenterX, metrics: nil, views: views)
         let hStartButtonConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[startB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
         let hCreditsButtonConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[creditsB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
-        let vAllViewsConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[textV(>=100)]-[startB(>=50)]-[creditsB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
+        let vAllViewsConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[textV]-100-[startB]-[creditsB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
         view.addConstraints(hTextViewConstraints + hStartButtonConstraints + hCreditsButtonConstraints + vAllViewsConstraints)
     }
     
