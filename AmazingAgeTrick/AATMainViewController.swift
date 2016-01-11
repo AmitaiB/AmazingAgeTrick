@@ -35,7 +35,9 @@ class AATMainViewController: UIViewController {
         instructionsTextView.layer.borderWidth = 7
         instructionsTextView.layer.borderColor = FlatUIColors.asbestosColor().CGColor
         instructionsTextView.contentInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
-        instructionsTextView.text = "Amazing Age Trick - Instructions\n\t1) For each card, select YES if your age is there, or NO otherwise.\n\t2) Then...that\'s it."
+        instructionsTextView.text = " Amazing Age Trick - Instructions\n\n  1) For each card, select YES if your age appears on the card, or NO if it does not, or you just want to screw with the system because pranking soulless computers is what gets you up in the morning. Woo hoo.\n\n  2) Then...that\'s it."
+        instructionsTextView.textContainer.lineBreakMode = .ByWordWrapping
+        instructionsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     func setupStartButton() {
