@@ -18,34 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" ambiguous="YES" text="The Nifty Trick!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-JL-90v">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="The Nifty Trick!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-JL-90v">
                                 <rect key="frame" x="30" y="78" width="315" height="100"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="100" id="cIG-Tx-khC"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="g3c-03-MqD"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="g3c-03-MqD"/>
-                                    </mask>
-                                </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-oz-zqM">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-oz-zqM">
                                 <rect key="frame" x="120" y="617" width="135" height="30"/>
                                 <state key="normal" title="Acknowledgements"/>
                                 <connections>
                                     <segue destination="uca-9z-O0w" kind="show" id="jCd-n9-t6G"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Avt-jS-ZQv">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Avt-jS-ZQv">
                                 <rect key="frame" x="30" y="521" width="315" height="88"/>
                                 <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="ggU-LK-64z"/>
-                                </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Push Me">
@@ -63,26 +51,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="u3b-JL-90v" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="14" id="27g-mj-Is1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Avt-jS-ZQv" secondAttribute="trailing" constant="10" id="9b3-Xq-eFW"/>
-                            <constraint firstItem="u3b-JL-90v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="14" id="B5H-st-WXI"/>
-                            <constraint firstItem="u3b-JL-90v" firstAttribute="centerX" secondItem="Avt-jS-ZQv" secondAttribute="centerX" id="Cfa-5L-vPp"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DG2-oz-zqM" secondAttribute="bottom" constant="20" id="EED-2M-9Rm"/>
-                            <constraint firstItem="DG2-oz-zqM" firstAttribute="centerX" secondItem="Avt-jS-ZQv" secondAttribute="centerX" id="IPF-GC-sCD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="u3b-JL-90v" secondAttribute="trailing" constant="14" id="NuF-wu-dnU"/>
-                            <constraint firstItem="Avt-jS-ZQv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jES-PW-gak"/>
-                            <constraint firstItem="DG2-oz-zqM" firstAttribute="centerX" secondItem="Avt-jS-ZQv" secondAttribute="centerX" id="uPI-qv-O7j"/>
-                            <constraint firstItem="Avt-jS-ZQv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="ujH-XU-Fxo"/>
-                            <constraint firstItem="DG2-oz-zqM" firstAttribute="top" secondItem="Avt-jS-ZQv" secondAttribute="bottom" constant="8" id="yfT-7H-TgU"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Cfa-5L-vPp"/>
-                                <exclude reference="jES-PW-gak"/>
-                                <exclude reference="IPF-GC-sCD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="rmQ-gE-IFr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
