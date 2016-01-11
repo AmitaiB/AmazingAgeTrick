@@ -8,6 +8,7 @@
 
 import UIKit
 import FlatUIColors
+import iAd
 
 class AATMainViewController: UIViewController {
 
@@ -17,7 +18,8 @@ class AATMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = FlatUIColors.cloudsColor()
+        self.canDisplayBannerAds = true
+        originalContentView.backgroundColor = FlatUIColors.cloudsColor()
         setupTextView()
         setupStartButton()
     }

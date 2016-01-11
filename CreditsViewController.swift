@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iAd
 
 class CreditsViewController: UIViewController {
 
@@ -14,7 +15,8 @@ class CreditsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.canDisplayBannerAds = true
         creditsTextView.text = "Acknowledgements\n#Icons were provided by Icons8 (https://icons8.com/) in return for providing this message.\n\n#ZLSwipeableViewSwift and ReactiveUI is under the MIT License by Zhixuan Lai of LA, both available through the Cocoapods project (www.cocoapods.org).\n\n"
     }
 

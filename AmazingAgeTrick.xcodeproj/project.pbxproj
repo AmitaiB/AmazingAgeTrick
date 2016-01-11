@@ -11,6 +11,7 @@
 		3810C6041C3F52D500DBA667 /* ABCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810C6031C3F52D500DBA667 /* ABCardView.swift */; };
 		3823ADBA1C41F7E400CC596D /* Extensions+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823ADB91C41F7E400CC596D /* Extensions+Helpers.swift */; };
 		3823ADBC1C42FC5B00CC596D /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */; };
+		3823ADBE1C43040600CC596D /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3823ADBD1C43040600CC596D /* iAd.framework */; };
 		3871684E1C3D302500E9E571 /* FlatUIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3871684D1C3D302500E9E571 /* FlatUIColorsExtension.swift */; };
 		38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */; };
 		38B5CD0F1C335EBC0077FC71 /* AATMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0E1C335EBC0077FC71 /* AATMainViewController.swift */; };
@@ -40,6 +41,7 @@
 		3810C6031C3F52D500DBA667 /* ABCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCardView.swift; sourceTree = "<group>"; };
 		3823ADB91C41F7E400CC596D /* Extensions+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+Helpers.swift"; sourceTree = "<group>"; };
 		3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsViewController.swift; path = ../CreditsViewController.swift; sourceTree = "<group>"; };
+		3823ADBD1C43040600CC596D /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		3871684D1C3D302500E9E571 /* FlatUIColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatUIColorsExtension.swift; sourceTree = "<group>"; };
 		38B5CD091C335EBC0077FC71 /* AmazingAgeTrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingAgeTrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3823ADBE1C43040600CC596D /* iAd.framework in Frameworks */,
 				A7BC98D154440A13BD908D66 /* Pods_AmazingAgeTrick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +158,7 @@
 		C168FA49B05059E4EBB8C81D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3823ADBD1C43040600CC596D /* iAd.framework */,
 				A76F533F97EC26AB0CB8D41E /* Pods_AmazingAgeTrick.framework */,
 			);
 			name = Frameworks;
