@@ -220,7 +220,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.dataSource = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cardCellReuseID)
 //        collectionView.backgroundColor = FlatUIColors.randomFlatColor()
-        collectionView.backgroundColor = cardModel.altColorForCardID()
+//        collectionView.backgroundColor = cardModel.altColorForCardID()
+        collectionView.backgroundColor = UIColor(rgba: "363951")
         collectionView.allowsSelection = true
         return collectionView
     }
@@ -303,12 +304,16 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch indexPath.row {
         case ButtonCellRow.YesButton.rawValue:
             label.text = "YES"
-            label.backgroundColor = FlatUIColors.emeraldColor()
-            cell.backgroundColor = FlatUIColors.emeraldColor()
+            imageView.removeFromSuperview()
+            cell.addSubview(label)
+//            label.backgroundColor = FlatUIColors.emeraldColor()
+//            cell.backgroundColor = FlatUIColors.emeraldColor()
         case ButtonCellRow.NoButton.rawValue:
             label.text = "NO"
-            label.backgroundColor = UIColor.redColor()
-            cell.backgroundColor = UIColor.redColor()
+            imageView.removeFromSuperview()
+            cell.addSubview(label)
+//            label.backgroundColor = UIColor.redColor()
+//            cell.backgroundColor = UIColor.redColor()
         default:
             label.text = numberForIndexPath(indexPath, withCardModel: cardModel)
             if label.text == "" { imageView.removeFromSuperview() }
