@@ -5,6 +5,9 @@ use_frameworks!
 
 target 'AmazingAgeTrick' do
   pod 'FlatUIColors'
+  
+  pod 'UIColor_Hex_Swift', '~> 1.8'
+
 
 
 # New candy to get the jorb done ;)

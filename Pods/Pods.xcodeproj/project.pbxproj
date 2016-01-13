@@ -7,105 +7,135 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09FE98AB4E289FC58233C6D67E26EC7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
-		13232D066FF9AF8B13126EEEAF60ABB8 /* ReactiveUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397DE979EF8B44F97D7173BE119E4A06 /* ReactiveUI.swift */; };
-		1EC24BEEFB4ABC10C7ADB9DE3E3D9CFD /* Pods-AmazingAgeTrick-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 003898023B0533F7DFBEC10CB1D127BD /* Pods-AmazingAgeTrick-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		274068F4CE37041BF3D97D0934C293B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		371DBFB66718FC52082161E452E128D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		4750E73A3299B2776800AE2DFF821A4F /* ZLSwipeableViewSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B478CA5A12B9B42742B75BDB8B9CB1 /* ZLSwipeableViewSwift-dummy.m */; };
-		4A80ABB91B0C9FF304FFBDB226487758 /* Pods-AmazingAgeTrick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BF5B967459DADB234259E2A297A72B /* Pods-AmazingAgeTrick-dummy.m */; };
-		74D2632A3AAF1252060F93F93C929B65 /* NSTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95BA4067E909DF19D8683A2FEF0730 /* NSTimer.swift */; };
-		75E12E3450E539DBCFF55486B5AA67BC /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC43937B21E633A1EE3E735B6CD1AC0 /* UIBarButtonItem.swift */; };
-		7B68DD49426587E9B123120872FA5E86 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED294B1B2843AF78C05ED237CB28FAAF /* UIControl.swift */; };
-		861B969DE3EEA1395C801C01B220AB0C /* ZLSwipeableViewSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24020C593D70DFBDCA5D2E9E02FC31EF /* ZLSwipeableViewSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88DDA7A79D82BC1ADFAFEEE495D307E3 /* ReactiveUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4901D4083EA413EB757FBF65ABC543 /* ReactiveUI-dummy.m */; };
-		8F3F20E65E3A8538C7E473CF9112E4C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		A656285C3651C288C005CE7A25CC45A7 /* FlatUIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21EBA11DA49009E88ED36D67C3F7C9C /* FlatUIColors.swift */; };
+		04D8B63DF3CD070DA8E1658C171C0251 /* ZLSwipeableViewSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B285150962C2A81E38CCCE212A2D016 /* ZLSwipeableViewSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C656F8708A8F5CF2E3C222FD08BAF2D /* NSTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DA7C7490E81052D8F1F7EA39B8706 /* NSTimer.swift */; };
+		0F961BC5B097505116276BE655A2AA2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		1C2F9FCE07014002CCF871F4F23C34D9 /* UIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C0B435EFE239A974DCC2D00D5A618 /* UIGestureRecognizer.swift */; };
+		2DE91CF63373631A8406630FCA845391 /* ZLSwipeableViewSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 083439149750A4A30EAF07D84BA4CC32 /* ZLSwipeableViewSwift-dummy.m */; };
+		55FD4AD6F2CF836B50C996D557342011 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		650AC7B11F154D8FE690977207204007 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
+		71F091767C5FA88A489682D49728881F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		8527F410A0772CD7EF8F71B7678CB0B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
+		85CA91AD5CCA0877B8EB55FA7699B924 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62FAFDABB7F9FF30C5C1760A3355BDE /* UIControl.swift */; };
+		880A0A455BD1927011D06CF331314F2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
+		891EEFCE76F8D8658A5D270E773708BD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43CC32335387EDBA214B1775F9DF835 /* UIColorExtension.swift */; };
+		8DAFD67AB3A5748FA55CBE7DC8B6B8CF /* ZLSwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A08C68A3522E9E862D83100C4F6423B /* ZLSwipeableView.swift */; };
+		8E9B1E4BF8EDE28816AD3638A23A7EDE /* UIColor_Hex_Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B51120FCA789C77C308F14AD51BE13DC /* UIColor_Hex_Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FB3C632BCC397836D4ECC33719CDDFC /* UIColor_Hex_Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5872B252B4C8D0AC98A0E6EF8DCF20D4 /* UIColor_Hex_Swift-dummy.m */; };
+		94DC1F5B1C7191D668159C27E78FF7DE /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F956AFEC7CEFFDA6A2922A9490C6C /* UIBarButtonItem.swift */; };
+		9A7ED773130346EEC95EDF29EDED3452 /* Pods-AmazingAgeTrick-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 003898023B0533F7DFBEC10CB1D127BD /* Pods-AmazingAgeTrick-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E164E3E03F992BFDE85CEFCDE24F85F /* ReactiveUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B434A892A4034A053EE4C6F0956382EB /* ReactiveUI.swift */; };
+		A656285C3651C288C005CE7A25CC45A7 /* FlatUIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72FE5B503D9CD87FB503573005A7977 /* FlatUIColors.swift */; };
+		B0012E205FB868CF68392C8B65018A85 /* ReactiveUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 42470EED1191E6E837DEE796EC770B02 /* ReactiveUI-dummy.m */; };
+		B0EDFFAC4BF8D57757882526D6A45B28 /* HEXColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B4105BE0CB32ADBE2EC56FA4B75D6772 /* HEXColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B81392F4C43D8DB7EB1EC79B3E1B61C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		C2D5AA0C9852DC370F24B5A40052D13D /* ZLSwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA4327A6DD2EBF0FC392F2A60A1A58 /* ZLSwipeableView.swift */; };
-		C2F46C2FDD549847097529265EE6B377 /* UIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E668148C9A3C76583B9C18724B2A13E /* UIGestureRecognizer.swift */; };
-		EE1DF986FEFA6FB036515174A86C0C4C /* FlatUIColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1610CCD696DEFAA04622E049D856F72A /* FlatUIColors-dummy.m */; };
-		EECDC1258DFCDD65DE22D8AD7FF32D27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
-		F422E9D6C4794D9E6F3502773F5D6AED /* ReactiveUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C181B94A554E34DAE5FE71CC71E3D282 /* ReactiveUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FBD9EE94D1BE2170815422FECFEE5265 /* FlatUIColors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CF51C1F6D1BD3FC24009F85FEE48FCE5 /* FlatUIColors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D72FD6DC2D8A7786C415A03C169AD86F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		EE1DF986FEFA6FB036515174A86C0C4C /* FlatUIColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 198591E7BAAE1A3B03CAEF5F1FA2EB38 /* FlatUIColors-dummy.m */; };
+		F88DBBCB53DDE315BA01175BAB6A86FD /* ReactiveUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40DA61F597A4C1553092D693D6F215FD /* ReactiveUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F94484A5E5CF0DF6C6D709B38AE6760D /* Pods-AmazingAgeTrick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BF5B967459DADB234259E2A297A72B /* Pods-AmazingAgeTrick-dummy.m */; };
+		FBD9EE94D1BE2170815422FECFEE5265 /* FlatUIColors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 348F1FEAAE2C40DC90CC47E9BDEC35B1 /* FlatUIColors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		16314BDDA16BC7CC05F85FE74D77EFBE /* PBXContainerItemProxy */ = {
+		58D75B9A19568983B16337250C7B06E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0368229DB5763258374E8F3F35992B4D;
+			remoteInfo = ZLSwipeableViewSwift;
+		};
+		820D0220BD01751369FFAD5DEB409990 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0927957DBBE78B166F56E81DBC23DB03;
 			remoteInfo = FlatUIColors;
 		};
-		4C4228B73383891D3ADF597C5C659242 /* PBXContainerItemProxy */ = {
+		DE1B4987D7D8076855D28CE95DE72DAB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A57156FA6FBE1D10DA7D6761396E2A4B;
+			remoteGlobalIDString = 46F72224240F813E37AF96761187EEAD;
 			remoteInfo = ReactiveUI;
 		};
-		C9453F03EFFABD0352C865F16C597C63 /* PBXContainerItemProxy */ = {
+		F273A6AACCB7FD0869E9B9D7F195BDD3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E95EB6B3C3FD9A39DE091F76C1E5E261;
-			remoteInfo = ZLSwipeableViewSwift;
+			remoteGlobalIDString = 07829E81B9F5CFFC11D0E4E90BE543FE;
+			remoteInfo = UIColor_Hex_Swift;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		003898023B0533F7DFBEC10CB1D127BD /* Pods-AmazingAgeTrick-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AmazingAgeTrick-umbrella.h"; sourceTree = "<group>"; };
+		00D8053330CFC8DDF87BB8A41B6D1893 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E2DA4CCAB24438FEB6E2817E874D1A /* Pods-AmazingAgeTrick-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AmazingAgeTrick-resources.sh"; sourceTree = "<group>"; };
+		02EC15CC92C30167FC2A2508D65673E6 /* FlatUIColors.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FlatUIColors.modulemap; sourceTree = "<group>"; };
+		0662DAD76250219A786D03E5224989EC /* ZLSwipeableViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZLSwipeableViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		083439149750A4A30EAF07D84BA4CC32 /* ZLSwipeableViewSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZLSwipeableViewSwift-dummy.m"; sourceTree = "<group>"; };
+		0B285150962C2A81E38CCCE212A2D016 /* ZLSwipeableViewSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZLSwipeableViewSwift-umbrella.h"; sourceTree = "<group>"; };
 		131A11A98F09E0945105848B905564E6 /* Pods-AmazingAgeTrick-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AmazingAgeTrick-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1610CCD696DEFAA04622E049D856F72A /* FlatUIColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlatUIColors-dummy.m"; sourceTree = "<group>"; };
-		1CC43937B21E633A1EE3E735B6CD1AC0 /* UIBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIBarButtonItem.swift; path = ReactiveUI/ReactiveUI/UIBarButtonItem.swift; sourceTree = "<group>"; };
-		24020C593D70DFBDCA5D2E9E02FC31EF /* ZLSwipeableViewSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZLSwipeableViewSwift-umbrella.h"; sourceTree = "<group>"; };
+		15F041DCA46EAC40B6D97752CCD7C74B /* ReactiveUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ReactiveUI.modulemap; sourceTree = "<group>"; };
+		187270B5D8B01CD5708906BD545EF227 /* FlatUIColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlatUIColors.xcconfig; sourceTree = "<group>"; };
+		198591E7BAAE1A3B03CAEF5F1FA2EB38 /* FlatUIColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlatUIColors-dummy.m"; sourceTree = "<group>"; };
+		213DA7C7490E81052D8F1F7EA39B8706 /* NSTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSTimer.swift; path = ReactiveUI/ReactiveUI/NSTimer.swift; sourceTree = "<group>"; };
+		21FDB3E00C6380C8ADED8C6AF5616DFD /* ZLSwipeableViewSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZLSwipeableViewSwift-prefix.pch"; sourceTree = "<group>"; };
+		29FBD86ED25C59A646BF9C4573F83CC8 /* ReactiveUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReactiveUI-prefix.pch"; sourceTree = "<group>"; };
+		30AA0A70CC51095D447893301A70CFCB /* UIColor_Hex_Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIColor_Hex_Swift.xcconfig; sourceTree = "<group>"; };
 		3336169CABF74F21247555AF6720EAE0 /* Pods-AmazingAgeTrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AmazingAgeTrick.debug.xcconfig"; sourceTree = "<group>"; };
-		397DE979EF8B44F97D7173BE119E4A06 /* ReactiveUI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReactiveUI.swift; path = ReactiveUI/ReactiveUI/ReactiveUI.swift; sourceTree = "<group>"; };
-		43E04B31F1A090F5A9B1470399581204 /* Pods_AmazingAgeTrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingAgeTrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4EFA4327A6DD2EBF0FC392F2A60A1A58 /* ZLSwipeableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZLSwipeableView.swift; path = ZLSwipeableViewSwift/ZLSwipeableView.swift; sourceTree = "<group>"; };
-		511862C7172D153A7E9FCFAAE20B7E20 /* ZLSwipeableViewSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZLSwipeableViewSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55F64337B41C3B42D82A4D1CEC7485F0 /* FlatUIColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatUIColors-prefix.pch"; sourceTree = "<group>"; };
-		5D95BA4067E909DF19D8683A2FEF0730 /* NSTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSTimer.swift; path = ReactiveUI/ReactiveUI/NSTimer.swift; sourceTree = "<group>"; };
-		694099CB5CB9EC343ADEDB1EC4825910 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		348F1FEAAE2C40DC90CC47E9BDEC35B1 /* FlatUIColors-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatUIColors-umbrella.h"; sourceTree = "<group>"; };
+		40DA61F597A4C1553092D693D6F215FD /* ReactiveUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReactiveUI-umbrella.h"; sourceTree = "<group>"; };
+		42470EED1191E6E837DEE796EC770B02 /* ReactiveUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReactiveUI-dummy.m"; sourceTree = "<group>"; };
+		4C12C8A3EDA3F9B1311AA2C47E0A7E93 /* Pods_AmazingAgeTrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingAgeTrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		538C0B435EFE239A974DCC2D00D5A618 /* UIGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIGestureRecognizer.swift; path = ReactiveUI/ReactiveUI/UIGestureRecognizer.swift; sourceTree = "<group>"; };
+		5872B252B4C8D0AC98A0E6EF8DCF20D4 /* UIColor_Hex_Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor_Hex_Swift-dummy.m"; sourceTree = "<group>"; };
+		6A08C68A3522E9E862D83100C4F6423B /* ZLSwipeableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZLSwipeableView.swift; path = ZLSwipeableViewSwift/ZLSwipeableView.swift; sourceTree = "<group>"; };
 		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		71C950D3E266640080811AA3FBCDF32A /* ReactiveUI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReactiveUI.xcconfig; sourceTree = "<group>"; };
+		76B4A149413D0BC63BB4BEF31701E185 /* ZLSwipeableViewSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZLSwipeableViewSwift.xcconfig; sourceTree = "<group>"; };
 		78BF5B967459DADB234259E2A297A72B /* Pods-AmazingAgeTrick-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AmazingAgeTrick-dummy.m"; sourceTree = "<group>"; };
-		7D4901D4083EA413EB757FBF65ABC543 /* ReactiveUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReactiveUI-dummy.m"; sourceTree = "<group>"; };
-		82E1B6B02DA47BA990B98A07B36DFDC4 /* ZLSwipeableViewSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ZLSwipeableViewSwift.modulemap; sourceTree = "<group>"; };
+		82AB1EDF862E3DBC7211D6ABB4FBEEDD /* FlatUIColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatUIColors-prefix.pch"; sourceTree = "<group>"; };
 		8774BE48F24F55805A0CE573D5F508F7 /* Pods-AmazingAgeTrick-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AmazingAgeTrick-frameworks.sh"; sourceTree = "<group>"; };
-		8E668148C9A3C76583B9C18724B2A13E /* UIGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIGestureRecognizer.swift; path = ReactiveUI/ReactiveUI/UIGestureRecognizer.swift; sourceTree = "<group>"; };
-		90ECCD7FC52230A1E232B4298B2A5D0A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		923D290E068A0464D83B24F6559E89BA /* ReactiveUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		949761F8C2807D5E0D1B40A162CE7D09 /* FlatUIColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlatUIColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		94B78B159EA2CA1EB730F4F246F527E7 /* FlatUIColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlatUIColors.xcconfig; sourceTree = "<group>"; };
-		A06BD2A66CFE6FDE1C61C0724DD8A6A4 /* ReactiveUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ReactiveUI.modulemap; sourceTree = "<group>"; };
-		A21EBA11DA49009E88ED36D67C3F7C9C /* FlatUIColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlatUIColors.swift; sourceTree = "<group>"; };
-		AEAD61ADBBE8DE7A4D3A3CA3976ACB60 /* ZLSwipeableViewSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZLSwipeableViewSwift.xcconfig; sourceTree = "<group>"; };
+		916D0C6DD13F82E4324CF8966984284E /* UIColor_Hex_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIColor_Hex_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9684B9F1BBDEFC22658D090889BEEE8A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A5E5AB003742FFF43CEAA5ABB02292A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F2E43BF14AD708EFE5F1C4767012EB /* UIColor_Hex_Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = UIColor_Hex_Swift.modulemap; sourceTree = "<group>"; };
+		A22E66FA8BD8FD9FCFD42A321A5F21D0 /* ZLSwipeableViewSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ZLSwipeableViewSwift.modulemap; sourceTree = "<group>"; };
+		B08D9C48F82359B398EFF45C44BDA89A /* UIColor_Hex_Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor_Hex_Swift-prefix.pch"; sourceTree = "<group>"; };
 		B19C0ADF93F031F4A91F275C2186486B /* Pods-AmazingAgeTrick-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AmazingAgeTrick-acknowledgements.plist"; sourceTree = "<group>"; };
-		B2070FEC33272083E73055A1FA89D30E /* FlatUIColors.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FlatUIColors.modulemap; sourceTree = "<group>"; };
-		B282040396CB6DB5E089C666F4313640 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4105BE0CB32ADBE2EC56FA4B75D6772 /* HEXColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HEXColor.h; path = HEXColor/HEXColor.h; sourceTree = "<group>"; };
+		B434A892A4034A053EE4C6F0956382EB /* ReactiveUI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReactiveUI.swift; path = ReactiveUI/ReactiveUI/ReactiveUI.swift; sourceTree = "<group>"; };
+		B51120FCA789C77C308F14AD51BE13DC /* UIColor_Hex_Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor_Hex_Swift-umbrella.h"; sourceTree = "<group>"; };
+		B72FE5B503D9CD87FB503573005A7977 /* FlatUIColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlatUIColors.swift; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BCABC7DFD97F8165C18728575038EBC3 /* Pods-AmazingAgeTrick.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AmazingAgeTrick.modulemap"; sourceTree = "<group>"; };
-		C181B94A554E34DAE5FE71CC71E3D282 /* ReactiveUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReactiveUI-umbrella.h"; sourceTree = "<group>"; };
+		C13F956AFEC7CEFFDA6A2922A9490C6C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIBarButtonItem.swift; path = ReactiveUI/ReactiveUI/UIBarButtonItem.swift; sourceTree = "<group>"; };
 		C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		CDE2D59186A0A144CFB0FAE4864E4D2E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF51C1F6D1BD3FC24009F85FEE48FCE5 /* FlatUIColors-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatUIColors-umbrella.h"; sourceTree = "<group>"; };
-		D03C38DE5D7CBD3E0E46ECE8BC116DA2 /* ReactiveUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReactiveUI-prefix.pch"; sourceTree = "<group>"; };
-		D62EAFA8B20AF765BAD92C48DA00C443 /* ZLSwipeableViewSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZLSwipeableViewSwift-prefix.pch"; sourceTree = "<group>"; };
+		D62FAFDABB7F9FF30C5C1760A3355BDE /* UIControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIControl.swift; path = ReactiveUI/ReactiveUI/UIControl.swift; sourceTree = "<group>"; };
 		D9EFDF00BC6B0823C3CC766024E19703 /* Pods-AmazingAgeTrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AmazingAgeTrick.release.xcconfig"; sourceTree = "<group>"; };
-		ED294B1B2843AF78C05ED237CB28FAAF /* UIControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIControl.swift; path = ReactiveUI/ReactiveUI/UIControl.swift; sourceTree = "<group>"; };
-		F4A2BC029633E757C2D291AB3B1F2F9E /* ReactiveUI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReactiveUI.xcconfig; sourceTree = "<group>"; };
-		F7B478CA5A12B9B42742B75BDB8B9CB1 /* ZLSwipeableViewSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZLSwipeableViewSwift-dummy.m"; sourceTree = "<group>"; };
+		E0ED0A4189486DD1990038ED3D8094CC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E21D45F49E2229C762A7372C5AB8DC11 /* ReactiveUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43CC32335387EDBA214B1775F9DF835 /* UIColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = HEXColor/UIColorExtension.swift; sourceTree = "<group>"; };
+		E50E1A756B5E6DF018C430BCF936ECF4 /* FlatUIColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlatUIColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		40D1B130F1BC770C86387798F48B7578 /* Frameworks */ = {
+		47B90AC9A894D9C6EB25D3F9D49B3B6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				371DBFB66718FC52082161E452E128D1 /* Foundation.framework in Frameworks */,
-				09FE98AB4E289FC58233C6D67E26EC7F /* UIKit.framework in Frameworks */,
+				0F961BC5B097505116276BE655A2AA2F /* Foundation.framework in Frameworks */,
+				880A0A455BD1927011D06CF331314F2B /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60DD3A3971A008AD1DCECB171D013E39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71F091767C5FA88A489682D49728881F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,20 +147,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		775CAFA28A9FA73B1AB2A919804CEB6C /* Frameworks */ = {
+		B8213F43971B062C80C74BB10E826343 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274068F4CE37041BF3D97D0934C293B1 /* Foundation.framework in Frameworks */,
+				D72FD6DC2D8A7786C415A03C169AD86F /* Foundation.framework in Frameworks */,
+				8527F410A0772CD7EF8F71B7678CB0B8 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4F2DA76D730296B8B02F4CBA01154FA /* Frameworks */ = {
+		BFD165CC0A644057661A16BA5B0A8A3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F3F20E65E3A8538C7E473CF9112E4C7 /* Foundation.framework in Frameworks */,
-				EECDC1258DFCDD65DE22D8AD7FF32D27 /* UIKit.framework in Frameworks */,
+				55FD4AD6F2CF836B50C996D557342011 /* Foundation.framework in Frameworks */,
+				650AC7B11F154D8FE690977207204007 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +175,19 @@
 				C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		2B63A8047D06F6461F768A58572C86CD /* ReactiveUI */ = {
+			isa = PBXGroup;
+			children = (
+				213DA7C7490E81052D8F1F7EA39B8706 /* NSTimer.swift */,
+				B434A892A4034A053EE4C6F0956382EB /* ReactiveUI.swift */,
+				C13F956AFEC7CEFFDA6A2922A9490C6C /* UIBarButtonItem.swift */,
+				D62FAFDABB7F9FF30C5C1760A3355BDE /* UIControl.swift */,
+				538C0B435EFE239A974DCC2D00D5A618 /* UIGestureRecognizer.swift */,
+				913EB4742367BC64888C344168CC23FB /* Support Files */,
+			);
+			path = ReactiveUI;
 			sourceTree = "<group>";
 		};
 		37702F8D1604A3CBD7473F11656E3F78 /* Targets Support Files */ = {
@@ -162,29 +206,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5FF25F9A672519CFECFD66118FB3D5AE /* FlatUIColors */ = {
+			isa = PBXGroup;
+			children = (
+				B72FE5B503D9CD87FB503573005A7977 /* FlatUIColors.swift */,
+				BABC59AF3064203EA1EA899691B4EEAB /* Support Files */,
+			);
+			path = FlatUIColors;
+			sourceTree = "<group>";
+		};
+		60364CFD25FAB9A058F2A2BFD2E3F8E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FF25F9A672519CFECFD66118FB3D5AE /* FlatUIColors */,
+				2B63A8047D06F6461F768A58572C86CD /* ReactiveUI */,
+				C4C3C1BE5DF5B38A7900F412A8CD73A2 /* UIColor_Hex_Swift */,
+				A990B005AC56BDE1FC7F981EFC9A7CA1 /* ZLSwipeableViewSwift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				E59C745C9F7091A87B0D523844D1E4C2 /* Pods */,
-				FC6A54DC08F75E18EB1FA95562FA70A7 /* Products */,
+				60364CFD25FAB9A058F2A2BFD2E3F8E8 /* Pods */,
+				809BB39DBAE6BD0ED1AEEF78D937BE62 /* Products */,
 				37702F8D1604A3CBD7473F11656E3F78 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8DF62E899EABB211232AF3411B4C2B79 /* Support Files */ = {
+		809BB39DBAE6BD0ED1AEEF78D937BE62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B282040396CB6DB5E089C666F4313640 /* Info.plist */,
-				A06BD2A66CFE6FDE1C61C0724DD8A6A4 /* ReactiveUI.modulemap */,
-				F4A2BC029633E757C2D291AB3B1F2F9E /* ReactiveUI.xcconfig */,
-				7D4901D4083EA413EB757FBF65ABC543 /* ReactiveUI-dummy.m */,
-				D03C38DE5D7CBD3E0E46ECE8BC116DA2 /* ReactiveUI-prefix.pch */,
-				C181B94A554E34DAE5FE71CC71E3D282 /* ReactiveUI-umbrella.h */,
+				E50E1A756B5E6DF018C430BCF936ECF4 /* FlatUIColors.framework */,
+				4C12C8A3EDA3F9B1311AA2C47E0A7E93 /* Pods_AmazingAgeTrick.framework */,
+				E21D45F49E2229C762A7372C5AB8DC11 /* ReactiveUI.framework */,
+				916D0C6DD13F82E4324CF8966984284E /* UIColor_Hex_Swift.framework */,
+				0662DAD76250219A786D03E5224989EC /* ZLSwipeableViewSwift.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/ReactiveUI";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		90CAEA16785F2A0973982FA7D0F10632 /* Pods-AmazingAgeTrick */ = {
@@ -205,102 +267,114 @@
 			path = "Target Support Files/Pods-AmazingAgeTrick";
 			sourceTree = "<group>";
 		};
-		AB5B3D9A8B2879749DF89646439B42D7 /* Support Files */ = {
+		913EB4742367BC64888C344168CC23FB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				90ECCD7FC52230A1E232B4298B2A5D0A /* Info.plist */,
-				82E1B6B02DA47BA990B98A07B36DFDC4 /* ZLSwipeableViewSwift.modulemap */,
-				AEAD61ADBBE8DE7A4D3A3CA3976ACB60 /* ZLSwipeableViewSwift.xcconfig */,
-				F7B478CA5A12B9B42742B75BDB8B9CB1 /* ZLSwipeableViewSwift-dummy.m */,
-				D62EAFA8B20AF765BAD92C48DA00C443 /* ZLSwipeableViewSwift-prefix.pch */,
-				24020C593D70DFBDCA5D2E9E02FC31EF /* ZLSwipeableViewSwift-umbrella.h */,
+				9684B9F1BBDEFC22658D090889BEEE8A /* Info.plist */,
+				15F041DCA46EAC40B6D97752CCD7C74B /* ReactiveUI.modulemap */,
+				71C950D3E266640080811AA3FBCDF32A /* ReactiveUI.xcconfig */,
+				42470EED1191E6E837DEE796EC770B02 /* ReactiveUI-dummy.m */,
+				29FBD86ED25C59A646BF9C4573F83CC8 /* ReactiveUI-prefix.pch */,
+				40DA61F597A4C1553092D693D6F215FD /* ReactiveUI-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/ZLSwipeableViewSwift";
+			path = "../Target Support Files/ReactiveUI";
 			sourceTree = "<group>";
 		};
-		AC0D4C120F328A4DA9751C65BBDC6384 /* ReactiveUI */ = {
+		9E1B6AA741ECE6FC59CF915BD091366A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D95BA4067E909DF19D8683A2FEF0730 /* NSTimer.swift */,
-				397DE979EF8B44F97D7173BE119E4A06 /* ReactiveUI.swift */,
-				1CC43937B21E633A1EE3E735B6CD1AC0 /* UIBarButtonItem.swift */,
-				ED294B1B2843AF78C05ED237CB28FAAF /* UIControl.swift */,
-				8E668148C9A3C76583B9C18724B2A13E /* UIGestureRecognizer.swift */,
-				8DF62E899EABB211232AF3411B4C2B79 /* Support Files */,
+				E0ED0A4189486DD1990038ED3D8094CC /* Info.plist */,
+				A0F2E43BF14AD708EFE5F1C4767012EB /* UIColor_Hex_Swift.modulemap */,
+				30AA0A70CC51095D447893301A70CFCB /* UIColor_Hex_Swift.xcconfig */,
+				5872B252B4C8D0AC98A0E6EF8DCF20D4 /* UIColor_Hex_Swift-dummy.m */,
+				B08D9C48F82359B398EFF45C44BDA89A /* UIColor_Hex_Swift-prefix.pch */,
+				B51120FCA789C77C308F14AD51BE13DC /* UIColor_Hex_Swift-umbrella.h */,
 			);
-			path = ReactiveUI;
+			name = "Support Files";
+			path = "../Target Support Files/UIColor_Hex_Swift";
 			sourceTree = "<group>";
 		};
-		C1A0EF47950A875FD81A08D64918EF57 /* ZLSwipeableViewSwift */ = {
+		A990B005AC56BDE1FC7F981EFC9A7CA1 /* ZLSwipeableViewSwift */ = {
 			isa = PBXGroup;
 			children = (
-				4EFA4327A6DD2EBF0FC392F2A60A1A58 /* ZLSwipeableView.swift */,
-				AB5B3D9A8B2879749DF89646439B42D7 /* Support Files */,
+				6A08C68A3522E9E862D83100C4F6423B /* ZLSwipeableView.swift */,
+				D21788CFAC3BE17700A3DCAD959B9DFD /* Support Files */,
 			);
 			path = ZLSwipeableViewSwift;
 			sourceTree = "<group>";
 		};
-		C1EF538F8922F2302AB097D5CFE2E226 /* FlatUIColors */ = {
+		BABC59AF3064203EA1EA899691B4EEAB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A21EBA11DA49009E88ED36D67C3F7C9C /* FlatUIColors.swift */,
-				D885B82EF302238F293E08E5D39BC826 /* Support Files */,
-			);
-			path = FlatUIColors;
-			sourceTree = "<group>";
-		};
-		D885B82EF302238F293E08E5D39BC826 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B2070FEC33272083E73055A1FA89D30E /* FlatUIColors.modulemap */,
-				94B78B159EA2CA1EB730F4F246F527E7 /* FlatUIColors.xcconfig */,
-				1610CCD696DEFAA04622E049D856F72A /* FlatUIColors-dummy.m */,
-				55F64337B41C3B42D82A4D1CEC7485F0 /* FlatUIColors-prefix.pch */,
-				CF51C1F6D1BD3FC24009F85FEE48FCE5 /* FlatUIColors-umbrella.h */,
-				694099CB5CB9EC343ADEDB1EC4825910 /* Info.plist */,
+				02EC15CC92C30167FC2A2508D65673E6 /* FlatUIColors.modulemap */,
+				187270B5D8B01CD5708906BD545EF227 /* FlatUIColors.xcconfig */,
+				198591E7BAAE1A3B03CAEF5F1FA2EB38 /* FlatUIColors-dummy.m */,
+				82AB1EDF862E3DBC7211D6ABB4FBEEDD /* FlatUIColors-prefix.pch */,
+				348F1FEAAE2C40DC90CC47E9BDEC35B1 /* FlatUIColors-umbrella.h */,
+				9A5E5AB003742FFF43CEAA5ABB02292A /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FlatUIColors";
 			sourceTree = "<group>";
 		};
-		E59C745C9F7091A87B0D523844D1E4C2 /* Pods */ = {
+		C4C3C1BE5DF5B38A7900F412A8CD73A2 /* UIColor_Hex_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				C1EF538F8922F2302AB097D5CFE2E226 /* FlatUIColors */,
-				AC0D4C120F328A4DA9751C65BBDC6384 /* ReactiveUI */,
-				C1A0EF47950A875FD81A08D64918EF57 /* ZLSwipeableViewSwift */,
+				B4105BE0CB32ADBE2EC56FA4B75D6772 /* HEXColor.h */,
+				E43CC32335387EDBA214B1775F9DF835 /* UIColorExtension.swift */,
+				9E1B6AA741ECE6FC59CF915BD091366A /* Support Files */,
 			);
-			name = Pods;
+			path = UIColor_Hex_Swift;
 			sourceTree = "<group>";
 		};
-		FC6A54DC08F75E18EB1FA95562FA70A7 /* Products */ = {
+		D21788CFAC3BE17700A3DCAD959B9DFD /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				949761F8C2807D5E0D1B40A162CE7D09 /* FlatUIColors.framework */,
-				43E04B31F1A090F5A9B1470399581204 /* Pods_AmazingAgeTrick.framework */,
-				923D290E068A0464D83B24F6559E89BA /* ReactiveUI.framework */,
-				511862C7172D153A7E9FCFAAE20B7E20 /* ZLSwipeableViewSwift.framework */,
+				00D8053330CFC8DDF87BB8A41B6D1893 /* Info.plist */,
+				A22E66FA8BD8FD9FCFD42A321A5F21D0 /* ZLSwipeableViewSwift.modulemap */,
+				76B4A149413D0BC63BB4BEF31701E185 /* ZLSwipeableViewSwift.xcconfig */,
+				083439149750A4A30EAF07D84BA4CC32 /* ZLSwipeableViewSwift-dummy.m */,
+				21FDB3E00C6380C8ADED8C6AF5616DFD /* ZLSwipeableViewSwift-prefix.pch */,
+				0B285150962C2A81E38CCCE212A2D016 /* ZLSwipeableViewSwift-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/ZLSwipeableViewSwift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		276D631D8AB28868A079C7E554BE83BB /* Headers */ = {
+		01EB2E25F1B761BBF1475CB73AB5DB86 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EC24BEEFB4ABC10C7ADB9DE3E3D9CFD /* Pods-AmazingAgeTrick-umbrella.h in Headers */,
+				04D8B63DF3CD070DA8E1658C171C0251 /* ZLSwipeableViewSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		612141E419CA63FAE204D51BDC310371 /* Headers */ = {
+		0EA8B6087238CF577D51B3148B9FB185 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861B969DE3EEA1395C801C01B220AB0C /* ZLSwipeableViewSwift-umbrella.h in Headers */,
+				9A7ED773130346EEC95EDF29EDED3452 /* Pods-AmazingAgeTrick-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DDCF5C4ED1C77232131A82C112718F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0EDFFAC4BF8D57757882526D6A45B28 /* HEXColor.h in Headers */,
+				8E9B1E4BF8EDE28816AD3638A23A7EDE /* UIColor_Hex_Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E3AAEF0865C5305B00D158E301907D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F88DBBCB53DDE315BA01175BAB6A86FD /* ReactiveUI-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,17 +386,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E8E08AC82F3B530F45908AFA00CF5011 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F422E9D6C4794D9E6F3502773F5D6AED /* ReactiveUI-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0368229DB5763258374E8F3F35992B4D /* ZLSwipeableViewSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39603E5F2CE763D4AE4F2BAC0E8953BA /* Build configuration list for PBXNativeTarget "ZLSwipeableViewSwift" */;
+			buildPhases = (
+				CB5347089428B81137AADB97D55090E6 /* Sources */,
+				47B90AC9A894D9C6EB25D3F9D49B3B6C /* Frameworks */,
+				01EB2E25F1B761BBF1475CB73AB5DB86 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZLSwipeableViewSwift;
+			productName = ZLSwipeableViewSwift;
+			productReference = 0662DAD76250219A786D03E5224989EC /* ZLSwipeableViewSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		07829E81B9F5CFFC11D0E4E90BE543FE /* UIColor_Hex_Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E70A6BE40504E2D84F9688B70656BF2 /* Build configuration list for PBXNativeTarget "UIColor_Hex_Swift" */;
+			buildPhases = (
+				FEA23A3516A6C05A396AF8FC9D36C008 /* Sources */,
+				B8213F43971B062C80C74BB10E826343 /* Frameworks */,
+				41DDCF5C4ED1C77232131A82C112718F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIColor_Hex_Swift;
+			productName = UIColor_Hex_Swift;
+			productReference = 916D0C6DD13F82E4324CF8966984284E /* UIColor_Hex_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		0927957DBBE78B166F56E81DBC23DB03 /* FlatUIColors */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEAFC1C63F6937D1B3DBBC9143739437 /* Build configuration list for PBXNativeTarget "FlatUIColors" */;
@@ -337,16 +437,16 @@
 			);
 			name = FlatUIColors;
 			productName = FlatUIColors;
-			productReference = 949761F8C2807D5E0D1B40A162CE7D09 /* FlatUIColors.framework */;
+			productReference = E50E1A756B5E6DF018C430BCF936ECF4 /* FlatUIColors.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A57156FA6FBE1D10DA7D6761396E2A4B /* ReactiveUI */ = {
+		46F72224240F813E37AF96761187EEAD /* ReactiveUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76EA11ECEE200C0E03E2FEAB9A6E6904 /* Build configuration list for PBXNativeTarget "ReactiveUI" */;
+			buildConfigurationList = B494E3E3DEFBF8EB6CFA1892DF1EAB10 /* Build configuration list for PBXNativeTarget "ReactiveUI" */;
 			buildPhases = (
-				889F0CC3727C934DAE3FCE4E228E7139 /* Sources */,
-				C4F2DA76D730296B8B02F4CBA01154FA /* Frameworks */,
-				E8E08AC82F3B530F45908AFA00CF5011 /* Headers */,
+				FEB3BC97813EDA8304E5F5E93EA06CC7 /* Sources */,
+				BFD165CC0A644057661A16BA5B0A8A3C /* Frameworks */,
+				7E3AAEF0865C5305B00D158E301907D8 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -354,44 +454,28 @@
 			);
 			name = ReactiveUI;
 			productName = ReactiveUI;
-			productReference = 923D290E068A0464D83B24F6559E89BA /* ReactiveUI.framework */;
+			productReference = E21D45F49E2229C762A7372C5AB8DC11 /* ReactiveUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E95EB6B3C3FD9A39DE091F76C1E5E261 /* ZLSwipeableViewSwift */ = {
+		E519DC51B27AC10A6FC0E65CD6C271B3 /* Pods-AmazingAgeTrick */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B564785C174EAE9B548B60969C54843 /* Build configuration list for PBXNativeTarget "ZLSwipeableViewSwift" */;
+			buildConfigurationList = F4A369F3EE2F167CE1117EDE1F221DBE /* Build configuration list for PBXNativeTarget "Pods-AmazingAgeTrick" */;
 			buildPhases = (
-				C2408D52ECE0A322A567040E74B5AB4B /* Sources */,
-				40D1B130F1BC770C86387798F48B7578 /* Frameworks */,
-				612141E419CA63FAE204D51BDC310371 /* Headers */,
+				F3C63397590E30C3C7BDA66F5C2FCC2A /* Sources */,
+				60DD3A3971A008AD1DCECB171D013E39 /* Frameworks */,
+				0EA8B6087238CF577D51B3148B9FB185 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = ZLSwipeableViewSwift;
-			productName = ZLSwipeableViewSwift;
-			productReference = 511862C7172D153A7E9FCFAAE20B7E20 /* ZLSwipeableViewSwift.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F603E6A618F0CC331D21B9300940571B /* Pods-AmazingAgeTrick */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0AAF6B3E350E3A2B222FBEF3B3199203 /* Build configuration list for PBXNativeTarget "Pods-AmazingAgeTrick" */;
-			buildPhases = (
-				5CE3A31CFA29C0FBF87A627396141E79 /* Sources */,
-				775CAFA28A9FA73B1AB2A919804CEB6C /* Frameworks */,
-				276D631D8AB28868A079C7E554BE83BB /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				305B56F136A2C0096CD4F9DB9548BC19 /* PBXTargetDependency */,
-				1BADF68F4AF28D7DD60163A0354EF25F /* PBXTargetDependency */,
-				E95E0BDA87EE8D614EB24ED926F29A1A /* PBXTargetDependency */,
+				FA070CFE949BA94E956C085A581ED935 /* PBXTargetDependency */,
+				8C0F2CE7FEC563052493CD97EA2546D7 /* PBXTargetDependency */,
+				EF6BFE9D0B43319CEE4343F57D3FA3EB /* PBXTargetDependency */,
+				51C6CC76B849970026D01A6127B56DA9 /* PBXTargetDependency */,
 			);
 			name = "Pods-AmazingAgeTrick";
 			productName = "Pods-AmazingAgeTrick";
-			productReference = 43E04B31F1A090F5A9B1470399581204 /* Pods_AmazingAgeTrick.framework */;
+			productReference = 4C12C8A3EDA3F9B1311AA2C47E0A7E93 /* Pods_AmazingAgeTrick.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -411,14 +495,15 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = FC6A54DC08F75E18EB1FA95562FA70A7 /* Products */;
+			productRefGroup = 809BB39DBAE6BD0ED1AEEF78D937BE62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				0927957DBBE78B166F56E81DBC23DB03 /* FlatUIColors */,
-				F603E6A618F0CC331D21B9300940571B /* Pods-AmazingAgeTrick */,
-				A57156FA6FBE1D10DA7D6761396E2A4B /* ReactiveUI */,
-				E95EB6B3C3FD9A39DE091F76C1E5E261 /* ZLSwipeableViewSwift */,
+				E519DC51B27AC10A6FC0E65CD6C271B3 /* Pods-AmazingAgeTrick */,
+				46F72224240F813E37AF96761187EEAD /* ReactiveUI */,
+				07829E81B9F5CFFC11D0E4E90BE543FE /* UIColor_Hex_Swift */,
+				0368229DB5763258374E8F3F35992B4D /* ZLSwipeableViewSwift */,
 			);
 		};
 /* End PBXProject section */
@@ -433,63 +518,78 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5CE3A31CFA29C0FBF87A627396141E79 /* Sources */ = {
+		CB5347089428B81137AADB97D55090E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A80ABB91B0C9FF304FFBDB226487758 /* Pods-AmazingAgeTrick-dummy.m in Sources */,
+				8DAFD67AB3A5748FA55CBE7DC8B6B8CF /* ZLSwipeableView.swift in Sources */,
+				2DE91CF63373631A8406630FCA845391 /* ZLSwipeableViewSwift-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		889F0CC3727C934DAE3FCE4E228E7139 /* Sources */ = {
+		F3C63397590E30C3C7BDA66F5C2FCC2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74D2632A3AAF1252060F93F93C929B65 /* NSTimer.swift in Sources */,
-				88DDA7A79D82BC1ADFAFEEE495D307E3 /* ReactiveUI-dummy.m in Sources */,
-				13232D066FF9AF8B13126EEEAF60ABB8 /* ReactiveUI.swift in Sources */,
-				75E12E3450E539DBCFF55486B5AA67BC /* UIBarButtonItem.swift in Sources */,
-				7B68DD49426587E9B123120872FA5E86 /* UIControl.swift in Sources */,
-				C2F46C2FDD549847097529265EE6B377 /* UIGestureRecognizer.swift in Sources */,
+				F94484A5E5CF0DF6C6D709B38AE6760D /* Pods-AmazingAgeTrick-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C2408D52ECE0A322A567040E74B5AB4B /* Sources */ = {
+		FEA23A3516A6C05A396AF8FC9D36C008 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D5AA0C9852DC370F24B5A40052D13D /* ZLSwipeableView.swift in Sources */,
-				4750E73A3299B2776800AE2DFF821A4F /* ZLSwipeableViewSwift-dummy.m in Sources */,
+				8FB3C632BCC397836D4ECC33719CDDFC /* UIColor_Hex_Swift-dummy.m in Sources */,
+				891EEFCE76F8D8658A5D270E773708BD /* UIColorExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEB3BC97813EDA8304E5F5E93EA06CC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C656F8708A8F5CF2E3C222FD08BAF2D /* NSTimer.swift in Sources */,
+				B0012E205FB868CF68392C8B65018A85 /* ReactiveUI-dummy.m in Sources */,
+				9E164E3E03F992BFDE85CEFCDE24F85F /* ReactiveUI.swift in Sources */,
+				94DC1F5B1C7191D668159C27E78FF7DE /* UIBarButtonItem.swift in Sources */,
+				85CA91AD5CCA0877B8EB55FA7699B924 /* UIControl.swift in Sources */,
+				1C2F9FCE07014002CCF871F4F23C34D9 /* UIGestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1BADF68F4AF28D7DD60163A0354EF25F /* PBXTargetDependency */ = {
+		51C6CC76B849970026D01A6127B56DA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZLSwipeableViewSwift;
+			target = 0368229DB5763258374E8F3F35992B4D /* ZLSwipeableViewSwift */;
+			targetProxy = 58D75B9A19568983B16337250C7B06E5 /* PBXContainerItemProxy */;
+		};
+		8C0F2CE7FEC563052493CD97EA2546D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReactiveUI;
-			target = A57156FA6FBE1D10DA7D6761396E2A4B /* ReactiveUI */;
-			targetProxy = 4C4228B73383891D3ADF597C5C659242 /* PBXContainerItemProxy */;
+			target = 46F72224240F813E37AF96761187EEAD /* ReactiveUI */;
+			targetProxy = DE1B4987D7D8076855D28CE95DE72DAB /* PBXContainerItemProxy */;
 		};
-		305B56F136A2C0096CD4F9DB9548BC19 /* PBXTargetDependency */ = {
+		EF6BFE9D0B43319CEE4343F57D3FA3EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UIColor_Hex_Swift;
+			target = 07829E81B9F5CFFC11D0E4E90BE543FE /* UIColor_Hex_Swift */;
+			targetProxy = F273A6AACCB7FD0869E9B9D7F195BDD3 /* PBXContainerItemProxy */;
+		};
+		FA070CFE949BA94E956C085A581ED935 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FlatUIColors;
 			target = 0927957DBBE78B166F56E81DBC23DB03 /* FlatUIColors */;
-			targetProxy = 16314BDDA16BC7CC05F85FE74D77EFBE /* PBXContainerItemProxy */;
-		};
-		E95E0BDA87EE8D614EB24ED926F29A1A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ZLSwipeableViewSwift;
-			target = E95EB6B3C3FD9A39DE091F76C1E5E261 /* ZLSwipeableViewSwift */;
-			targetProxy = C9453F03EFFABD0352C865F16C597C63 /* PBXContainerItemProxy */;
+			targetProxy = 820D0220BD01751369FFAD5DEB409990 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		42E2DC87EB45888B66158CC3D004C6E6 /* Release */ = {
+		2CF8461FA95F6191C5D14DE0B9AEC041 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4A2BC029633E757C2D291AB3B1F2F9E /* ReactiveUI.xcconfig */;
+			baseConfigurationReference = 30AA0A70CC51095D447893301A70CFCB /* UIColor_Hex_Swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -498,14 +598,42 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ReactiveUI/ReactiveUI-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReactiveUI/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/UIColor_Hex_Swift/UIColor_Hex_Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIColor_Hex_Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReactiveUI/ReactiveUI.modulemap";
+				MODULEMAP_FILE = "Target Support Files/UIColor_Hex_Swift/UIColor_Hex_Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = UIColor_Hex_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4977822BD212011472B7FEF36A328EC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B4A149413D0BC63BB4BEF31701E185 /* ZLSwipeableViewSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ZLSwipeableViewSwift/ZLSwipeableViewSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ZLSwipeableViewSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ZLSwipeableViewSwift/ZLSwipeableViewSwift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = ReactiveUI;
+				PRODUCT_NAME = ZLSwipeableViewSwift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -516,7 +644,7 @@
 		};
 		58DEAD99916D7084ACA671998ABD7164 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94B78B159EA2CA1EB730F4F246F527E7 /* FlatUIColors.xcconfig */;
+			baseConfigurationReference = 187270B5D8B01CD5708906BD545EF227 /* FlatUIColors.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -533,34 +661,6 @@
 				MODULEMAP_FILE = "Target Support Files/FlatUIColors/FlatUIColors.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = FlatUIColors;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		66BF982391C1EC32747E2E242AE23B81 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4A2BC029633E757C2D291AB3B1F2F9E /* ReactiveUI.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ReactiveUI/ReactiveUI-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReactiveUI/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReactiveUI/ReactiveUI.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ReactiveUI;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -609,98 +709,9 @@
 			};
 			name = Debug;
 		};
-		912180011492B06B41AD0C72B87112CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEAD61ADBBE8DE7A4D3A3CA3976ACB60 /* ZLSwipeableViewSwift.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ZLSwipeableViewSwift/ZLSwipeableViewSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ZLSwipeableViewSwift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ZLSwipeableViewSwift/ZLSwipeableViewSwift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ZLSwipeableViewSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9322BD2998B3FA5CBC788C03F4BBA58A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9EFDF00BC6B0823C3CC766024E19703 /* Pods-AmazingAgeTrick.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AmazingAgeTrick/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_AmazingAgeTrick;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A6FCE8E122D908ABB475374A6666B113 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3336169CABF74F21247555AF6720EAE0 /* Pods-AmazingAgeTrick.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AmazingAgeTrick/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_AmazingAgeTrick;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		ADFE6A35E0C31D26516309924094D242 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94B78B159EA2CA1EB730F4F246F527E7 /* FlatUIColors.xcconfig */;
+			baseConfigurationReference = 187270B5D8B01CD5708906BD545EF227 /* FlatUIColors.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -724,6 +735,34 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		BEF62438C76D0AA4F315D6339C8ABCB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71C950D3E266640080811AA3FBCDF32A /* ReactiveUI.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ReactiveUI/ReactiveUI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReactiveUI/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReactiveUI/ReactiveUI.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ReactiveUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		C5A18280E9321A9268D1C80B7DA43967 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -759,9 +798,94 @@
 			};
 			name = Release;
 		};
-		C8F0B18943CBC6B72ABEE32D2CD271C9 /* Release */ = {
+		CCC515242EEF260A2FD0EF796D766D01 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEAD61ADBBE8DE7A4D3A3CA3976ACB60 /* ZLSwipeableViewSwift.xcconfig */;
+			baseConfigurationReference = 71C950D3E266640080811AA3FBCDF32A /* ReactiveUI.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ReactiveUI/ReactiveUI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReactiveUI/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReactiveUI/ReactiveUI.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ReactiveUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DAF6E279BEA2D4F62CAE1AC8862EE801 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30AA0A70CC51095D447893301A70CFCB /* UIColor_Hex_Swift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UIColor_Hex_Swift/UIColor_Hex_Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIColor_Hex_Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UIColor_Hex_Swift/UIColor_Hex_Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = UIColor_Hex_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DB8B20106D787796175B0C3EB247D748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3336169CABF74F21247555AF6720EAE0 /* Pods-AmazingAgeTrick.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AmazingAgeTrick/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_AmazingAgeTrick;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DE6F88BEBCBF129E3F63E91E9B0D49B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B4A149413D0BC63BB4BEF31701E185 /* ZLSwipeableViewSwift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -776,8 +900,39 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ZLSwipeableViewSwift/ZLSwipeableViewSwift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = ZLSwipeableViewSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E030F2BB15B77A3F7524C85656EF4519 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9EFDF00BC6B0823C3CC766024E19703 /* Pods-AmazingAgeTrick.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AmazingAgeTrick/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_AmazingAgeTrick;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -789,20 +944,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0AAF6B3E350E3A2B222FBEF3B3199203 /* Build configuration list for PBXNativeTarget "Pods-AmazingAgeTrick" */ = {
+		0E70A6BE40504E2D84F9688B70656BF2 /* Build configuration list for PBXNativeTarget "UIColor_Hex_Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A6FCE8E122D908ABB475374A6666B113 /* Debug */,
-				9322BD2998B3FA5CBC788C03F4BBA58A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0B564785C174EAE9B548B60969C54843 /* Build configuration list for PBXNativeTarget "ZLSwipeableViewSwift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				912180011492B06B41AD0C72B87112CE /* Debug */,
-				C8F0B18943CBC6B72ABEE32D2CD271C9 /* Release */,
+				2CF8461FA95F6191C5D14DE0B9AEC041 /* Debug */,
+				DAF6E279BEA2D4F62CAE1AC8862EE801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -816,11 +962,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76EA11ECEE200C0E03E2FEAB9A6E6904 /* Build configuration list for PBXNativeTarget "ReactiveUI" */ = {
+		39603E5F2CE763D4AE4F2BAC0E8953BA /* Build configuration list for PBXNativeTarget "ZLSwipeableViewSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				66BF982391C1EC32747E2E242AE23B81 /* Debug */,
-				42E2DC87EB45888B66158CC3D004C6E6 /* Release */,
+				DE6F88BEBCBF129E3F63E91E9B0D49B8 /* Debug */,
+				4977822BD212011472B7FEF36A328EC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B494E3E3DEFBF8EB6CFA1892DF1EAB10 /* Build configuration list for PBXNativeTarget "ReactiveUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF62438C76D0AA4F315D6339C8ABCB7 /* Debug */,
+				CCC515242EEF260A2FD0EF796D766D01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4A369F3EE2F167CE1117EDE1F221DBE /* Build configuration list for PBXNativeTarget "Pods-AmazingAgeTrick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB8B20106D787796175B0C3EB247D748 /* Debug */,
+				E030F2BB15B77A3F7524C85656EF4519 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,15 +8,8 @@
 
 import UIKit
 /**
- ✅1) Need Gesture to actually move the frame.
- 2) Need SnapBehavior to snap back OR reverse animate.
- 3) Need simple test if the card is outside the other cards, send it to the back.
- 4) Somehow let the system know all this.
- 
- 
- 
- Gesture out, if triggered, then Animate out, [flip?], sendToBack, Animate back in.
- 
+ 1) Auto-swipe after voting.
+ 2) Need better instructions
  */
 
 class ABSwipeableCardView: UIView {
