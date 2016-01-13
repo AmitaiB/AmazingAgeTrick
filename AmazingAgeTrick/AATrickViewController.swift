@@ -41,7 +41,7 @@ import UIColor_Hex_Swift
 import iAd
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+    ///numRows * numCols - (1 || 2)  :)
     enum ButtonCellRow:Int {
         case YesButton = 30
         case NoButton  = 31
@@ -52,15 +52,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     // Views
     var swipeableView:ZLSwipeableView!
     var cardViews = [UIView]()
+    var resultsCard:ABCardView!
 
-    // Properties
+    // Card Properties
     let cardCellReuseID:String = "cellReuseID"
+    var possibleResults = Set(1...60)
     let numCols = 4
     let numRows = 8
-    var possibleResults = Set(1...60)
-//    var defaultShouldSwipeViewHandler:ShouldSwipeHandler
     
-    // Objects
     // Model
     let deck = AATDeckModel.sharedDeck
     
@@ -78,17 +77,20 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.clipsToBounds = true
-
+        
+        // ResultsView setup
+        resultsCard = produceResultsView(withResults: -1)
+        view.addSubview(resultsCard)
+        setAllSubviewsHiddenTo(true, forView: resultsCard)
+        
         // SwipeableView setup
         swipeableView = ZLSwipeableView()
         swipeableView.numberOfHistoryItem = UInt.max
-        swipeableView.allowedDirection = .Horizontal
         setSwipingAllowedTo(false) ///Swiping locked until YES/NO recorded
         view.addSubview(swipeableView)
         swipeableView.frame = view.bounds
-        swipeableView.numberOfActiveView = 7
+        swipeableView.numberOfActiveView = UInt(CardID.allValues.count) // Should = 6.
         
-//        cardViews.append(produceResultsView())
         for cardModel in deck.randomOrderInstance {
             let newCardView = produceCardView(cardModel)
             cardViews.append(newCardView)
@@ -157,12 +159,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         let replayButton = UIButton(type: .Custom)
         cardView.addSubview(replayButton)
-//        replayButton.frame = CGRectMake(labelRect.width / 2, labelRect.height / 2, labelRect.width * 0.8, labelRect.height * 0.3)
-/*
-        replayButton.backgroundColor = FlatUIColors.greenSeaColor()
-        replayButton.layer.cornerRadius = 15
-        replayButton.setTitle("Play Again", forState: .Normal)
-        */
         replayButton.imageView?.contentMode = .ScaleAspectFit
         replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
         setupViewShadow(replayButton.layer)
@@ -189,6 +185,10 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         replayButton.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -commonInset).active = true
         
         return cardView
+    }
+    
+    func setAllSubviewsHiddenTo(trueOrFalse:Bool, forView superView:UIView) {
+        for view in superView.subviews { view.hidden = trueOrFalse }
     }
     
     func replayButtonTapped(sender: UIButton!) {
@@ -372,10 +372,13 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         print(voteRecord)
         self.setSwipingAllowedTo(true)
         
-        if voteRecord.keys.count >= 6 {prepareResults()}
+        if voteRecord.keys.count >= 6 {prepareResults(resultsCard)}
     }
     
-    func prepareResults() {
+    /**
+     Should display controls on the resultsCardView
+    */
+    func prepareResults(var resultsCardView:ABCardView) {
         var resultingAge = 0
         voteRecord.enumerate().forEach { (card: (index: Int, element: (CardID, Bool))) -> () in
             if card.element.1 {
@@ -385,8 +388,9 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         print("I'd guess that your age is: \(resultingAge)!")
 
-        let resultsCardView = produceResultsView(withResults: resultingAge)
-        cardViews.append(resultsCardView)
+        resultsCardView = produceResultsView(withResults: resultingAge)
+        
+//        cardViews.append(resultsCardView)
     }
     
     /**
@@ -412,10 +416,3 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     //ViewController Ends here
 }
-
-// MARK: - === Extensions/Subclasses ===
-//MARK: AATCollectionView class
-class AATCollectionView : UICollectionView {
-    var cardModel:CardID = CardID.Card1
-}
-

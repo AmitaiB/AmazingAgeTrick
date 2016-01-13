@@ -44,5 +44,9 @@ class ABCardView: UIView {
         let randomDegree:Double = Double(Int(arc4random_uniform(UInt32(10))) - 5)
         self.transform = CGAffineTransformMakeRotation(CGFloat(DegreesToRadians(randomDegree)))
     }
+    
+    func setupInsetCollectionView () {
+        
+    }
 }
 
