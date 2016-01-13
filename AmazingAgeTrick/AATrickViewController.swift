@@ -52,7 +52,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     // Views
     var swipeableView:ZLSwipeableView!
     var cardViews = [UIView]()
-    var resultsCard:ABCardView!
+    var resultsCard:ABResultsCardView!
 
     // Card Properties
     let cardCellReuseID:String = "cellReuseID"

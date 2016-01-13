@@ -19,10 +19,9 @@ class ABCardView: UIView {
         super.init(coder: aDecoder)
         setup()
     }
-        
+    
     func setup() {
 //        setupNaturalLookRotation() ???:Does this help, or does ZLSwipeableView take care of the natural look by itself?
-        
         frame = CGRectInset(superView?.bounds, 25, 25)
 
         
@@ -31,12 +30,13 @@ class ABCardView: UIView {
         backgroundColor = UIColor(rgba: "#4A4F70")
         
         // Shadow
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOpacity = 0.25
-        layer.shadowOffset = CGSizeMake(0, 1.5)
-        layer.shadowRadius = 4.0
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.mainScreen().scale
+        setupViewShadow(layer)
+//        layer.shadowColor = UIColor.blackColor().CGColor
+//        layer.shadowOpacity = 0.25
+//        layer.shadowOffset = CGSizeMake(0, 1.5)
+//        layer.shadowRadius = 4.0
+//        layer.shouldRasterize = true
+//        layer.rasterizationScale = UIScreen.mainScreen().scale
         
         // Corner Radius
         layer.cornerRadius = 10.0
@@ -61,13 +61,18 @@ class ABTrickCardView : ABCardView {
     var cardCollectionView:UICollectionView!
     
     init(forCardModel model:CardID) {
-        print("the cardview cardRect is: \(cardRect)")
         cardModel = model
-        super.init(frame:cardRect)
+        super.init(frame: CGRectZero)
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
     }
     
-    func setup() {
-
+    override func setup() {
+        super.setup()
         
         cardCollectionView = AATCollectionView(forCardModel: cardModel)
         cardCollectionView.frame = CGRectInset(cardView.bounds, 12, 12)
@@ -80,18 +85,30 @@ class ABTrickCardView : ABCardView {
 class ABResultsCardView :ABCardView {
     private let commonInset = 20
     var replayButton:UIButton
+    var resultsLabel:UILabel
     weak var delegate:ABReplayButtonDelegate?
     
     init() {
         
+        setup()
     }
     
-    func setup () {
-        
+    override func setup () {
+        super.setup()
+        setupResultsLabel()
+        setupReplayButton()
     }
     
     func setupResultsLabel() {
+        let labelRect = CGRectInset(self.bounds, 25, 25)
+//        let labelRect = CGRectInset(self.bounds, 35, 125)
+        resultsLabel = UILabel()
+        self.addSubview(resultsLabel)
+///     resultsLabel.frame = labelRect ???:Why did I take this out?
+        resultsLabel.textAlignment = .Center
+        resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
         
+        resultsLabel.text = resultsLabelText(forResult: result)
     }
     
     func setupReplayButton() {
@@ -125,4 +142,12 @@ protocol ABReplayButtonDelegate {
     func replayButtonTapped(sender: UIButton!)
 }
 
+private func setupViewShadow(layer:CALayer) {
+    layer.shadowColor = UIColor.blackColor().CGColor
+    layer.shadowOpacity = 0.25
+    layer.shadowOffset = CGSizeMake(0, 1.5)
+    layer.shadowRadius = 4.0
+    layer.shouldRasterize = true
+    layer.rasterizationScale = UIScreen.mainScreen().scale
+}
 
