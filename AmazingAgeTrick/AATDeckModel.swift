@@ -43,6 +43,18 @@ enum CardID:Int {
             
         }
     }
+    
+    func cellImageForCardID()->UIImage? {
+        switch self {
+            
+        case .Card1: return UIImage(named: "Oval 24-red")
+        case .Card2: return UIImage(named: "Oval 24-orange")
+        case .Card3: return UIImage(named: "Oval 24-green")
+        case .Card4: return UIImage(named: "Oval 24-blue")
+        case .Card5: return UIImage(named: "Oval 24-violet")
+        case .Card6: return UIImage(named: "Oval 24-midnight")
+        }
+    }
 }
 
 //MARK: - === AATDeckModel class ===
