@@ -13,7 +13,7 @@
 		3823ADBC1C42FC5B00CC596D /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */; };
 		3823ADBE1C43040600CC596D /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3823ADBD1C43040600CC596D /* iAd.framework */; };
 		38426A551C469FFF00519A10 /* ABResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38426A541C469FFF00519A10 /* ABResultsView.swift */; };
-		38426A571C46A0C300519A10 /* AATCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38426A561C46A0C300519A10 /* AATCollectionView.swift */; };
+		38426A571C46A0C300519A10 /* AATCollectionViewAndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38426A561C46A0C300519A10 /* AATCollectionViewAndCell.swift */; };
 		38426A591C46C90500519A10 /* CardID-enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38426A581C46C90500519A10 /* CardID-enum.swift */; };
 		3871684E1C3D302500E9E571 /* FlatUIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3871684D1C3D302500E9E571 /* FlatUIColorsExtension.swift */; };
 		38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CD0C1C335EBC0077FC71 /* AppDelegate.swift */; };
@@ -46,7 +46,7 @@
 		3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsViewController.swift; path = ../CreditsViewController.swift; sourceTree = "<group>"; };
 		3823ADBD1C43040600CC596D /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		38426A541C469FFF00519A10 /* ABResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABResultsView.swift; sourceTree = "<group>"; };
-		38426A561C46A0C300519A10 /* AATCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AATCollectionView.swift; sourceTree = "<group>"; };
+		38426A561C46A0C300519A10 /* AATCollectionViewAndCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AATCollectionViewAndCell.swift; sourceTree = "<group>"; };
 		38426A581C46C90500519A10 /* CardID-enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CardID-enum.swift"; sourceTree = "<group>"; };
 		3871684D1C3D302500E9E571 /* FlatUIColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatUIColorsExtension.swift; sourceTree = "<group>"; };
 		38B5CD091C335EBC0077FC71 /* AmazingAgeTrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingAgeTrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,11 +145,11 @@
 		38B5CD2F1C336BE30077FC71 /* Trick Scene */ = {
 			isa = PBXGroup;
 			children = (
+				38426A561C46A0C300519A10 /* AATCollectionViewAndCell.swift */,
 				38426A541C469FFF00519A10 /* ABResultsView.swift */,
 				38B5CD301C336BF40077FC71 /* AATrickViewController.swift */,
 				38B5CD321C336CB00077FC71 /* ABSwipeableCardView.swift */,
 				3810C6031C3F52D500DBA667 /* ABCardViews.swift */,
-				38426A561C46A0C300519A10 /* AATCollectionView.swift */,
 				38B5CD341C336F1C0077FC71 /* AATDeckModel.swift */,
 			);
 			name = "Trick Scene";
@@ -332,7 +332,7 @@
 				3810C6041C3F52D500DBA667 /* ABCardViews.swift in Sources */,
 				3871684E1C3D302500E9E571 /* FlatUIColorsExtension.swift in Sources */,
 				3823ADBC1C42FC5B00CC596D /* CreditsViewController.swift in Sources */,
-				38426A571C46A0C300519A10 /* AATCollectionView.swift in Sources */,
+				38426A571C46A0C300519A10 /* AATCollectionViewAndCell.swift in Sources */,
 				38426A591C46C90500519A10 /* CardID-enum.swift in Sources */,
 				38B5CD351C336F1C0077FC71 /* AATDeckModel.swift in Sources */,
 				38B5CD311C336BF40077FC71 /* AATrickViewController.swift in Sources */,

@@ -40,7 +40,7 @@ import STRatingControl
 import UIColor_Hex_Swift
 import iAd
 
-class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ABReplayButtonDelegate {
     ///numRows * numCols - (1 || 2)  :)
     enum ButtonCellRow:Int {
         case YesButton = 30
@@ -50,12 +50,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     typealias NumInfo = Int
     
     // Views
-    var swipeableView:ZLSwipeableView!
     var cardViews = [UIView]()
-    var resultsCard:ABResultsCardView!
+    var swipeableView:ZLSwipeableView = ZLSwipeableView()
+    var resultsCard:ABResultsCardView = ABResultsCardView(forResults: nil)
 
     // Card Properties
-    let cardCellReuseID:String = "cellReuseID"
     var possibleResults = Set(1...60)
     let numCols = 4
     let numRows = 8
@@ -70,33 +69,39 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         swipeableView.nextView = {
-            return self.nextCardView()
+//            return self.nextCardView()
+            return self.cardViews.popLast()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // View heirarchy
         view.clipsToBounds = true
-        
-        // ResultsView setup
-        resultsCard = produceResultsView(withResults: -1)
         view.addSubview(resultsCard)
-        setAllSubviewsHiddenTo(true, forView: resultsCard)
-        
-        // SwipeableView setup
-        swipeableView = ZLSwipeableView()
-        swipeableView.numberOfHistoryItem = UInt.max
-        setSwipingAllowedTo(false) ///Swiping locked until YES/NO recorded
         view.addSubview(swipeableView)
+        
+        setupSwipeView()
+        
+        //End ViewDidLoad()
+    }
+    
+    //MARK: Private lifecycle methods
+    
+    func setupSwipeView() {
+        swipeableView.numberOfHistoryItem = UInt.max
+        swipingAllowed(false) ///Swiping locked until YES/NO recorded
         swipeableView.frame = view.bounds
         swipeableView.numberOfActiveView = UInt(CardID.allValues.count) // Should = 6.
         
         for cardModel in deck.randomOrderInstance {
-            let newCardView = produceCardView(cardModel)
+//            let newCardView = produceCardView(cardModel)
+            let newCardView = ABTrickCardView(forCardModel: cardModel)
             cardViews.append(newCardView)
         }
         
-
+        
         swipeableView.didStart = {view, location in
             print("Did START swiping view at location: \(location)")
         }
@@ -108,30 +113,29 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         swipeableView.didSwipe = {view, direction, vector in
             print("Did SWIPE view in direction: \(direction), vector: \(vector)")
-            self.setSwipingAllowedTo(false)
+            self.swipingAllowed(false)
         }
         swipeableView.didCancel = {view in
             print("Did CANCEL swiping view")
         }
-        
-        //End ViewDidLoad()
     }
 
-    /**
-     TODO: Refactor this ping pong to shorten the path
+    /*
+     CLEAN: No longer called. If works, delete.
      */
     func nextCardView()->UIView? {
         return cardViews.popLast()
     }
     
-    func setSwipingAllowedTo(hasPermission: Bool) {
+    func swipingAllowed(hasPermission: Bool) {
         if hasPermission { swipeableView.allowedDirection = .Horizontal }
         else { swipeableView.allowedDirection = .None }
     }
-    
+
+    /*
     func produceCardView(cardModel:CardID)->ABCardView {
         let collectionView = getCollectionView(cardModel)
-        
+    
         // CardView
         let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
         let cardView = ABCardView(frame: cardRect)
@@ -141,8 +145,9 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
         return cardView
     }
+    */
 
-
+/*
     func produceResultsView(withResults result:Int) -> ABCardView {
         let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
         let cardView = ABCardView(frame: cardRect)
@@ -186,10 +191,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         return cardView
     }
-    
-    func setAllSubviewsHiddenTo(trueOrFalse:Bool, forView superView:UIView) {
-        for view in superView.subviews { view.hidden = trueOrFalse }
-    }
+    */
     
     func replayButtonTapped(sender: UIButton!) {
         print("button tapped")
@@ -243,10 +245,10 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cardCellReuseID, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(AATCellReuseID, forIndexPath: indexPath)
 
         if let myCollectionView = collectionView as? AATCollectionView {
-            configureCell(cell, forIndexPath: indexPath, accordingToCardModel: myCollectionView.cardModel)
+            configureCell(cell, forIndexPath: indexPath)
         }
         return cell
     }
@@ -293,6 +295,41 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     // MARK: == Private helper methods ==
+    
+    func configureCell(cell:UICollectionViewCell, forIndexPath indexPath:NSIndexPath) {
+        guard let myCell = cell as? AATCollectionViewCell else { return }
+        var label = myCell.label
+        var imageView = myCell.imageView
+        
+        switch indexPath.row {
+        case ButtonCellRow.YesButton.rawValue:
+            label.text = "YES"
+            imageView.removeFromSuperview()
+            cell.addSubview(label)
+        case ButtonCellRow.NoButton.rawValue:
+            label.text = "NO"
+            imageView.removeFromSuperview()
+            cell.addSubview(label)
+        default:
+            label.text = numberForIndexPath(indexPath, withCardModel: myCell.cardModel)
+            if label.text == "" { imageView.removeFromSuperview() }
+        }
+    }
+    
+    func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->String {
+        // Pad the array with zeros
+        var paddedCardInfo = cardModel.cardInfoArray()
+        while paddedCardInfo.count < (numCols * numRows) {
+            paddedCardInfo.append(NumInfo.allZeros)
+        }
+        
+        // Interpret data into proper string.
+        if paddedCardInfo[indexPath.row] == NumInfo.allZeros {  return ""  }
+        else {  return String(paddedCardInfo[indexPath.row])  }
+    }
+    
+/*
+    
     func configureCell(cell:UICollectionViewCell, forIndexPath indexPath:NSIndexPath, accordingToCardModel cardModel:CardID) {
         let imageView = UIImageView(frame: cell.contentView.bounds)
         imageView.contentMode = .ScaleAspectFit
@@ -346,6 +383,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         else {  return String(paddedCardInfo[indexPath.row])  }
     }
 
+    */
     
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -372,7 +410,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         ///TODO: Vote functionality here.
         voteRecord[myCardID] = vote
         print(voteRecord)
-        self.setSwipingAllowedTo(true)
+        self.swipingAllowed(true)
         
         if voteRecord.keys.count >= 6 {prepareResults(resultsCard)}
     }
@@ -390,7 +428,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         print("I'd guess that your age is: \(resultingAge)!")
 
-        resultsCardView = produceResultsView(withResults: resultingAge)
+//        resultsCardView = produceResultsView(withResults: resultingAge)
+        resultsCardView = ABResultsCardView(forResults: resultingAge)
         
 //        cardViews.append(resultsCardView)
     }
@@ -408,13 +447,5 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         voteRecord.removeAll()
     }
     
-    func resultsLabelText(forResult result:Int)->String {
-        var resultToDisplay = String("You are \(result) years of age!\n\n\nPlay again?")
-        
-        if result < 0 || result > 60 {
-            resultToDisplay = "You are either 0 years old (or less), or over 60 years old. Either way, stop drooling on my screen!\n\n\nPlay again, without cheating this time?\n\n\n\n\nAww, heck, cheat all you want, I don't care, I'm just a robot slave anyway."
-        }
-        return resultToDisplay
-    }
     //ViewController Ends here
 }

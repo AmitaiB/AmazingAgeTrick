@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FlatUIColors
 
 class ABCardView: UIView {
     
@@ -22,8 +23,9 @@ class ABCardView: UIView {
     
     func setup() {
 //        setupNaturalLookRotation() ???:Does this help, or does ZLSwipeableView take care of the natural look by itself?
-        frame = CGRectInset(superView?.bounds, 25, 25)
-
+        if let sView = superview {
+            frame = CGRectInset(sView.bounds, 25, 25)
+        }
         
         // Color
 //        backgroundColor = UIColor.lightGrayColor()
@@ -67,6 +69,7 @@ class ABTrickCardView : ABCardView {
     }
 
     required init?(coder aDecoder: NSCoder) {
+        cardModel = CardID.Card1
         super.init(coder: aDecoder)
         setup()
     }
@@ -75,51 +78,73 @@ class ABTrickCardView : ABCardView {
         super.setup()
         
         cardCollectionView = AATCollectionView(forCardModel: cardModel)
-        cardCollectionView.frame = CGRectInset(cardView.bounds, 12, 12)
-        self.addSubview(cardCollectionView)
+        cardCollectionView.frame = CGRectInset(bounds, 12, 12)
+        addSubview(cardCollectionView)
     }
 }
 
 //MARK: === ABResultsCardView === 
 
-class ABResultsCardView :ABCardView {
-    private let commonInset = 20
-    var replayButton:UIButton
-    var resultsLabel:UILabel
-    weak var delegate:ABReplayButtonDelegate?
+class ABResultsCardView :ABCardView, ABReplayButtonView {
+    private let commonInset:CGFloat = 20
+    var replayButton:UIButton = UIButton(type: .Custom)
+    var resultsLabel:UILabel = UILabel()
+    var delegate:ABReplayButtonDelegate?
+    var resultRecord:Int? {
+        didSet {
+            if resultRecord != nil { hideSubviews(false) }
+        }
+    }
     
-    init() {
-        
+    init(forResults:Int?) {
+        super.init(frame: CGRectZero)
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         setup()
     }
     
-    override func setup () {
+    func setup (results:Int?) {
         super.setup()
-        setupResultsLabel()
+        setupResultsLabel(results)
         setupReplayButton()
+        hideSubviews(true)
     }
     
-    func setupResultsLabel() {
-        let labelRect = CGRectInset(self.bounds, 25, 25)
-//        let labelRect = CGRectInset(self.bounds, 35, 125)
+    func setupResultsLabel(results:Int?) {
+        let labelRect = CGRectInset(bounds, 25, 25)
+        ///        let labelRect = CGRectInset(self.bounds, 35, 125)
         resultsLabel = UILabel()
         self.addSubview(resultsLabel)
-///     resultsLabel.frame = labelRect ???:Why did I take this out?
+        resultsLabel.frame = labelRect
         resultsLabel.textAlignment = .Center
         resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
         
-        resultsLabel.text = resultsLabelText(forResult: result)
+        resultsLabel.text = resultsLabelText(forResult: results)
     }
     
     func setupReplayButton() {
-        replayButton = UIButton(type: .Custom)
         self.addSubview(replayButton)
         replayButton.imageView?.contentMode = .ScaleAspectFit
         replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
         setupViewShadow(replayButton.layer)
-        replayButton.addTarget(delegate, action: Selector("replayButtonTapped:"), forControlEvents: .TouchUpInside)
+        replayButton.addTarget(self, action: Selector("reportReplayButtonWasTapped:"), forControlEvents: .TouchUpInside)
     }
     
+    
+    func reportReplayButtonWasTapped(sender:UIButton!) {
+        delegate?.replayButtonTapped(sender)
+    }
+    
+    private func hideSubviews(trueOrFalse:Bool) {
+        for view in subviews { view.hidden = trueOrFalse }
+    }
+    
+    func setAllSubviewsHiddenTo(trueOrFalse:Bool, forView superView:UIView) {
+        for view in superView.subviews { view.hidden = trueOrFalse }
+    }
     
     func configureViewWithAutolayout(view:UIView, anchoredTo orientation:ABAnchorDirection) {
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -136,6 +161,23 @@ class ABResultsCardView :ABCardView {
         }
     }
     enum ABAnchorDirection: String { case top, bottom }
+}
+
+
+func resultsLabelText(forResult forResult:Int?)->String {
+    guard let result = forResult else { return "Error in resultsLabelText" }
+    
+    var resultToDisplay = String("You are \(result) years of age!\n\n\nPlay again?")
+    
+    if result < 0 || result > 60 {
+        resultToDisplay = "You are either 0 years old (or less), or over 60 years old. Either way, stop drooling on my screen!\n\n\nPlay again, without cheating this time?\n\n\n\n\nAww, heck, cheat all you want, I don't care, I'm just a robot slave anyway."
+    }
+    return resultToDisplay
+}
+
+
+protocol ABReplayButtonView {
+    var replayButton:UIButton { get }
 }
 
 protocol ABReplayButtonDelegate {
