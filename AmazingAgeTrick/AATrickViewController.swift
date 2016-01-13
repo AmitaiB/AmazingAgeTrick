@@ -231,7 +231,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cardCellReuseID)
 //        collectionView.backgroundColor = FlatUIColors.randomFlatColor()
 //        collectionView.backgroundColor = cardModel.altColorForCardID()
-        collectionView.backgroundColor = UIColor(rgba: "363951")
+        collectionView.backgroundColor = UIColor(rgba: "#363951")
         collectionView.allowsSelection = true
         return collectionView
     }
@@ -300,7 +300,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         imageView.contentMode = .ScaleAspectFit
         imageView.image = cardModel.cellImageForCardID()
         
-        cell.layer.cornerRadius = imageView.frame.height / 2
+//        cell.layer.cornerRadius = imageView.frame.height / 2
+        cell.backgroundColor = UIColor.clearColor()
         cell.contentView.autoresizesSubviews = true
         cell.contentView.addSubview(imageView)
         
@@ -327,7 +328,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         default:
             label.text = numberForIndexPath(indexPath, withCardModel: cardModel)
             if label.text == "" { imageView.removeFromSuperview() }
-            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(rgba: "#363951") : UIColor(rgba: "#303348")
+//            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(rgba: "#363951") : UIColor(rgba: "#303348")
 //                FlatUIColors.orderedFlatColor(indexPath.row * 2 % 2)
             
             ///TODO: Make colors pretty!
