@@ -37,6 +37,7 @@ import FlatUIColors
 import ZLSwipeableViewSwift
 import ReactiveUI
 import STRatingControl
+import UIColor_Hex_Swift
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -269,7 +270,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         collectionView.superview?.backgroundColor = cell?.backgroundColor
-//        cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
+
+        //        cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
     }
 
     /*
@@ -285,7 +287,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     func configureCell(cell:UICollectionViewCell, forIndexPath indexPath:NSIndexPath, accordingToCardModel cardModel:CardID) {
         let imageView = UIImageView(frame: cell.contentView.bounds)
         imageView.contentMode = .ScaleAspectFit
-        imageView.image = UIImage(named: "transparent-black-circle-medium")
+        imageView.image = cardModel.cellImageForCardID()
         
         cell.layer.cornerRadius = imageView.frame.height / 2
         cell.contentView.autoresizesSubviews = true
@@ -301,13 +303,17 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch indexPath.row {
         case ButtonCellRow.YesButton.rawValue:
             label.text = "YES"
+            label.backgroundColor = UIColor.greenColor()
             cell.backgroundColor = UIColor.greenColor()
         case ButtonCellRow.NoButton.rawValue:
             label.text = "NO"
+            label.backgroundColor = UIColor.redColor()
             cell.backgroundColor = UIColor.redColor()
         default:
             label.text = numberForIndexPath(indexPath, withCardModel: cardModel)
-            cell.backgroundColor = FlatUIColors.orderedFlatColor(indexPath.row * 2 % 2)
+            if label.text == "" { imageView.removeFromSuperview() }
+            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(rgba: "363951") : UIColor(rgba: "303348")
+//                FlatUIColors.orderedFlatColor(indexPath.row * 2 % 2)
             
             ///TODO: Make colors pretty!
             //            cell.backgroundColor = FlatUIColors.randomFlatColor()
