@@ -17,7 +17,8 @@ class AATCollectionView: UICollectionView {
     var cardModel:CardID = CardID.Card1
     
     init(forCardModel model:CardID) {
-        super.init(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+//        super.init(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+        super.init(frame: standardCardRect, collectionViewLayout: UICollectionViewFlowLayout())
         cardModel = model
         setup()
     }

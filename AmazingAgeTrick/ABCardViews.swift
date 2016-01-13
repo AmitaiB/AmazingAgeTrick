@@ -6,12 +6,16 @@
 //  Copyright © 2016 Amitai Blickstein, LLC. All rights reserved.
 //
 
+
+
 import UIKit
 import FlatUIColors
 
+let standardCardRect = CGRectInset(UIScreen.mainScreen().bounds, 25, 25)
+
 class ABCardView: UIView {
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect = standardCardRect) {
         super.init(frame: frame)
         setup()
     }
@@ -64,7 +68,7 @@ class ABTrickCardView : ABCardView {
     
     init(forCardModel model:CardID) {
         cardModel = model
-        super.init(frame: CGRectZero)
+        super.init(frame: standardCardRect)
         setup()
     }
 
@@ -97,7 +101,7 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     }
     
     init(forResults:Int?) {
-        super.init(frame: CGRectZero)
+        super.init(frame: standardCardRect)
         setup()
     }
 
