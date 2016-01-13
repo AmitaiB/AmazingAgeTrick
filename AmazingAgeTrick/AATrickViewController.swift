@@ -303,8 +303,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch indexPath.row {
         case ButtonCellRow.YesButton.rawValue:
             label.text = "YES"
-            label.backgroundColor = UIColor.greenColor()
-            cell.backgroundColor = UIColor.greenColor()
+            label.backgroundColor = FlatUIColors.emeraldColor()
+            cell.backgroundColor = FlatUIColors.emeraldColor()
         case ButtonCellRow.NoButton.rawValue:
             label.text = "NO"
             label.backgroundColor = UIColor.redColor()
