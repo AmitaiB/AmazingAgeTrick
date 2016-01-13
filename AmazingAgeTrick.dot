@@ -1,0 +1,22 @@
+digraph G {
+	node [shape=box];
+	"UIColor_Hex_Swift-umbrella" -> "HEXColor";
+	"ZLSwipeableViewSwift-umbrella" -> {};
+	"FlatUIColors-umbrella" -> {};
+	"HEXColor" -> {};
+	"ZLSwipeableViewSwift-dummy" -> {};
+	"ReactiveUI-dummy" -> {};
+	"ReactiveUI-umbrella" -> {};
+	"Pods-AmazingAgeTrick-dummy" -> {};
+	"Pods-AmazingAgeTrick-umbrella" -> {};
+	"UIColor_Hex_Swift-dummy" -> {};
+	"FlatUIColors-dummy" -> {};
+	
+	"ReactiveUI-prefix" [color=red];
+	"UIColor_Hex_Swift-prefix" [color=red];
+	"FlatUIColors-prefix" [color=red];
+	"ZLSwipeableViewSwift-prefix" [color=red];
+	
+	edge [color=blue, dir=both];
+}
+

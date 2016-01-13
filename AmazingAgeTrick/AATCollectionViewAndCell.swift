@@ -10,15 +10,17 @@ import UIKit
 import FlatUIColors
 
 let AATCellReuseID:String = "cellReuseID"
+let standardCollectionViewRect = CGRectInset(standardCardRect, 12, 12)
+
 
 //MARK: === AATCollectionView ===
 class AATCollectionView: UICollectionView {
 
     var cardModel:CardID = CardID.Card1
     
-    init(forCardModel model:CardID) {
+    init(forCardModel model:CardID = CardID.Card2) {
 //        super.init(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
-        super.init(frame: standardCardRect, collectionViewLayout: UICollectionViewFlowLayout())
+        super.init(frame: standardCollectionViewRect, collectionViewLayout: UICollectionViewFlowLayout())
         cardModel = model
         setup()
     }
@@ -46,6 +48,7 @@ class AATCollectionView: UICollectionView {
 
 
 //MARK: === AATCollectionViewCell ===
+/// Just set the cardID, and it'll take care of the rest. :)
 class AATCollectionViewCell: UICollectionViewCell {
     var imageView = UIImageView()
     var label = UILabel()
@@ -55,6 +58,15 @@ class AATCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
     
     func setup() {
         setupImageView()
@@ -79,7 +91,6 @@ class AATCollectionViewCell: UICollectionViewCell {
         label.font = UIFont(name: "MarkerFelt-Wide", size: 20)
         label.backgroundColor = UIColor.clearColor()
         imageView.addSubview(label)
-        
     }
     
 }

@@ -5,32 +5,6 @@
 //  Created by Amitai Blickstein on 12/29/15.
 //  Copyright © 2015 Amitai Blickstein, LLC. All rights reserved.
 //
-/**
-NEXT: extract the cardvalue from the indexpath or something, so that when we vote, we get a tally.
-
-Extension on ABCardView to return a CardID
-TrickVC records tally in a dictionary
-
-
-*/
-
-/**
-TODO NEXT:
-✅1) add a collectionView to a card so that it's visible.
-✅2) make the collectionView present the cardInfo.
-✅3) add a voting mechanism
-✅4a) generate all 6 cards, piled atop one another,
-✅ Curent Task: Modify produceCardView to take a CardID somewhere ===
-✅4a.5) slightly rotated
-4b) make swiping rotate to the next card -
-5) keep a **visual** tally of the votes.
-6) Stop when all 6 cards have votes.
-7) Present the result, wow the user, offer to play again
-
-make the cards rotate a bit, randomly, so that you can see them when they are stacked one atop the other.
-
-- parameter animated: <#animated description#>
-*/
 
 import UIKit
 import FlatUIColors
@@ -98,6 +72,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         for cardModel in deck.randomOrderInstance {
 //            let newCardView = produceCardView(cardModel)
             let newCardView = ABTrickCardView(forCardModel: cardModel)
+            newCardView.cardCollectionView.delegate = self
+            newCardView.cardCollectionView.dataSource = self
             cardViews.append(newCardView)
         }
         
@@ -245,14 +221,41 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(AATCellReuseID, forIndexPath: indexPath)
-
-        if let myCollectionView = collectionView as? AATCollectionView {
-            configureCell(cell, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(AATCellReuseID, forIndexPath: indexPath) as! AATCollectionViewCell
+        let collectView = collectionView as! AATCollectionView
+        let cardModel = collectView.cardModel
+        cell.cardModel = cardModel
+        
+        
+        switch indexPath.row {
+        case ButtonCellRow.YesButton.rawValue:
+            cell.label.text = "YES"
+            cell.imageView.removeFromSuperview()
+            cell.addSubview(cell.label)
+        case ButtonCellRow.NoButton.rawValue:
+            cell.label.text = "NO"
+            cell.imageView.removeFromSuperview()
+            cell.addSubview(cell.label)
+        default:
+            cell.label.text = numberForIndexPath(indexPath, withCardModel: collectView.cardModel)
+            if cell.label.text == "" { cell.imageView.removeFromSuperview() }
         }
+
         return cell
     }
     
+    
+    func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->String {
+        // Pad the array with zeros
+        var paddedCardInfo = cardModel.cardInfoArray()
+        while paddedCardInfo.count < (numCols * numRows) {
+            paddedCardInfo.append(NumInfo.allZeros)
+        }
+        
+        // Interpret data into proper string.
+        if paddedCardInfo[indexPath.row] == NumInfo.allZeros {  return ""  }
+        else {  return String(paddedCardInfo[indexPath.row])  }
+    }
     
     //MARK: == UICollectionView Delegate ===
     func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -295,38 +298,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     // MARK: == Private helper methods ==
-    
-    func configureCell(cell:UICollectionViewCell, forIndexPath indexPath:NSIndexPath) {
-        guard let myCell = cell as? AATCollectionViewCell else { return }
-        var label = myCell.label
-        var imageView = myCell.imageView
-        
-        switch indexPath.row {
-        case ButtonCellRow.YesButton.rawValue:
-            label.text = "YES"
-            imageView.removeFromSuperview()
-            cell.addSubview(label)
-        case ButtonCellRow.NoButton.rawValue:
-            label.text = "NO"
-            imageView.removeFromSuperview()
-            cell.addSubview(label)
-        default:
-            label.text = numberForIndexPath(indexPath, withCardModel: myCell.cardModel)
-            if label.text == "" { imageView.removeFromSuperview() }
-        }
-    }
-    
-    func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->String {
-        // Pad the array with zeros
-        var paddedCardInfo = cardModel.cardInfoArray()
-        while paddedCardInfo.count < (numCols * numRows) {
-            paddedCardInfo.append(NumInfo.allZeros)
-        }
-        
-        // Interpret data into proper string.
-        if paddedCardInfo[indexPath.row] == NumInfo.allZeros {  return ""  }
-        else {  return String(paddedCardInfo[indexPath.row])  }
-    }
     
 /*
     
@@ -407,18 +378,18 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     func recordVote(vote:Bool, forCard myCardID:CardID) {
-        ///TODO: Vote functionality here.
+
         voteRecord[myCardID] = vote
         print(voteRecord)
         self.swipingAllowed(true)
-        
+
         if voteRecord.keys.count >= 6 {prepareResults(resultsCard)}
     }
     
     /**
      Should display controls on the resultsCardView
     */
-    func prepareResults(var resultsCardView:ABCardView) {
+    func prepareResults(var resultsCardView:ABResultsCardView) {
         var resultingAge = 0
         voteRecord.enumerate().forEach { (card: (index: Int, element: (CardID, Bool))) -> () in
             if card.element.1 {
