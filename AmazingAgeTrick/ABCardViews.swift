@@ -21,7 +21,7 @@ class ABCardView: UIView {
     }
         
     func setup() {
-//        setupNaturalLookRotation()
+//        setupNaturalLookRotation() ???:Does this help, or does ZLSwipeableView take care of the natural look by itself?
         
         // Color
         backgroundColor = UIColor.lightGrayColor()
@@ -49,4 +49,29 @@ class ABCardView: UIView {
         
     }
 }
+
+//MARK: === ABTrickCardView ===
+
+class ABTrickCardView : ABCardView {
+    private let cardModel:CardID
+    var cardCollectionView:UICollectionView!
+    
+    init(forCardModel model:CardID) {
+        let cardRect = CGRectInset(superView?.bounds, 25, 25)
+        print("the cardview cardRect is: \(cardRect)")
+        cardModel = model
+        super.init(frame:cardRect)
+    }
+    
+    func setup() {
+        backgroundColor = UIColor(rgba: "#4A4F70")
+        
+        cardCollectionView = AATCollectionView(forCardModel: cardModel)
+        cardCollectionView.frame = CGRectInset(cardView.bounds, 12, 12)
+        self.addSubview(cardCollectionView)
+    }
+}
+
+
+
 

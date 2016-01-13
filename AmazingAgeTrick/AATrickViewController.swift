@@ -213,13 +213,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         layer.shadowOffset = selectedShadowOffset
     }
     
+    /*
     func getCollectionView(cardModel:CardID) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing      = 1.0
         layout.minimumInteritemSpacing = 1.0
         layout.sectionInset            = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         layout.estimatedItemSize       = CGSizeMake(30, 30)
-        
+    
         let collectionView = AATCollectionView(frame: CGRectZero, collectionViewLayout: layout)
         collectionView.cardModel  = cardModel
         collectionView.delegate   = self
@@ -231,6 +232,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.allowsSelection = true
         return collectionView
     }
+    */
     
     
     // MARK: === UICollectionView DataSource ===
