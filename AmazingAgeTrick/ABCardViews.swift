@@ -23,8 +23,12 @@ class ABCardView: UIView {
     func setup() {
 //        setupNaturalLookRotation() ???:Does this help, or does ZLSwipeableView take care of the natural look by itself?
         
+        frame = CGRectInset(superView?.bounds, 25, 25)
+
+        
         // Color
-        backgroundColor = UIColor.lightGrayColor()
+//        backgroundColor = UIColor.lightGrayColor()
+        backgroundColor = UIColor(rgba: "#4A4F70")
         
         // Shadow
         layer.shadowColor = UIColor.blackColor().CGColor
@@ -57,14 +61,13 @@ class ABTrickCardView : ABCardView {
     var cardCollectionView:UICollectionView!
     
     init(forCardModel model:CardID) {
-        let cardRect = CGRectInset(superView?.bounds, 25, 25)
         print("the cardview cardRect is: \(cardRect)")
         cardModel = model
         super.init(frame:cardRect)
     }
     
     func setup() {
-        backgroundColor = UIColor(rgba: "#4A4F70")
+
         
         cardCollectionView = AATCollectionView(forCardModel: cardModel)
         cardCollectionView.frame = CGRectInset(cardView.bounds, 12, 12)
@@ -72,6 +75,54 @@ class ABTrickCardView : ABCardView {
     }
 }
 
+//MARK: === ABResultsCardView === 
 
+class ABResultsCardView :ABCardView {
+    private let commonInset = 20
+    var replayButton:UIButton
+    weak var delegate:ABReplayButtonDelegate?
+    
+    init() {
+        
+    }
+    
+    func setup () {
+        
+    }
+    
+    func setupResultsLabel() {
+        
+    }
+    
+    func setupReplayButton() {
+        replayButton = UIButton(type: .Custom)
+        self.addSubview(replayButton)
+        replayButton.imageView?.contentMode = .ScaleAspectFit
+        replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
+        setupViewShadow(replayButton.layer)
+        replayButton.addTarget(delegate, action: Selector("replayButtonTapped:"), forControlEvents: .TouchUpInside)
+    }
+    
+    
+    func configureViewWithAutolayout(view:UIView, anchoredTo orientation:ABAnchorDirection) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.removeConstraints(view.constraints)
+        
+        view.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: commonInset).active = true
+        view.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor, constant: -commonInset).active = true
+        
+        switch orientation {
+        case .top:
+            view.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: commonInset).active = true
+        case .bottom:
+            view.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -commonInset).active = true
+        }
+    }
+    enum ABAnchorDirection: String { case top, bottom }
+}
+
+protocol ABReplayButtonDelegate {
+    func replayButtonTapped(sender: UIButton!)
+}
 
 
