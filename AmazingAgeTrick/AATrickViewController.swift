@@ -327,7 +327,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         default:
             label.text = numberForIndexPath(indexPath, withCardModel: cardModel)
             if label.text == "" { imageView.removeFromSuperview() }
-            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(rgba: "363951") : UIColor(rgba: "303348")
+            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(rgba: "#363951") : UIColor(rgba: "#303348")
 //                FlatUIColors.orderedFlatColor(indexPath.row * 2 % 2)
             
             ///TODO: Make colors pretty!
