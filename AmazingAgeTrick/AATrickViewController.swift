@@ -123,12 +123,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func setSwipingAllowedTo(hasPermission: Bool) {
-        if hasPermission { swipeableView.shouldSwipeView = ZLSwipeableView.defaultShouldSwipeViewHandler() }
-        else {
-            swipeableView.shouldSwipeView = {view, movement, swipeableView in
-                return false
-            }
-        }
+        if hasPermission { swipeableView.allowedDirection = .Horizontal }
+        else { swipeableView.allowedDirection = .None }
     }
     
     func produceCardView(cardModel:CardID)->ABCardView {
@@ -231,7 +227,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cardCellReuseID)
 //        collectionView.backgroundColor = FlatUIColors.randomFlatColor()
 //        collectionView.backgroundColor = cardModel.altColorForCardID()
-        collectionView.backgroundColor = UIColor(rgba: "#363951")
+        collectionView.backgroundColor = UIColor.clearColor()
         collectionView.allowsSelection = true
         return collectionView
     }
