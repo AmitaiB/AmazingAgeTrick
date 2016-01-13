@@ -158,13 +158,17 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         resultsLabel.text = resultsLabelText(forResult: result)
         
-        var replayButton = UIButton(type: .Custom)
+        let replayButton = UIButton(type: .Custom)
         cardView.addSubview(replayButton)
 //        replayButton.frame = CGRectMake(labelRect.width / 2, labelRect.height / 2, labelRect.width * 0.8, labelRect.height * 0.3)
+/*
         replayButton.backgroundColor = FlatUIColors.greenSeaColor()
         replayButton.layer.cornerRadius = 15
-        setupViewShadow(replayButton.layer)
         replayButton.setTitle("Play Again", forState: .Normal)
+        */
+        replayButton.imageView?.contentMode = .ScaleAspectFit
+        replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
+        setupViewShadow(replayButton.layer)
         replayButton.addTarget(self, action: Selector("replayButtonTapped:"), forControlEvents: .TouchUpInside)
         
         
@@ -205,6 +209,12 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         layer.rasterizationScale = UIScreen.mainScreen().scale
     }
 
+    //Not used...
+    func invertShadow(layer:CALayer) {
+        let normalShadowOffset = layer.shadowOffset
+        let selectedShadowOffset = CGSizeMake(-normalShadowOffset.height, -normalShadowOffset.width)
+        layer.shadowOffset = selectedShadowOffset
+    }
     
     func getCollectionView(cardModel:CardID) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
