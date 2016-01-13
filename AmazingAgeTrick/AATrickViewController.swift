@@ -439,6 +439,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
      */
     func resetGame() {
         swipeableView.discardViews() //Gets rid of the old resultsCardView
+        resultsCard.resultRecord = nil
         repeat {
             swipeableView.rewind()
             swipeableView.topView()?.backgroundColor = UIColor.blackColor()
