@@ -38,6 +38,7 @@ import ZLSwipeableViewSwift
 import ReactiveUI
 import STRatingControl
 import UIColor_Hex_Swift
+import iAd
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -147,8 +148,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     func produceResultsView(withResults result:Int) -> ABCardView {
         let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
         let cardView = ABCardView(frame: cardRect)
-        cardView.backgroundColor = UIColor.blackColor()
-
+//        cardView.backgroundColor = UIColor.blackColor()
+        cardView.backgroundColor = UIColor(rgba: "#4A4F70")
         let labelRect = CGRectInset(cardView.bounds, 25, 25)
         let resultsLabel = UILabel()
         cardView.addSubview(resultsLabel)
@@ -179,17 +180,17 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         replayButton.translatesAutoresizingMaskIntoConstraints = false
         replayButton.removeConstraints(replayButton.constraints)
         
-        let inset:CGFloat = 10
+        let commonInset:CGFloat = 20
         
-        resultsLabel.topAnchor.constraintEqualToAnchor(cardView.topAnchor, constant: inset).active = true
-        resultsLabel.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: inset).active = true
-        resultsLabel.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -inset).active = true
+        resultsLabel.topAnchor.constraintEqualToAnchor(cardView.topAnchor, constant: commonInset).active = true
+        resultsLabel.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: commonInset).active = true
+        resultsLabel.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -commonInset).active = true
         
 //        resultsLabel.bottomAnchor.constraintEqualToAnchor(replayButton.topAnchor, constant: 20)
         
-        replayButton.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor, constant: -inset).active = true
-        replayButton.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: inset).active = true
-        replayButton.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -inset).active = true
+        replayButton.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor, constant: -commonInset).active = true
+        replayButton.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: commonInset).active = true
+        replayButton.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -commonInset).active = true
         
         return cardView
     }
