@@ -76,7 +76,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setToolbarHidden(false, animated: false)
         view.clipsToBounds = true
 
         // SwipeableView setup
