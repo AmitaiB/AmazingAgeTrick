@@ -75,3 +75,26 @@ class AATMainViewController: UIViewController {
     
 }
 
+
+/**
+UIColor+Hex, now Swift.
+Convenience method for creating autoreleased color using RGBA hex string.
+
+var strokeColor = UIColor(rgba: "#ffcc00").CGColor // Solid color
+
+var fillColor = UIColor(rgba: "#ffcc00dd").CGColor // Color with alpha
+
+var backgroundColor = UIColor(rgba: "#FFF") // Supports shorthand 3 character representation
+
+var menuTextColor = UIColor(rgba: "#013E") // Supports shorthand 4 character representation (with alpha)
+
+var hexString = UIColor.redColor().hexString(false) // "#FF0000"
+*/
+
+/*
+363951 = Dark Blue1 for collectionViewCell background
+303348 = Dark Blue2 (aka Darker Blue) "    "
+F4F4F8 = Sublte Grey to contrast with white
+
+
+*/
