@@ -90,12 +90,12 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     var replayButton:UIButton = UIButton(type: .Custom)
     var resultsLabel:UILabel = UILabel()
     var delegate:ABReplayButtonDelegate?
-    var resultRecord:Int? /**{
+    var resultRecord:Int? {
         didSet {
             if resultRecord == nil { hideSubviews(true)  }
             else                   { hideSubviews(false) }
         }
-    } */
+    }
     
     init(forResults results:Int?) {
         super.init(frame: standardCardRect)
@@ -111,12 +111,12 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         super.setup()
         setupResultsLabel(results)
         setupReplayButton()
-        ///        hideSubviews(true)
+        hideSubviews(true)
     }
     
     func setupResultsLabel(results:Int?) {
-        let labelRect = CGRectInset(bounds, 25, 25)
-        ///        let labelRect = CGRectInset(self.bounds, 35, 125)
+        ///        let labelRect = CGRectInset(bounds, 25, 25)??
+        let labelRect = CGRectInset(self.bounds, 35, 125)
         resultsLabel = UILabel()
         self.addSubview(resultsLabel)
         resultsLabel.frame = labelRect
@@ -166,7 +166,7 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
 
 
 func resultsLabelText(forResult forResult:Int?)->String {
-    guard let result = forResult else { return "Error in resultsLabelText" }
+    guard let result = forResult else { let error = "Error in \(__FUNCTION__)"; print(error); return error }
     
     var resultToDisplay = String("You are \(result) years of age!\n\n\nPlay again?")
     

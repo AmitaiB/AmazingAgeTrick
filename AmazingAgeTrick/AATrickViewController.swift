@@ -220,9 +220,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.swipingAllowed(true)
 
         ///...Then prepare the results, and display them on the View
-        if voteRecord.keys.count >= CardID.allValues.count {
-            tallyAgeAndDisplayResults()
-        }
+        if voteRecord.keys.count >= CardID.allValues.count { tallyAgeAndDisplayResults() }
     }
     
     
