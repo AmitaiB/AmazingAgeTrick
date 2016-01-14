@@ -90,12 +90,12 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     var replayButton:UIButton = UIButton(type: .Custom)
     var resultsLabel:UILabel = UILabel()
     var delegate:ABReplayButtonDelegate?
-    var resultRecord:Int? {
+    var resultRecord:Int? /**{
         didSet {
             if resultRecord == nil { hideSubviews(true)  }
             else                   { hideSubviews(false) }
         }
-    }
+    } */
     
     init(forResults:Int?) {
         super.init(frame: standardCardRect)
@@ -111,7 +111,7 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         super.setup()
         setupResultsLabel(results)
         setupReplayButton()
-        hideSubviews(true)
+        ///        hideSubviews(true)
     }
     
     func setupResultsLabel(results:Int?) {

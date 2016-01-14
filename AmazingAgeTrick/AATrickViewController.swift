@@ -15,6 +15,7 @@ import UIColor_Hex_Swift
 import iAd
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ABReplayButtonDelegate {
+    
     ///numRows * numCols - (1 || 2)  :)
     enum ButtonCellRow:Int {
         case YesButton = 30
@@ -43,7 +44,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         swipeableView.nextView = {
-//            return self.nextCardView()
             return self.cardViews.popLast()
         }
     }
@@ -70,7 +70,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         swipeableView.numberOfActiveView = UInt(CardID.allValues.count) // Should = 6.
         
         for cardModel in deck.randomOrderInstance {
-//            let newCardView = produceCardView(cardModel)
             let newCardView = ABTrickCardView(forCardModel: cardModel)
             newCardView.cardCollectionView.delegate = self
             newCardView.cardCollectionView.dataSource = self
@@ -122,14 +121,12 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         return numCols * numRows
     }
     
-    
-    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(AATCellReuseID, forIndexPath: indexPath) as! AATCollectionViewCell
         let collectView = collectionView as! AATCollectionView
         let cardModel = collectView.cardModel
         cell.cardModel = cardModel
-        
         
         switch indexPath.row {
         case ButtonCellRow.YesButton.rawValue:
@@ -141,25 +138,23 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
             cell.imageView.removeFromSuperview()
             cell.addSubview(cell.label)
         default:
-            cell.label.text = numberForIndexPath(indexPath, withCardModel: collectView.cardModel)
-            if cell.label.text == "" { cell.imageView.removeFromSuperview() }
+            if let number = numberForIndexPath(indexPath, withCardModel:collectView.cardModel) {
+                cell.label.text = String(number)
+            } else { cell.imageView.removeFromSuperview() }
         }
-
         return cell
     }
     
     
-    func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->String {
-        // Pad the array with zeros
-        var paddedCardInfo = cardModel.cardInfoArray()
-        while paddedCardInfo.count < (numCols * numRows) {
-            paddedCardInfo.append(NumInfo.allZeros)
-        }
+    //MARK: CollectionView helper methods
+    func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->Int? {
+        let row = indexPath.row
+        let arrayOfNums = cardModel.cardInfoArray()
         
-        // Interpret data into proper string.
-        if paddedCardInfo[indexPath.row] == NumInfo.allZeros {  return ""  }
-        else {  return String(paddedCardInfo[indexPath.row])  }
+        if row >= arrayOfNums.count { return nil }
+        else { return arrayOfNums[row] }
     }
+    
     
     //MARK: == UICollectionView Delegate ===
     func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -167,9 +162,9 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
             indexPath.row == ButtonCellRow.NoButton.rawValue {
             return true
         }
-        
         return false
     }
+    
     
     ///Get cardID from collectionView
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -184,12 +179,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    // change background color when user touches cell
+    
+    // CLEAN: Not used? change background color when user touches cell
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         collectionView.superview?.backgroundColor = cell?.backgroundColor
     }
 
+    
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 
@@ -237,6 +234,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         resultsCard.resultRecord = resultingAge
     }
+    
     
     /**
      Rewinds all the swipeViews, resets the votes (UI and voteRecord) to pre-voting, resets the resultsView
