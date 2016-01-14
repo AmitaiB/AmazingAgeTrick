@@ -92,14 +92,15 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     var delegate:ABReplayButtonDelegate?
     var resultRecord:Int? {
         didSet {
-            if resultRecord == nil { hideSubviews(true)  }
-            else                   { hideSubviews(false) }
+            if resultRecord == nil    { hideSubviews(true)  }
+            else { setupResultsLabel(); hideSubviews(false) }
         }
     }
     
     init(forResults results:Int?) {
         super.init(frame: standardCardRect)
-        setupResultsCardView(results)
+        resultRecord = results
+        setupResultsCardView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -107,14 +108,14 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         setup()
     }
     
-    func setupResultsCardView (results:Int?) {
+    func setupResultsCardView () {
         super.setup()
-        setupResultsLabel(results)
+        setupResultsLabel()
         setupReplayButton()
         hideSubviews(true)
     }
     
-    func setupResultsLabel(results:Int?) {
+    func setupResultsLabel() {
         ///        let labelRect = CGRectInset(bounds, 25, 25)??
         let labelRect = CGRectInset(self.bounds, 35, 125)
         resultsLabel = UILabel()
@@ -123,7 +124,7 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         resultsLabel.textAlignment = .Center
         resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
         
-        resultsLabel.text = resultsLabelText(forResult: results)
+        resultsLabel.text = resultsLabelText()
     }
     
     func setupReplayButton() {
@@ -162,18 +163,18 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         }
     }
     enum ABAnchorDirection: String { case top, bottom }
-}
-
-
-func resultsLabelText(forResult forResult:Int?)->String {
-    guard let result = forResult else { let error = "Error in \(__FUNCTION__)"; print(error); return error }
     
-    var resultToDisplay = String("You are \(result) years of age!\n\n\nPlay again?")
     
-    if result < 0 || result > 60 {
-        resultToDisplay = "You are either 0 years old (or less), or over 60 years old. Either way, stop drooling on my screen!\n\n\nPlay again, without cheating this time?\n\n\n\n\nAww, heck, cheat all you want, I don't care, I'm just a robot slave anyway."
+    func resultsLabelText()->String {
+        guard let result = resultRecord else { let error = "Error in \(__FUNCTION__)"; print(error); return error }
+        
+        var resultToDisplay = String("You are \(result) years of age!\n\n\nPlay again?")
+        
+        if result < 0 || result > 60 {
+            resultToDisplay = "You are either 0 years old (or less), or over 60 years old. Either way, stop drooling on my screen!\n\n\nPlay again, without cheating this time?\n\n\n\n\nAww, heck, cheat all you want, I don't care, I'm just a robot slave anyway."
+        }
+        return resultToDisplay
     }
-    return resultToDisplay
 }
 
 
