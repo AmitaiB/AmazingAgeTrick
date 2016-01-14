@@ -54,6 +54,11 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         // View heirarchy
         view.clipsToBounds = true
         view.addSubview(resultsCard)
+        resultsCard.delegate = self
+        /**
+        Debug only:
+        */
+        resultsCard.backgroundColor = UIColor.orangeColor()
         view.addSubview(swipeableView)
         
         setupSwipeView()
@@ -232,6 +237,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
                 resultingAge += cardAgeContribution
             }
         }
+//        resultsCard = ABResultsCardView(forResults: resultingAge)
         resultsCard.resultRecord = resultingAge
     }
     
