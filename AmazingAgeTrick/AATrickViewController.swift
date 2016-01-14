@@ -252,7 +252,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
             swipeableView.rewind()
             swipeableView.topView()?.backgroundColor = UIColor.blackColor()
         } while swipeableView.history.count > 0
-        
+
         voteRecord.removeAll()
     }
     

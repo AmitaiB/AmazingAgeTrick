@@ -33,7 +33,7 @@ class AATMainViewController: UIViewController {
         instructionsTextView.textColor = FlatUIColors.silverColor()
         setupViewShadow(instructionsTextView.layer)
         instructionsTextView.layer.borderWidth = 7
-        instructionsTextView.layer.borderColor = FlatUIColors.asbestosColor().CGColor
+        instructionsTextView.layer.borderColor = FlatUIColors.pomegranateColor().CGColor
         instructionsTextView.contentInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
 //        instructionsTextView.text = " Amazing Age Trick - Instructions\n\n  1) For each card, select YES if your age appears on the card, or NO if it does not, or you just want to screw with the system because pranking soulless computers is what gets you up in the morning. Woo hoo.\n\n  2) Then...that\'s it."
         instructionsTextView.textContainer.lineBreakMode = .ByWordWrapping
@@ -44,6 +44,7 @@ class AATMainViewController: UIViewController {
     func setupStartButton() {
         startGameButton.backgroundColor = FlatUIColors.wisteriaColor()
         startGameButton.titleLabel?.textColor = FlatUIColors.peterRiverColor()
+        startGameButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 20)
         startGameButton.layer.cornerRadius = 10.0
         setupViewShadow(startGameButton.layer)
     }
