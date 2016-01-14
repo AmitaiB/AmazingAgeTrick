@@ -8,8 +8,8 @@
 
 import UIKit
 /**
- 1) Auto-swipe after voting.
- 2) Need better instructions
+My own implementation, tossed in favor of ZL
+ 
  */
 
 class ABSwipeableCardView: UIView {

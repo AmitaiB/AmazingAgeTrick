@@ -96,82 +96,14 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
 
-    /*
-     CLEAN: No longer called. If works, delete.
-     */
-    func nextCardView()->UIView? {
-        return cardViews.popLast()
-    }
     
     func swipingAllowed(hasPermission: Bool) {
         if hasPermission { swipeableView.allowedDirection = .Horizontal }
         else { swipeableView.allowedDirection = .None }
     }
-
-    /*
-    func produceCardView(cardModel:CardID)->ABCardView {
-        let collectionView = getCollectionView(cardModel)
-    
-        // CardView
-        let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
-        let cardView = ABCardView(frame: cardRect)
-        cardView.backgroundColor = UIColor.blackColor()
-        cardView.addSubview(collectionView)
-        collectionView.frame = CGRectInset(cardView.bounds, 12, 12)
-    
-        return cardView
-    }
-    */
-
-/*
-    func produceResultsView(withResults result:Int) -> ABCardView {
-        let cardRect = CGRectInset(swipeableView.bounds, 25, 25)
-        let cardView = ABCardView(frame: cardRect)
-//        cardView.backgroundColor = UIColor.blackColor()
-        cardView.backgroundColor = UIColor(rgba: "#4A4F70")
-        let labelRect = CGRectInset(cardView.bounds, 25, 25)
-        let resultsLabel = UILabel()
-        cardView.addSubview(resultsLabel)
-//        resultsLabel.frame = labelRect
-        resultsLabel.textAlignment = .Center
-        resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
-        
-        resultsLabel.text = resultsLabelText(forResult: result)
-        
-        let replayButton = UIButton(type: .Custom)
-        cardView.addSubview(replayButton)
-        replayButton.imageView?.contentMode = .ScaleAspectFit
-        replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
-        setupViewShadow(replayButton.layer)
-        replayButton.addTarget(self, action: Selector("replayButtonTapped:"), forControlEvents: .TouchUpInside)
-        
-        
-        // Autolayout
-        resultsLabel.translatesAutoresizingMaskIntoConstraints = false
-        resultsLabel.removeConstraints(resultsLabel.constraints)
-        
-        replayButton.translatesAutoresizingMaskIntoConstraints = false
-        replayButton.removeConstraints(replayButton.constraints)
-        
-        let commonInset:CGFloat = 20
-        
-        resultsLabel.topAnchor.constraintEqualToAnchor(cardView.topAnchor, constant: commonInset).active = true
-        resultsLabel.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: commonInset).active = true
-        resultsLabel.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -commonInset).active = true
-        
-//        resultsLabel.bottomAnchor.constraintEqualToAnchor(replayButton.topAnchor, constant: 20)
-        
-        replayButton.bottomAnchor.constraintEqualToAnchor(cardView.bottomAnchor, constant: -commonInset).active = true
-        replayButton.leadingAnchor.constraintEqualToAnchor(cardView.leadingAnchor, constant: commonInset).active = true
-        replayButton.trailingAnchor.constraintEqualToAnchor(cardView.trailingAnchor, constant: -commonInset).active = true
-        
-        return cardView
-    }
-    */
     
     func replayButtonTapped(sender: UIButton!) {
         print("button tapped")
-//        view.setNeedsDisplay()
         resetGame()
     }
     
@@ -183,34 +115,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.mainScreen().scale
     }
-
-    //Not used...
-    func invertShadow(layer:CALayer) {
-        let normalShadowOffset = layer.shadowOffset
-        let selectedShadowOffset = CGSizeMake(-normalShadowOffset.height, -normalShadowOffset.width)
-        layer.shadowOffset = selectedShadowOffset
-    }
-    
-    /*
-    func getCollectionView(cardModel:CardID) -> UICollectionView {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing      = 1.0
-        layout.minimumInteritemSpacing = 1.0
-        layout.sectionInset            = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-        layout.estimatedItemSize       = CGSizeMake(30, 30)
-    
-        let collectionView = AATCollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        collectionView.cardModel  = cardModel
-        collectionView.delegate   = self
-        collectionView.dataSource = self
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:cardCellReuseID)
-//        collectionView.backgroundColor = FlatUIColors.randomFlatColor()
-//        collectionView.backgroundColor = cardModel.altColorForCardID()
-        collectionView.backgroundColor = UIColor.clearColor()
-        collectionView.allowsSelection = true
-        return collectionView
-    }
-    */
     
     
     // MARK: === UICollectionView DataSource ===
@@ -284,78 +188,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         collectionView.superview?.backgroundColor = cell?.backgroundColor
-
-        //        cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
     }
 
-    /*
-    // change background color back when user releases touch
-    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        cell?.backgroundColor = FlatUIColors.pairedColorForColor(cell?.backgroundColor)
-    }
-    */
-    
-    
-    // MARK: == Private helper methods ==
-    
-/*
-    
-    func configureCell(cell:UICollectionViewCell, forIndexPath indexPath:NSIndexPath, accordingToCardModel cardModel:CardID) {
-        let imageView = UIImageView(frame: cell.contentView.bounds)
-        imageView.contentMode = .ScaleAspectFit
-        imageView.image = cardModel.cellImageForCardID()
-        
-//        cell.layer.cornerRadius = imageView.frame.height / 2
-        cell.backgroundColor = UIColor.clearColor()
-        cell.contentView.autoresizesSubviews = true
-        cell.contentView.addSubview(imageView)
-        
-        let label = UILabel(frame: cell.contentView.bounds)
-        label.textAlignment = .Center
-        label.textColor = FlatUIColors.cloudsColor()
-        label.font = UIFont(name: "MarkerFelt-Wide", size: 20)
-        label.backgroundColor = UIColor.clearColor()
-        imageView.addSubview(label)
-        
-        switch indexPath.row {
-        case ButtonCellRow.YesButton.rawValue:
-            label.text = "YES"
-            imageView.removeFromSuperview()
-            cell.addSubview(label)
-//            label.backgroundColor = FlatUIColors.emeraldColor()
-//            cell.backgroundColor = FlatUIColors.emeraldColor()
-        case ButtonCellRow.NoButton.rawValue:
-            label.text = "NO"
-            imageView.removeFromSuperview()
-            cell.addSubview(label)
-//            label.backgroundColor = UIColor.redColor()
-//            cell.backgroundColor = UIColor.redColor()
-        default:
-            label.text = numberForIndexPath(indexPath, withCardModel: cardModel)
-            if label.text == "" { imageView.removeFromSuperview() }
-//            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(rgba: "#363951") : UIColor(rgba: "#303348")
-//                FlatUIColors.orderedFlatColor(indexPath.row * 2 % 2)
-            
-            ///TODO: Make colors pretty!
-            //            cell.backgroundColor = FlatUIColors.randomFlatColor()
-        }
-    }
-    
-    func numberForIndexPath(indexPath:NSIndexPath, withCardModel cardModel:CardID)->String {
-        // Pad the array with zeros
-        var paddedCardInfo = cardModel.cardInfoArray()
-        while paddedCardInfo.count < (numCols * numRows) {
-            paddedCardInfo.append(NumInfo.allZeros)
-        }
-        
-        // Interpret data into proper string.
-        if paddedCardInfo[indexPath.row] == NumInfo.allZeros {  return ""  }
-        else {  return String(paddedCardInfo[indexPath.row])  }
-    }
-
-    */
-    
     // MARK: === UICollectionViewDelegateFlowLayout ===
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 
@@ -383,13 +217,17 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         print(voteRecord)
         self.swipingAllowed(true)
 
-        if voteRecord.keys.count >= 6 {prepareResults(resultsCard)}
+        ///...Then prepare the results, and display them on the View
+        if voteRecord.keys.count >= CardID.allValues.count {
+            tallyAgeAndDisplayResults()
+        }
     }
+    
     
     /**
      Should display controls on the resultsCardView
-    */
-    func prepareResults(var resultsCardView:ABResultsCardView) {
+     */
+    func tallyAgeAndDisplayResults() {
         var resultingAge = 0
         voteRecord.enumerate().forEach { (card: (index: Int, element: (CardID, Bool))) -> () in
             if card.element.1 {
@@ -397,12 +235,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
                 resultingAge += cardAgeContribution
             }
         }
-        print("I'd guess that your age is: \(resultingAge)!")
-
-//        resultsCardView = produceResultsView(withResults: resultingAge)
-        resultsCardView = ABResultsCardView(forResults: resultingAge)
-        
-//        cardViews.append(resultsCardView)
+        resultsCard.resultRecord = resultingAge
     }
     
     /**

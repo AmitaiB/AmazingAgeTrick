@@ -92,7 +92,8 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     var delegate:ABReplayButtonDelegate?
     var resultRecord:Int? {
         didSet {
-            if resultRecord != nil { hideSubviews(false) }
+            if resultRecord == nil { hideSubviews(true)  }
+            else                   { hideSubviews(false) }
         }
     }
     
