@@ -189,8 +189,21 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // CLEAN: Not used? change background color when user touches cell
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        collectionView.superview?.backgroundColor = cell?.backgroundColor
+        switch indexPath.row {
+        case ButtonCellRow.YesButton.rawValue:
+            collectionView.superview?.layer.borderColor = UIColor.greenColor().CGColor
+            collectionView.superview?.layer.borderWidth = 5
+        case ButtonCellRow.NoButton.rawValue :
+            collectionView.superview?.layer.borderColor = UIColor.redColor().CGColor
+            collectionView.superview?.layer.borderWidth = 5
+        default:
+            break
+        }
+
+        if swipeableView.activeViews().count > 1 {
+            collectionView.superview?.backgroundColor = UIColor.clearColor()
+        }
+        
     }
 
     
