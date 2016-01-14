@@ -97,9 +97,9 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         }
     } */
     
-    init(forResults:Int?) {
+    init(forResults results:Int?) {
         super.init(frame: standardCardRect)
-        setup()
+        setupResultsCardView(results)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -107,7 +107,7 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         setup()
     }
     
-    func setup (results:Int?) {
+    func setupResultsCardView (results:Int?) {
         super.setup()
         setupResultsLabel(results)
         setupReplayButton()
@@ -143,9 +143,9 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         for view in subviews { view.hidden = trueOrFalse }
     }
     
-    func setAllSubviewsHiddenTo(trueOrFalse:Bool, forView superView:UIView) {
-        for view in superView.subviews { view.hidden = trueOrFalse }
-    }
+//    func setAllSubviewsHiddenTo(trueOrFalse:Bool, forView superView:UIView) {
+//        for view in superView.subviews { view.hidden = trueOrFalse }
+//    }
     
     func configureViewWithAutolayout(view:UIView, anchoredTo orientation:ABAnchorDirection) {
         view.translatesAutoresizingMaskIntoConstraints = false
