@@ -26,34 +26,28 @@ class ABCardView: UIView {
     }
     
     func setup() {
-//        setupNaturalLookRotation() ???:Does this help, or does ZLSwipeableView take care of the natural look by itself?
+        ///TODO: Make each collectionview insibile until the vote of the view in front of it.
+        backgroundColor = UIColor(rgba: "#4A4F70")
+//        backgroundColor = UIColor.clearColor()
+        setupViewShadow(layer)
+        layer.cornerRadius = 10.0
+        
+        //CLEAN: Never gets called, I think...
         if let sView = superview {
             frame = CGRectInset(sView.bounds, 25, 25)
         }
-        
-        // Color
-//        backgroundColor = UIColor.lightGrayColor()
-        backgroundColor = UIColor(rgba: "#4A4F70")
-        
-        // Shadow
-        setupViewShadow(layer)
-//        layer.shadowColor = UIColor.blackColor().CGColor
-//        layer.shadowOpacity = 0.25
-//        layer.shadowOffset = CGSizeMake(0, 1.5)
-//        layer.shadowRadius = 4.0
-//        layer.shouldRasterize = true
-//        layer.rasterizationScale = UIScreen.mainScreen().scale
-        
-        // Corner Radius
-        layer.cornerRadius = 10.0
     }
     
-    
+    /**
+    CLEAN: Not needed anymore
+    */
+    /**
     func setupNaturalLookRotation() {
         ///        -5° < x < 5° (by getting a random # from 0 to 10, subtracting 5)
         let randomDegree:Double = Double(Int(arc4random_uniform(UInt32(10))) - 5)
         self.transform = CGAffineTransformMakeRotation(CGFloat(DegreesToRadians(randomDegree)))
     }
+    */
 }
 
 //MARK: === ABTrickCardView ===

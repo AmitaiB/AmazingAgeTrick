@@ -58,7 +58,9 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         /**
         Debug only:
         */
-        resultsCard.backgroundColor = UIColor.orangeColor()
+//        resultsCard.backgroundColor = UIColor.orangeColor()
+        resultsCard.backgroundColor = UIColor(rgba: "#4A4F70")
+
         view.addSubview(swipeableView)
         
         setupSwipeView()

@@ -6,11 +6,11 @@
 //  Copyright © 2015 Amitai Blickstein, LLC. All rights reserved.
 //
 
-import UIKit
+/// My own implementation, tossed in favor of ZL
 /**
-My own implementation, tossed in favor of ZL
- 
- */
+import UIKit
+
+
 
 class ABSwipeableCardView: UIView {
     //MARK: - Properties
@@ -203,3 +203,4 @@ class ABSwipeableCardView: UIView {
     
 }
     
+*/
