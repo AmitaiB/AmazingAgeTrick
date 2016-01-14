@@ -6,7 +6,7 @@
 //  Copyright © 2016 Amitai Blickstein, LLC. All rights reserved.
 //
 
-
+//FIXME: ReplayButton not showing. After that, + 15min to make the navigation bars pretty, and we submit to the app store.
 
 import UIKit
 import FlatUIColors
