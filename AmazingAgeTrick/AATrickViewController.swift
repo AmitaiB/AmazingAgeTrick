@@ -187,7 +187,10 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     
-    // CLEAN: Not used? change background color when user touches cell
+    /**
+     Effect: Border is a visual indicator of how one voted. CardView disappears in aesthetically pleasing way.
+     Except for the last card, which would look odd.
+     */
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row {
         case ButtonCellRow.YesButton.rawValue:
@@ -203,7 +206,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         if swipeableView.activeViews().count > 1 {
             collectionView.superview?.backgroundColor = UIColor.clearColor()
         }
-        
     }
 
     
@@ -252,6 +254,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
 //        resultsCard = ABResultsCardView(forResults: resultingAge)
         resultsCard.resultRecord = resultingAge
+        view.bringSubviewToFront(resultsCard.replayButton)
     }
     
     
