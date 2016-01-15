@@ -26,12 +26,19 @@ class ABResultsCardView: ABCardView, ABReplayButtonView {
     init(forResults results:Int?) {
         super.init(frame: standardCardRect)
         resultRecord = results
-        setupResultsCardView()
+//        setupResultsCardView()
+        loadViewFromNib()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadViewFromNib()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setup()
+//        setup()
+        loadViewFromNib()
     }
     
     func loadViewFromNib() {

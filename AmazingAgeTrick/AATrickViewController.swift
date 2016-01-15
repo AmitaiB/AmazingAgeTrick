@@ -26,8 +26,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // Views
     var cardViews = [UIView]()
-    var swipeableView:ZLSwipeableView = ZLSwipeableView()
-    var resultsCard:ABResultsCardView = ABResultsCardView(forResults: nil)
+    var swipeableView: ZLSwipeableView = ZLSwipeableView()
+    var resultsCard: ABResultsCardView = ABResultsCardView(forResults: nil)
 
     // Card Properties
     var possibleResults = Set(1...60)
@@ -55,6 +55,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         view.clipsToBounds = true
         view.addSubview(resultsCard)
         resultsCard.delegate = self
+        resultsCard.hidden = true
         /**
         Debug only:
         */
@@ -256,6 +257,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
 //        resultsCard = ABResultsCardView(forResults: resultingAge)
         resultsCard.resultRecord = resultingAge
         view.bringSubviewToFront(resultsCard.replayButton)
+        resultsCard.hidden = false
         navigationController?.navigationBar.backgroundColor = UIColor(red:0.87, green:0.33, blue:0.38, alpha:1)
     }
     
