@@ -32,6 +32,7 @@ class ABCardView: UIView {
         setupViewShadow(layer)
         layer.cornerRadius = 10.0
         
+        
         //CLEAN: Never gets called, I think...
         if let sView = superview {
             frame = CGRectInset(sView.bounds, 25, 25)

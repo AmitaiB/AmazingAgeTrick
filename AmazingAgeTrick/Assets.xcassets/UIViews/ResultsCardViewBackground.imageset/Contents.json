@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "RePlay Button-red.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ResultsCardViewBackground.png",
       "scale" : "2x"
     },
     {

@@ -11,7 +11,7 @@ import FlatUIColors
 
 //MARK: === ABResultsCardView ===
 
-class ABResultsCardView :ABCardView, ABReplayButtonView {
+class ABResultsCardView: ABCardView, ABReplayButtonView {
     private let commonInset:CGFloat = 20
     var replayButton:UIButton = UIButton(type: .Custom)
     var resultsLabel:UILabel = UILabel()

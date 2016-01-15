@@ -256,6 +256,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
 //        resultsCard = ABResultsCardView(forResults: resultingAge)
         resultsCard.resultRecord = resultingAge
         view.bringSubviewToFront(resultsCard.replayButton)
+        navigationController?.navigationBar.backgroundColor = UIColor(red:0.87, green:0.33, blue:0.38, alpha:1)
     }
     
     
