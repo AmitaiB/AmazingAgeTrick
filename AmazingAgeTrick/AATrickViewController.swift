@@ -36,7 +36,6 @@ import UIKit
 import FlatUIColors
 import ZLSwipeableViewSwift
 import ReactiveUI
-import STRatingControl
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
