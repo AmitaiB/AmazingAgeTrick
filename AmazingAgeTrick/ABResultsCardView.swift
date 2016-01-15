@@ -34,6 +34,16 @@ class ABResultsCardView: ABCardView, ABReplayButtonView {
         setup()
     }
     
+    func loadViewFromNib() {
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: "ABResultsCardView", bundle: bundle)
+        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        view.frame = bounds
+        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.addSubview(view)
+    }
+    
+    
     func setupResultsCardView () {
         super.setup()
         setupResultsLabel()
