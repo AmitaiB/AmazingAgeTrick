@@ -13,7 +13,10 @@ import FlatUIColors
 
 class ABResultsCardView: ABCardView, ABReplayButtonView {
     private let commonInset:CGFloat = 20
-    var replayButton:UIButton = UIButton(type: .Custom)
+    @IBOutlet weak var replayButton: UIButton!
+    
+    
+//    var replayButton:UIButton = UIButton(type: .Custom)
     var resultsLabel:UILabel = UILabel()
     var delegate:ABReplayButtonDelegate?
     var resultRecord:Int? /*{
@@ -45,9 +48,10 @@ class ABResultsCardView: ABCardView, ABReplayButtonView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "ABResultsCardView", bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        view.frame = bounds
+        view.frame = UIScreen.mainScreen().bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view)
+        setupReplayButtonNib()
     }
     
     
@@ -77,7 +81,15 @@ class ABResultsCardView: ABCardView, ABReplayButtonView {
         setupViewShadow(replayButton.layer)
         replayButton.addTarget(self, action: Selector("reportReplayButtonWasTapped:"), forControlEvents: .TouchUpInside)
     }
-    
+
+    func setupReplayButtonNib() {
+//        self.addSubview(replayButton)
+//        replayButton.imageView?.contentMode = .ScaleAspectFit
+//        replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
+        setupViewShadow(replayButton.layer)
+        replayButton.addTarget(self, action: Selector("reportReplayButtonWasTapped:"), forControlEvents: .TouchUpInside)
+    }
+
     
     func reportReplayButtonWasTapped(sender:UIButton!) {
         delegate?.replayButtonTapped(sender)
@@ -118,11 +130,14 @@ class ABResultsCardView: ABCardView, ABReplayButtonView {
         }
         return resultToDisplay
     }
+    @IBAction func replayButtonTappedNib(sender: AnyObject) {
+        delegate?.replayButtonTapped(sender as! UIButton)
+    }
 }
 
 
 protocol ABReplayButtonView {
-    var replayButton:UIButton { get }
+    var replayButton:UIButton! { get }
 }
 
 protocol ABReplayButtonDelegate {

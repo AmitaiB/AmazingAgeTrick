@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--!Instructions-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AATMainViewController" customModule="AmazingAgeTrick" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="!Instructions" id="BYZ-38-t0r" customClass="AATMainViewController" customModule="AmazingAgeTrick" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -95,7 +95,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="DG2-oz-zqM" secondAttribute="trailing" priority="250" constant="100" id="ytw-35-SaL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rmQ-gE-IFr"/>
+                    <navigationItem key="navigationItem" title="Instructions" id="rmQ-gE-IFr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="creditsSegueButton" destination="DG2-oz-zqM" id="oaK-fP-rVR"/>
