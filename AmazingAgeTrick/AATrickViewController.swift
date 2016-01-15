@@ -112,7 +112,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         print("button tapped")
         resetGame()
     }
-    
+  /**
     func setupViewShadow(layer:CALayer) {
         layer.shadowColor = UIColor.blackColor().CGColor
         layer.shadowOpacity = 0.25
@@ -121,6 +121,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.mainScreen().scale
     }
+     */
     
     
     // MARK: === UICollectionView DataSource ===

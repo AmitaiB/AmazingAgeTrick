@@ -16,7 +16,6 @@ class AATMainViewController: UIViewController {
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var creditsSegueButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +23,6 @@ class AATMainViewController: UIViewController {
         originalContentView.backgroundColor = FlatUIColors.cloudsColor()
         setupTextView()
         setupStartButton()
-///???:        createAutolayoutConstraints()
     }
     
     
@@ -49,15 +47,6 @@ class AATMainViewController: UIViewController {
         setupViewShadow(startGameButton.layer)
     }
     
-    func setupViewShadow(layer:CALayer) {
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOpacity = 0.25
-        layer.shadowOffset = CGSizeMake(0, 1.5)
-        layer.shadowRadius = 4.0
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.mainScreen().scale
-    }
-    
     func createAutolayoutConstraints() {
         let views = ["textV" : instructionsTextView, "startB" : startGameButton, "creditsB" : creditsSegueButton]
         for view in views.values { prepareForAutolayout(view) }
@@ -73,8 +62,18 @@ class AATMainViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.removeConstraints(view.constraints)
     }
-    
-    
 }
+
+//MARK: -Global Functions
+
+func setupViewShadow(layer:CALayer) {
+    layer.shadowColor = UIColor.blackColor().CGColor
+    layer.shadowOpacity = 0.25
+    layer.shadowOffset = CGSizeMake(0, 1.5)
+    layer.shadowRadius = 4.0
+    layer.shouldRasterize = true
+    layer.rasterizationScale = UIScreen.mainScreen().scale
+}
+
 
 
