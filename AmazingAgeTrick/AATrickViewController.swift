@@ -11,7 +11,7 @@ import FlatUIColors
 import ZLSwipeableViewSwift
 import ReactiveUI
 import UIColor_Hex_Swift
-import iAd
+//import iAd
 
 class AATrickViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ABReplayButtonDelegate {
     

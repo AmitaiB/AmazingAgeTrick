@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-JL-90v">
-                                <rect key="frame" x="26" y="78" width="323" height="256"/>
+                                <rect key="frame" x="26" y="78" width="292" height="92"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES"/>
@@ -50,17 +50,15 @@
                                     <fragment>
                                         <string key="content"> Amazing Age Trick - Instructions
 
-  1) For each card, select YES if your age appears on the card, or NO if it does not, or you just want to screw with the system because pranking soulless computers is what gets you up in the morning. Woo hoo.
-
 </string>
                                         <attributes>
                                             <font key="NSFont" size="19" name="Futura-Medium"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="  2) Then...that's it.">
+                                    <fragment content="[Instructions here]">
                                         <attributes>
                                             <font key="NSFont" size="19" name="Futura-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
