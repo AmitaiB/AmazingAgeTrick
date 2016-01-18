@@ -42,6 +42,11 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     }
     
     func setupResultsLabel() {
+        for view in self.subviews {
+            if view is UILabel { view.removeFromSuperview() }
+        }
+        
+        
         ///        let labelRect = CGRectInset(bounds, 25, 25)??
 //        let labelRect = CGRectInset(self.bounds, 35, 125)
         resultsLabel = UILabel()
@@ -112,7 +117,9 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     
     
     func resultsLabelText()->String {
-        guard let result = resultRecord else { let error = "Error in \(__FUNCTION__)"; print(error); return error }
+        guard let result = resultRecord else {
+            let error = "Error in \(__FUNCTION__)"; print(error); return error
+        }
         
         var resultToDisplay = String("You are \(result) years of age!\n\n\nPlay again?")
         
