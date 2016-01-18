@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38010C631C4C8FE10083BCD9 /* ABTrickCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38010C621C4C8FE10083BCD9 /* ABTrickCardView.swift */; };
+		38010C651C4C90190083BCD9 /* ABResultsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38010C641C4C90190083BCD9 /* ABResultsCardView.swift */; };
 		3801E36C1C3A13BD00ADEC0C /* LogFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3801E36B1C3A13BD00ADEC0C /* LogFunc.swift */; };
-		3810C6041C3F52D500DBA667 /* ABCardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810C6031C3F52D500DBA667 /* ABCardViews.swift */; };
+		3810C6041C3F52D500DBA667 /* ABCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810C6031C3F52D500DBA667 /* ABCardView.swift */; };
 		3823ADBA1C41F7E400CC596D /* Extensions+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823ADB91C41F7E400CC596D /* Extensions+Helpers.swift */; };
 		3823ADBC1C42FC5B00CC596D /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */; };
 		3823ADBE1C43040600CC596D /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3823ADBD1C43040600CC596D /* iAd.framework */; };
@@ -39,8 +41,10 @@
 
 /* Begin PBXFileReference section */
 		22BDCBB0AFF88697DE660F47 /* Pods-AmazingAgeTrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingAgeTrick.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingAgeTrick/Pods-AmazingAgeTrick.release.xcconfig"; sourceTree = "<group>"; };
+		38010C621C4C8FE10083BCD9 /* ABTrickCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABTrickCardView.swift; sourceTree = "<group>"; };
+		38010C641C4C90190083BCD9 /* ABResultsCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABResultsCardView.swift; sourceTree = "<group>"; };
 		3801E36B1C3A13BD00ADEC0C /* LogFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFunc.swift; sourceTree = "<group>"; };
-		3810C6031C3F52D500DBA667 /* ABCardViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCardViews.swift; sourceTree = "<group>"; };
+		3810C6031C3F52D500DBA667 /* ABCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCardView.swift; sourceTree = "<group>"; };
 		3823ADB91C41F7E400CC596D /* Extensions+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+Helpers.swift"; sourceTree = "<group>"; };
 		3823ADBB1C42FC5B00CC596D /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsViewController.swift; path = ../CreditsViewController.swift; sourceTree = "<group>"; };
 		3823ADBD1C43040600CC596D /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -154,7 +158,9 @@
 			children = (
 				38B5CD301C336BF40077FC71 /* AATrickViewController.swift */,
 				38426A561C46A0C300519A10 /* AATCollectionViewAndCell.swift */,
-				3810C6031C3F52D500DBA667 /* ABCardViews.swift */,
+				3810C6031C3F52D500DBA667 /* ABCardView.swift */,
+				38010C641C4C90190083BCD9 /* ABResultsCardView.swift */,
+				38010C621C4C8FE10083BCD9 /* ABTrickCardView.swift */,
 				38B5CD341C336F1C0077FC71 /* AATDeckModel.swift */,
 			);
 			name = "Trick Scene";
@@ -347,12 +353,14 @@
 				38B5CD331C336CB00077FC71 /* ABSwipeableCardView.swift in Sources */,
 				3801E36C1C3A13BD00ADEC0C /* LogFunc.swift in Sources */,
 				3823ADBA1C41F7E400CC596D /* Extensions+Helpers.swift in Sources */,
-				3810C6041C3F52D500DBA667 /* ABCardViews.swift in Sources */,
+				3810C6041C3F52D500DBA667 /* ABCardView.swift in Sources */,
 				3871684E1C3D302500E9E571 /* FlatUIColorsExtension.swift in Sources */,
 				3823ADBC1C42FC5B00CC596D /* CreditsViewController.swift in Sources */,
 				38426A571C46A0C300519A10 /* AATCollectionViewAndCell.swift in Sources */,
 				38426A591C46C90500519A10 /* CardID-enum.swift in Sources */,
+				38010C651C4C90190083BCD9 /* ABResultsCardView.swift in Sources */,
 				38B5CD351C336F1C0077FC71 /* AATDeckModel.swift in Sources */,
+				38010C631C4C8FE10083BCD9 /* ABTrickCardView.swift in Sources */,
 				38B5CD311C336BF40077FC71 /* AATrickViewController.swift in Sources */,
 				38B5CD0F1C335EBC0077FC71 /* AATMainViewController.swift in Sources */,
 				38B5CD0D1C335EBC0077FC71 /* AppDelegate.swift in Sources */,
