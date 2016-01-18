@@ -47,7 +47,7 @@ class AATMainViewController: UIViewController {
         startGameButton.layer.cornerRadius = 10.0
         setupViewShadow(startGameButton.layer)
     }
-    
+    /*
     func setupViewShadow(layer:CALayer) {
         layer.shadowColor = UIColor.blackColor().CGColor
         layer.shadowOpacity = 0.25
@@ -56,6 +56,7 @@ class AATMainViewController: UIViewController {
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.mainScreen().scale
     }
+    */
     
     func createAutolayoutConstraints() {
         let views = ["textV" : instructionsTextView, "startB" : startGameButton, "creditsB" : creditsSegueButton]

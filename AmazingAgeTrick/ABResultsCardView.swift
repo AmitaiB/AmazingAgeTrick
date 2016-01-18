@@ -43,14 +43,26 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     
     func setupResultsLabel() {
         ///        let labelRect = CGRectInset(bounds, 25, 25)??
-        let labelRect = CGRectInset(self.bounds, 35, 125)
+//        let labelRect = CGRectInset(self.bounds, 35, 125)
         resultsLabel = UILabel()
         self.addSubview(resultsLabel)
-        resultsLabel.frame = labelRect
+//        resultsLabel.frame = labelRect
+        
+        // Autolayout
+        resultsLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultsLabel.removeConstraints(resultsLabel.constraints)
+        resultsLabel.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 25).active = true
+        resultsLabel.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 15).active = true
+        resultsLabel.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor, constant: -15).active = true
+        resultsLabel.heightAnchor.constraintEqualToAnchor(self.heightAnchor, multiplier: 1.0/3.0).active = true
+        
+        
         resultsLabel.textAlignment = .Center
-        resultsLabel.backgroundColor = FlatUIColors.turquoiseColor()
+        resultsLabel.backgroundColor = FlatUIColors.greenSeaColor()
         
         resultsLabel.text = resultsLabelText()
+
+        resultsLabel.layer.cornerRadius = 10 //??
     }
     
     func setupReplayButton() {
@@ -59,6 +71,14 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
         setupViewShadow(replayButton.layer)
         replayButton.addTarget(self, action: Selector("reportReplayButtonWasTapped:"), forControlEvents: .TouchUpInside)
+        
+        // Autolayout
+        replayButton.translatesAutoresizingMaskIntoConstraints = false
+        replayButton.removeConstraints(replayButton.constraints)
+        replayButton.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor, constant: -25).active = true
+        replayButton.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 15).active = true
+        replayButton.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor, constant: -15).active = true
+        replayButton.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
     }
     
     
@@ -112,7 +132,7 @@ protocol ABReplayButtonDelegate {
     func replayButtonTapped(sender: UIButton!)
 }
 
-private func setupViewShadow(layer:CALayer) {
+func setupViewShadow(layer:CALayer) {
     layer.shadowColor = UIColor.blackColor().CGColor
     layer.shadowOpacity = 0.25
     layer.shadowOffset = CGSizeMake(0, 1.5)
