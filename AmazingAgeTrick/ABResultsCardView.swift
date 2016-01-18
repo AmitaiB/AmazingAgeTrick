@@ -65,7 +65,9 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         resultsLabel.textAlignment = .Center
         resultsLabel.backgroundColor = FlatUIColors.greenSeaColor()
         
-        resultsLabel.text = resultsLabelText()
+        if let textToDisplay = resultsLabelText() {
+            resultsLabel.text = textToDisplay
+        }
 
         resultsLabel.layer.cornerRadius = 10 //??
     }
@@ -116,10 +118,10 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     enum ABAnchorDirection: String { case top, bottom }
     
     
-    func resultsLabelText()->String {
-        guard let result = resultRecord else {
-            let error = "Error in \(__FUNCTION__)"; print(error); return error
-        }
+    func resultsLabelText()->String? {
+        guard let result = resultRecord else { return nil }
+//            let error = "Error in \(__FUNCTION__)"; print(error); return error
+//        }
         
         var resultToDisplay = String("You are \(result) years of age!\n\n\nPlay again?")
         
