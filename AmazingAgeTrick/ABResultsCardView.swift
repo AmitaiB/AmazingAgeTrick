@@ -86,12 +86,18 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
         replayButton.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 15).active = true
         replayButton.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor, constant: -15).active = true
         replayButton.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor).active = true
+        
+        
+        replayButton.showsTouchWhenHighlighted = true
+        replayButton.adjustsImageWhenHighlighted = true
     }
     
     
     func reportReplayButtonWasTapped(sender:UIButton!) {
+        print("\(__FUNCTION__)")
         delegate?.replayButtonTapped(sender)
     }
+    
     
     private func hideSubviews(trueOrFalse:Bool) {
         for view in subviews { view.hidden = trueOrFalse }

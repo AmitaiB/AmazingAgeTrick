@@ -55,10 +55,6 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         view.clipsToBounds = true
         view.addSubview(resultsCard)
         resultsCard.delegate = self
-        /**
-        Debug only:
-        */
-//        resultsCard.backgroundColor = UIColor.orangeColor()
         resultsCard.backgroundColor = UIColor(rgba: "#4A4F70")
 
         view.addSubview(swipeableView)
@@ -255,7 +251,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
 //        resultsCard = ABResultsCardView(forResults: resultingAge)
         resultsCard.resultRecord = resultingAge
-        view.bringSubviewToFront(resultsCard.replayButton)
+        view.bringSubviewToFront(resultsCard)
     }
     
     
@@ -264,6 +260,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
      */
     func resetGame() {
         swipeableView.discardViews() //Gets rid of the old resultsCardView
+        view.sendSubviewToBack(resultsCard)
         resultsCard.resultRecord = nil
         repeat {
             swipeableView.rewind()
