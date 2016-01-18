@@ -99,6 +99,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		383C2B801C4D61BC00D8C59F /* CardViews */ = {
+			isa = PBXGroup;
+			children = (
+				3810C6031C3F52D500DBA667 /* ABCardView.swift */,
+				38010C641C4C90190083BCD9 /* ABResultsCardView.swift */,
+				38010C621C4C8FE10083BCD9 /* ABTrickCardView.swift */,
+				38426A561C46A0C300519A10 /* AATCollectionViewAndCell.swift */,
+			);
+			name = CardViews;
+			sourceTree = "<group>";
+		};
 		38B1DB311C47345E004321FD /* Cutting Floor */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,11 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				38B5CD301C336BF40077FC71 /* AATrickViewController.swift */,
-				38426A561C46A0C300519A10 /* AATCollectionViewAndCell.swift */,
-				3810C6031C3F52D500DBA667 /* ABCardView.swift */,
-				38010C641C4C90190083BCD9 /* ABResultsCardView.swift */,
-				38010C621C4C8FE10083BCD9 /* ABTrickCardView.swift */,
 				38B5CD341C336F1C0077FC71 /* AATDeckModel.swift */,
+				383C2B801C4D61BC00D8C59F /* CardViews */,
 			);
 			name = "Trick Scene";
 			sourceTree = "<group>";

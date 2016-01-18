@@ -75,7 +75,9 @@ class ABResultsCardView :ABCardView, ABReplayButtonView {
     func setupReplayButton() {
         self.addSubview(replayButton)
         replayButton.imageView?.contentMode = .ScaleAspectFit
-        replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
+//        replayButton.setImage(UIImage(named: "RePlay Button-red"), forState: .Normal)
+        replayButton.setImage(UIImage(named: "RePlay Button-red stateNormal"), forState: .Normal)
+        replayButton.setImage(UIImage(named: "RePlay Button-red stateHighlighted"), forState: .Highlighted)
         setupViewShadow(replayButton.layer)
         replayButton.addTarget(self, action: Selector("reportReplayButtonWasTapped:"), forControlEvents: .TouchUpInside)
         
