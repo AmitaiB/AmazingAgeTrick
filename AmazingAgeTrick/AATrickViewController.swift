@@ -10,7 +10,6 @@ import UIKit
 import FlatUIColors
 import ZLSwipeableViewSwift
 import ReactiveUI
-import STRatingControl
 import UIColor_Hex_Swift
 import iAd
 
@@ -21,6 +20,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         case YesButton = 30
         case NoButton  = 31
     }
+    
     
     typealias NumInfo = Int
     
@@ -55,7 +55,8 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
         view.clipsToBounds = true
         view.addSubview(resultsCard)
         resultsCard.delegate = self
-        resultsCard.backgroundColor = UIColor(rgba: "#4A4F70")
+        resultsCard.backgroundColor = resultsCard.colorForCardBack()
+//        UIColor(rgba: "#4A4F70")
 
         view.addSubview(swipeableView)
         
@@ -67,6 +68,7 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     //MARK: Private lifecycle methods
     
     func setupSwipeView() {
+        swipeableView.discardViews()
         swipeableView.numberOfHistoryItem = UInt.max
         swipingAllowed(false) ///Swiping locked until YES/NO recorded
         swipeableView.frame = view.bounds
@@ -256,19 +258,48 @@ class AATrickViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     /**
+     To return to the beginning state, we need to reset:
+     1) The swipeableView -> rewind all the cardViews
+     2) Each cardView     -> reset the border color
      Rewinds all the swipeViews, resets the votes (UI and voteRecord) to pre-voting, resets the resultsView
      */
     func resetGame() {
-        swipeableView.discardViews() //Gets rid of the old resultsCardView
-        view.sendSubviewToBack(resultsCard)
-        resultsCard.resultRecord = nil
-        repeat {
-            swipeableView.rewind()
-            swipeableView.topView()?.backgroundColor = UIColor.blackColor()
-        } while swipeableView.history.count > 0
+        resetSwipeView(swipeableView)
+        resetResultsView(resultsCard)
+        resetSubViewsZOrder()
+        
+        
+//        swipeableView.discardViews() //Gets rid of the old resultsCardView
 
         voteRecord.removeAll()
     }
     
+    func resetSwipeView(swView:ZLSwipeableView) {
+        repeat {
+            swView.rewind()
+//            guard let cardView = swView.topView() else { continue }
+//            resetCardView(cardView)
+//            // UIColor(red:0.34, green:0.35, blue:0.49, alpha:1) //UIColor.blackColor()
+        } while swipeableView.history.count > 0
+        setupSwipeView()
+    }
+/*
+    func resetCardView(view:UIView) {
+        if let cardView = view as? ABTrickCardView {
+            cardView.backgroundColor = cardView.colorForCardBack()
+        } else { return }
+    }
+    */
+    
+    func resetResultsView(resultsCardView:ABResultsCardView) {
+//        resultsCard.resultRecord = nil
+        resultsCardView.resultRecord = nil
+    }
+
+    func resetSubViewsZOrder() {
+        view.sendSubviewToBack(resultsCard)
+        view.bringSubviewToFront(swipeableView)
+    }
+
     //ViewController Ends here
 }

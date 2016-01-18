@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIColor_Hex_Swift
 
 //MARK: === CardID enum ===
 /// CardID contains the 6 possible card values, and some convenience accessors.
@@ -40,7 +41,7 @@ enum CardID:Int {
             
         }
     }
-    
+        
     func cellImageForCardID()->UIImage? {
         switch self {
             
