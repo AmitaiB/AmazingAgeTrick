@@ -60,11 +60,12 @@ class AATMainViewController: UIViewController {
     
     func createAutolayoutConstraints() {
         let views = ["textV" : instructionsTextView, "startB" : startGameButton, "creditsB" : creditsSegueButton]
+        let metrics = ["creditsPadding" : creditsButtonPadding(creditsSegueButton)]
         for view in views.values { prepareForAutolayout(view) }
         
         let hTextViewConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[textV]-|", options: .AlignAllCenterX, metrics: nil, views: views)
-        let hStartButtonConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[startB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
-        let hCreditsButtonConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[creditsB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
+        let hStartButtonConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[startB]-20-|", options: .AlignAllCenterX, metrics: nil, views: views)
+        let hCreditsButtonConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-creditsPadding-[creditsB]-creditsPadding-|", options: .AlignAllCenterX, metrics: metrics, views: views)
         let vAllViewsConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[textV]-100-[startB]-[creditsB]-|", options: .AlignAllCenterX, metrics: nil, views: views)
         view.addConstraints(hTextViewConstraints + hStartButtonConstraints + hCreditsButtonConstraints + vAllViewsConstraints)
     }
@@ -72,6 +73,12 @@ class AATMainViewController: UIViewController {
     func prepareForAutolayout(view:UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.removeConstraints(view.constraints)
+    }
+    
+    func creditsButtonPadding(button:UIButton)->NSNumber {
+        let totalPadding = UIScreen.mainScreen().bounds.width - button.intrinsicContentSize().width
+        let paddingNumber: NSNumber = Float(totalPadding) / 2.0
+        return paddingNumber
     }
     
     
