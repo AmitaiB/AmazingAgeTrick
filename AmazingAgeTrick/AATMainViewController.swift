@@ -24,12 +24,19 @@ class AATMainViewController: UIViewController {
         originalContentView.backgroundColor = FlatUIColors.cloudsColor()
         setupTextView()
         setupStartButton()
+        setupCreditsSegueButton()
+    }
+    
+    func setupCreditsSegueButton() {
+        
+        creditsSegueButton.sizeToFit()
     }
     
     
     func setupTextView() {
+        instructionsTextView.editable = true
         instructionsTextView.backgroundColor = FlatUIColors.midnightBlueColor()
-        instructionsTextView.textColor = FlatUIColors.silverColor()
+        instructionsTextView.textColor = FlatUIColors.peterRiverColor()
         setupViewShadow(instructionsTextView.layer)
         instructionsTextView.layer.borderWidth = 7
         instructionsTextView.layer.borderColor = FlatUIColors.pomegranateColor().CGColor
@@ -37,6 +44,7 @@ class AATMainViewController: UIViewController {
         instructionsTextView.text = " Amazing Age Trick - Instructions\n\n -Look at each card (of 6): ask yourself \"Is my AGE on this card?\"\n -Hit YES or NO, then SWIPE the card! That\'s it."
         instructionsTextView.textContainer.lineBreakMode = .ByWordWrapping
         instructionsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        instructionsTextView.editable = false
 //        instructionsTextView.font = UIFont(descriptor: , size: <#T##CGFloat#>)
     }
     
