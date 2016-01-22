@@ -38,12 +38,12 @@ class AATMainViewController: UIViewController {
         instructionsTextView.backgroundColor = FlatUIColors.midnightBlueColor()
         instructionsTextView.textColor = FlatUIColors.peterRiverColor()
         setupViewShadow(instructionsTextView.layer)
-        instructionsTextView.layer.borderWidth = 7
-        instructionsTextView.layer.borderColor = FlatUIColors.pomegranateColor().CGColor
-        instructionsTextView.contentInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
-        instructionsTextView.text = " Amazing Age Trick - Instructions\n\n -Look at each card (of 6): ask yourself \"Is my AGE on this card?\"\n -Hit YES or NO, then SWIPE the card! That\'s it."
+        instructionsTextView.layer.borderWidth = 2
+        instructionsTextView.layer.borderColor = FlatUIColors.sunflowerColor().CGColor
+        instructionsTextView.contentInset = UIEdgeInsets.init(top: -30, left: 10, bottom: 10, right: 10)
+        instructionsTextView.text = "\n Amazing Age Trick\n Instructions\n\n Tap YES/NO if your age does/does not appear on the card, THEN SWIPE TO THE NEXT CARD! 😃"
         instructionsTextView.textContainer.lineBreakMode = .ByWordWrapping
-        instructionsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        instructionsTextView.textContainerInset = UIEdgeInsets(top: -10, left: 3, bottom: 3, right: 3)
         instructionsTextView.editable = false
 //        instructionsTextView.font = UIFont(descriptor: , size: <#T##CGFloat#>)
     }

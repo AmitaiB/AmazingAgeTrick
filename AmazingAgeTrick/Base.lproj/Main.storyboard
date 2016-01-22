@@ -18,6 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-JL-90v">
+                                <rect key="frame" x="36" y="121" width="303" height="333"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <attributedString key="attributedText">
+                                    <fragment content="Instructions">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="AvenirNext-DemiBold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-oz-zqM">
+                                <rect key="frame" x="52" y="617" width="271" height="30"/>
+                                <state key="normal" title="Acknowledgements"/>
+                                <connections>
+                                    <segue destination="uca-9z-O0w" kind="show" id="jCd-n9-t6G"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Avt-jS-ZQv">
                                 <rect key="frame" x="36" y="521" width="303" height="88"/>
                                 <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,53 +62,20 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3b-JL-90v">
-                                <rect key="frame" x="36" y="121" width="303" height="200"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" staticText="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="jK4-xM-SyY"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content"> Amazing Age Trick - Instructions
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="AvenirNext-DemiBold"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="[Instructions here]">
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="AvenirNext-DemiBold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-oz-zqM">
-                                <rect key="frame" x="52" y="617" width="271" height="30"/>
-                                <state key="normal" title="Acknowledgements"/>
-                                <connections>
-                                    <segue destination="uca-9z-O0w" kind="show" id="jCd-n9-t6G"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="u3b-JL-90v" firstAttribute="leading" secondItem="Avt-jS-ZQv" secondAttribute="leading" id="65n-rM-ur3"/>
+                            <constraint firstItem="u3b-JL-90v" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="57" id="6eb-Qd-0LE"/>
                             <constraint firstItem="Avt-jS-ZQv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="88F-6M-xbm"/>
                             <constraint firstItem="Avt-jS-ZQv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="9Gx-om-hlI"/>
+                            <constraint firstItem="u3b-JL-90v" firstAttribute="trailing" secondItem="Avt-jS-ZQv" secondAttribute="trailing" id="Cmn-bO-HkS"/>
                             <constraint firstItem="DG2-oz-zqM" firstAttribute="centerX" secondItem="Avt-jS-ZQv" secondAttribute="centerX" id="EgI-xL-Gw3"/>
                             <constraint firstItem="DG2-oz-zqM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="36" id="H4c-uN-XdQ"/>
+                            <constraint firstItem="Avt-jS-ZQv" firstAttribute="top" secondItem="u3b-JL-90v" secondAttribute="bottom" constant="67" id="Kbt-Zi-Kgc"/>
                             <constraint firstItem="DG2-oz-zqM" firstAttribute="top" secondItem="Avt-jS-ZQv" secondAttribute="bottom" constant="8" symbolic="YES" id="Mee-Sc-e3G"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Avt-jS-ZQv" secondAttribute="trailing" constant="20" id="NJT-fN-H5M"/>
-                            <constraint firstItem="u3b-JL-90v" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="57" id="boC-eB-B46"/>
-                            <constraint firstItem="u3b-JL-90v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="cxT-3I-KeF"/>
                             <constraint firstItem="Avt-jS-ZQv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" priority="750" id="hWY-68-k9y"/>
-                            <constraint firstItem="u3b-JL-90v" firstAttribute="centerX" secondItem="Avt-jS-ZQv" secondAttribute="centerX" id="ql8-o2-OpW"/>
                             <constraint firstAttribute="bottom" secondItem="Avt-jS-ZQv" secondAttribute="bottom" constant="58" id="xKI-fx-HIX"/>
                         </constraints>
                         <variation key="default">
